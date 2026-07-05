@@ -1,0 +1,550 @@
+/* ============================================================
+   Jackie & Meredith — Wedding site
+   Font: Archivo (Google Fonts)
+   Ink: #1B1B1B · Paper: #FDFDFC
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Archivo:wght@200..700&display=swap');
+
+:root {
+  --ink: #1B1B1B;
+  --paper: #FDFDFC;
+  --ink-65: rgba(27, 27, 27, 0.65);
+  --ink-60: rgba(27, 27, 27, 0.60);
+  --ink-55: rgba(27, 27, 27, 0.55);
+  --ink-50: rgba(27, 27, 27, 0.50);
+  --ink-30: rgba(27, 27, 27, 0.30);
+  --hair: rgba(27, 27, 27, 0.14);
+  --hair-12: rgba(27, 27, 27, 0.12);
+}
+
+* { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: 'Archivo', sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+a { color: inherit; }
+
+/* ============================================================
+   Navigation
+   ============================================================ */
+
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 28px 48px;
+}
+
+/* interior pages: bordered light nav on paper */
+.nav--page {
+  border-bottom: 1px solid var(--hair-12);
+}
+
+/* home: transparent nav overlaid on the hero */
+.nav--hero {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 2;
+  color: var(--paper);
+}
+
+.nav__monogram {
+  font-size: 11px;
+  letter-spacing: 0.32em;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.nav__links {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  font-size: 10.5px;
+  letter-spacing: 0.26em;
+}
+
+.nav__links a {
+  text-decoration: none;
+}
+
+/* light nav (interior pages) */
+.nav--page .nav__monogram { color: var(--ink); }
+.nav--page .nav__links a { color: var(--ink-65); }
+.nav--page .nav__links a.is-current {
+  color: var(--ink);
+  border-bottom: 1px solid var(--ink);
+  padding-bottom: 3px;
+}
+.nav--page .nav__rsvp {
+  color: var(--ink);
+  border: 1px solid var(--ink);
+  padding: 10px 22px;
+}
+
+/* hero nav (home) */
+.nav--hero .nav__monogram { color: var(--paper); }
+.nav--hero .nav__links a { color: var(--paper); opacity: 0.92; }
+.nav--hero .nav__links a.is-current {
+  opacity: 1;
+  border-bottom: 1px solid var(--paper);
+  padding-bottom: 3px;
+}
+.nav--hero .nav__rsvp {
+  opacity: 1;
+  border: 1px solid var(--paper);
+  padding: 10px 22px;
+}
+
+/* ============================================================
+   Home — full-screen hero
+   ============================================================ */
+
+.hero {
+  position: relative;
+  height: 100vh;
+  min-height: 640px;
+}
+
+.hero__photo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 30%;   /* keeps the boat + horizon framed */
+}
+
+/* darkens top (nav legibility) and bottom edge */
+.hero__scrim {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(10, 30, 40, 0.32) 0%,
+    rgba(10, 30, 40, 0.10) 34%,
+    rgba(10, 30, 40, 0.00) 52%,
+    rgba(10, 30, 40, 0.38) 100%
+  );
+}
+
+.hero__tagline {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  padding-bottom: 22%;        /* sets the line just above the boat */
+  text-align: center;
+  color: var(--paper);
+  pointer-events: none;
+}
+
+.hero__tagline h1 {
+  margin: 0;
+  font-weight: 300;
+  font-size: 28px;
+  line-height: 1.2;
+  letter-spacing: 0.22em;
+  white-space: nowrap;
+  text-shadow: 0 2px 36px rgba(5, 25, 35, 0.28);
+}
+
+/* ============================================================
+   Interior pages — shared page furniture
+   ============================================================ */
+
+.page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.page__main {
+  flex: 1;
+}
+
+/* page title block */
+.page-title {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 20px;
+  padding: 100px 60px 76px;
+  position: relative;
+}
+
+.eyebrow {
+  font-size: 10.5px;
+  letter-spacing: 0.34em;
+  color: var(--ink-55);
+}
+
+.page-title h1 {
+  margin: 0;
+  font-weight: 300;
+  font-size: 30px;
+  letter-spacing: 0.24em;
+}
+
+/* footer */
+.site-footer {
+  border-top: 1px solid var(--hair);
+  padding: 30px;
+  text-align: center;
+  font-size: 10px;
+  letter-spacing: 0.32em;
+  color: var(--ink-55);
+}
+
+/* ============================================================
+   Schedule
+   ============================================================ */
+
+.schedule-day {
+  max-width: 920px;
+  margin: 0 auto;
+  padding: 0 60px 84px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+}
+
+.schedule-day--last { padding-bottom: 110px; }
+
+.day-rule {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  width: 100%;
+}
+
+.day-rule::before,
+.day-rule::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: var(--hair);
+}
+
+.day-rule span {
+  font-size: 11px;
+  letter-spacing: 0.34em;
+  color: var(--ink-60);
+}
+
+.event {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+  text-align: center;
+}
+
+.event__name {
+  font-size: 15px;
+  letter-spacing: 0.24em;
+}
+
+.event__detail {
+  font-size: 11.5px;
+  letter-spacing: 0.28em;
+  line-height: 2.3;
+  font-weight: 300;
+  color: var(--ink-65);
+}
+
+.event__divider {
+  width: 1px;
+  height: 34px;
+  background: var(--ink-30);
+}
+
+.event__attire {
+  font-size: 10.5px;
+  letter-spacing: 0.3em;
+  color: var(--ink-55);
+}
+
+.event-pair {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  width: 100%;
+}
+
+.event-pair .event {
+  padding: 10px 50px;
+}
+
+.event-pair .event:first-child {
+  border-right: 1px solid var(--hair);
+}
+
+/* ============================================================
+   Travel
+   ============================================================ */
+
+.travel-modes {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  max-width: 1180px;
+  margin: 0 auto;
+  border-top: 1px solid var(--hair);
+  border-bottom: 1px solid var(--hair);
+}
+
+.travel-mode {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 16px;
+  padding: 60px 48px;
+}
+
+.travel-mode + .travel-mode {
+  border-left: 1px solid var(--hair);
+}
+
+.travel-mode__label {
+  font-size: 10px;
+  letter-spacing: 0.32em;
+  color: var(--ink-50);
+}
+
+.travel-mode__route {
+  font-size: 13px;
+  letter-spacing: 0.22em;
+  font-weight: 400;
+}
+
+.travel-mode__body {
+  font-size: 12.5px;
+  line-height: 1.9;
+  font-weight: 300;
+  color: var(--ink-65);
+}
+
+.stay {
+  display: grid;
+  grid-template-columns: 460px 1fr;
+  gap: 80px;
+  align-items: center;
+  padding: 96px 100px;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.stay__photo {
+  width: 100%;
+  height: 420px;
+  object-fit: cover;
+  display: block;
+  background: #ECEBE7;
+}
+
+/* placeholder shown until a real photo is dropped in — swap the
+   <div class="photo-slot"> for an <img class="stay__photo" ...> */
+.photo-slot {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #ECEBE7;
+  color: var(--ink-50);
+  font-size: 10px;
+  letter-spacing: 0.32em;
+}
+
+.stay__list-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.stay__list {
+  display: flex;
+  flex-direction: column;
+}
+
+.stay__item {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 22px 0;
+  border-top: 1px solid var(--hair-12);
+}
+
+.stay__item:last-child {
+  border-bottom: 1px solid var(--hair-12);
+}
+
+.stay__name {
+  font-size: 12.5px;
+  letter-spacing: 0.22em;
+  font-weight: 400;
+}
+
+.stay__desc {
+  font-size: 12.5px;
+  line-height: 1.8;
+  font-weight: 300;
+  color: var(--ink-65);
+}
+
+/* ============================================================
+   Registry
+   ============================================================ */
+
+.registry {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 28px;
+  padding: 120px 60px;
+}
+
+.registry h1 {
+  margin: 0;
+  font-weight: 300;
+  font-size: 30px;
+  letter-spacing: 0.24em;
+}
+
+.registry__note {
+  font-size: 14px;
+  line-height: 2.1;
+  font-weight: 300;
+  color: var(--ink-65);
+  max-width: 520px;
+}
+
+.btn-outline {
+  font-size: 10.5px;
+  letter-spacing: 0.3em;
+  border: 1px solid var(--ink);
+  padding: 14px 34px;
+  color: var(--ink);
+  text-decoration: none;
+  display: inline-block;
+}
+
+/* ============================================================
+   FAQ
+   ============================================================ */
+
+.faq {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 100px 60px 110px;
+}
+
+.faq .eyebrow { margin-bottom: 14px; }
+
+.faq h1 {
+  margin: 0 0 56px;
+  font-weight: 300;
+  font-size: 30px;
+  letter-spacing: 0.24em;
+}
+
+.faq__list {
+  display: flex;
+  flex-direction: column;
+  max-width: 680px;
+  width: 100%;
+}
+
+.faq__item {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  text-align: center;
+  padding: 30px 0;
+  border-top: 1px solid var(--hair-12);
+}
+
+.faq__item:last-child {
+  border-bottom: 1px solid var(--hair-12);
+}
+
+.faq__q {
+  font-size: 12.5px;
+  letter-spacing: 0.2em;
+  font-weight: 400;
+}
+
+.faq__a {
+  font-size: 13px;
+  line-height: 1.9;
+  font-weight: 300;
+  color: var(--ink-65);
+}
+
+/* ============================================================
+   Responsive
+   ============================================================ */
+
+@media (max-width: 900px) {
+  .nav {
+    flex-direction: column;
+    gap: 18px;
+    padding: 22px 24px;
+  }
+  .nav__links {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 18px 22px;
+  }
+  .nav--hero {
+    position: static;
+    background: #16333f;
+  }
+
+  .travel-modes { grid-template-columns: 1fr; }
+  .travel-mode + .travel-mode {
+    border-left: 0;
+    border-top: 1px solid var(--hair);
+  }
+
+  .stay {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    padding: 64px 32px;
+  }
+  .stay__photo { height: 300px; }
+
+  .event-pair { grid-template-columns: 1fr; }
+  .event-pair .event { padding: 30px 0; }
+  .event-pair .event:first-child {
+    border-right: 0;
+    border-bottom: 1px solid var(--hair);
+  }
+
+  .page-title { padding: 72px 32px 56px; }
+}
+
+@media (max-width: 560px) {
+  .hero__tagline h1 {
+    font-size: 20px;
+    letter-spacing: 0.16em;
+  }
+  .page-title h1,
+  .faq h1 { font-size: 24px; }
+}

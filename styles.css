@@ -154,12 +154,13 @@ a { color: inherit; }
   flex-direction: column;
   align-items: center;
   justify-content: flex-end;
-  /* Anchors the text bottom to ~46.8% of the photo — a touch above the
-     sea line at 47.8% — regardless of window shape. Derived from the
-     cover-crop geometry of the 1536x2304 hero at object-position 50% 30%:
+  /* Rests the line on the water: text TOP edge meets the sea line (47.8%
+     of the photo), so the tagline anchors at ~49% regardless of window
+     shape. Derived from the cover-crop geometry of the 1536x2304 hero at
+     object-position 50% 30%:
      on-screen y of image fraction f = 1.5(f - 0.3)vw + 0.3vh  (landscape) */
-  padding-bottom: max(24px, calc(70vh - 25.2vw));
-  padding-bottom: max(24px, calc(70svh - 25.2vw));
+  padding-bottom: max(24px, calc(70vh - 28.5vw));
+  padding-bottom: max(24px, calc(70svh - 28.5vw));
   text-align: center;
   color: var(--paper);
   pointer-events: none;
@@ -168,8 +169,8 @@ a { color: inherit; }
 /* portrait screens: the full photo height is visible, so anchor directly */
 @media (max-aspect-ratio: 2/3) {
   .hero__tagline {
-    padding-bottom: 53vh;
-    padding-bottom: 53svh;
+    padding-bottom: 51vh;
+    padding-bottom: 51svh;
   }
 }
 

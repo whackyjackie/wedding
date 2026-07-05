@@ -4,7 +4,14 @@
    Ink: #1B1B1B · Paper: #FDFDFC
    ============================================================ */
 
-@import url('https://fonts.googleapis.com/css2?family=Archivo:wght@200..700&display=swap');
+/* Archivo variable font, self-hosted (subset, woff2) */
+@font-face {
+  font-family: 'Archivo';
+  src: url('fonts/Archivo-var.woff2') format('woff2');
+  font-weight: 100 900;
+  font-stretch: 62.5% 125%;
+  font-display: swap;
+}
 
 :root {
   --ink: #1B1B1B;
@@ -112,6 +119,7 @@ a { color: inherit; }
 .hero {
   position: relative;
   height: 100vh;
+  height: 100svh;
   min-height: 640px;
 }
 
@@ -144,10 +152,23 @@ a { color: inherit; }
   flex-direction: column;
   align-items: center;
   justify-content: flex-end;
-  padding-bottom: 22%;        /* sets the line just above the boat */
+  /* Anchors the text bottom to ~46.8% of the photo — a touch above the
+     sea line at 47.8% — regardless of window shape. Derived from the
+     cover-crop geometry of the 1536x2304 hero at object-position 50% 30%:
+     on-screen y of image fraction f = 1.5(f - 0.3)vw + 0.3vh  (landscape) */
+  padding-bottom: max(24px, calc(70vh - 25.2vw));
+  padding-bottom: max(24px, calc(70svh - 25.2vw));
   text-align: center;
   color: var(--paper);
   pointer-events: none;
+}
+
+/* portrait screens: the full photo height is visible, so anchor directly */
+@media (max-aspect-ratio: 2/3) {
+  .hero__tagline {
+    padding-bottom: 53vh;
+    padding-bottom: 53svh;
+  }
 }
 
 .hero__tagline h1 {
@@ -452,6 +473,7 @@ a { color: inherit; }
   display: flex;
   flex-direction: column;
   align-items: center;
+  text-align: center;
   padding: 100px 60px 110px;
 }
 
@@ -510,11 +532,11 @@ a { color: inherit; }
   .nav__links {
     flex-wrap: wrap;
     justify-content: center;
-    gap: 18px 22px;
+    gap: 16px 20px;
   }
+  /* stays overlaid on the photo; the scrim keeps it legible */
   .nav--hero {
-    position: static;
-    background: #16333f;
+    position: absolute;
   }
 
   .travel-modes { grid-template-columns: 1fr; }
@@ -542,7 +564,7 @@ a { color: inherit; }
 
 @media (max-width: 560px) {
   .hero__tagline h1 {
-    font-size: 20px;
+    font-size: 17px;
     letter-spacing: 0.16em;
   }
   .page-title h1,

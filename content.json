@@ -1,0 +1,129 @@
+{
+  "site": {
+    "monogram": "J&M",
+    "browserTitle": "Jackie & Meredith — July 31, 2027",
+    "tagline": "MEET US IN THE ISLANDS",
+    "heroImage": "images/hero.jpg",
+    "heroAlt": "Ferry to San Juan Island",
+    "rsvpUrl": "#",
+    "footer": "JACKIE & MEREDITH — JULY 31, 2027 — SALTWATER FARM, SAN JUAN ISLAND"
+  },
+  "schedule": {
+    "eyebrow": "THE WEEKEND",
+    "title": "SCHEDULE OF EVENTS",
+    "photo": "",
+    "photoAlt": "",
+    "days": [
+      {
+        "label": "FRIDAY — 07 · 30 · 27",
+        "events": [
+          {
+            "name": "WELCOME DRINKS",
+            "line1": "BEGINNING AT 5:00 PM",
+            "line2": "THE BAR + LOUNGE",
+            "attire": "COCKTAIL ATTIRE"
+          }
+        ]
+      },
+      {
+        "label": "SATURDAY — 07 · 31 · 27",
+        "events": [
+          {
+            "name": "THE CEREMONY",
+            "line1": "BEGINNING AT 3:00 PM",
+            "line2": "AT THE OCEAN DECK",
+            "attire": "FORMAL ATTIRE"
+          },
+          {
+            "name": "THE CELEBRATION",
+            "line1": "COCKTAIL HOUR AT 4:00 PM",
+            "line2": "AT THE LODGE",
+            "attire": "AFTER PARTY LATER"
+          }
+        ]
+      },
+      {
+        "label": "SUNDAY — 08 · 01 · 27",
+        "events": [
+          {
+            "name": "FAREWELL BRUNCH",
+            "line1": "PLEASE JOIN US AT 10:00 AM",
+            "line2": "THE DINING ROOM",
+            "attire": "CASUAL ATTIRE"
+          }
+        ]
+      }
+    ]
+  },
+  "travel": {
+    "eyebrow": "GETTING HERE",
+    "title": "TRAVEL & STAY",
+    "modes": [
+      {
+        "label": "BY FERRY",
+        "route": "ANACORTES → FRIDAY HARBOR",
+        "body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor incididunt."
+      },
+      {
+        "label": "BY AIR",
+        "route": "SEAPLANE & COMMUTER",
+        "body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor incididunt."
+      },
+      {
+        "label": "ON ISLAND",
+        "route": "GETTING AROUND",
+        "body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor incididunt."
+      }
+    ],
+    "stayEyebrow": "WHERE TO STAY",
+    "stayPhoto": "",
+    "stayPhotoAlt": "The island",
+    "stays": [
+      {
+        "name": "LOREM IPSUM INN",
+        "desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+      },
+      {
+        "name": "DOLOR SIT HOTEL",
+        "desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+      },
+      {
+        "name": "AMET COTTAGES",
+        "desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+      }
+    ]
+  },
+  "registry": {
+    "eyebrow": "OUR REGISTRY",
+    "title": "A NOTE ON GIFTS",
+    "photo": "",
+    "photoAlt": "",
+    "note": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    "buttonLabel": "VIEW REGISTRY",
+    "registryUrl": "#"
+  },
+  "faq": {
+    "eyebrow": "GOOD TO KNOW",
+    "title": "ADDITIONAL DETAILS",
+    "photo": "",
+    "photoAlt": "",
+    "items": [
+      {
+        "q": "WILL THE CEREMONY BE OUTSIDE?",
+        "a": "Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor."
+      },
+      {
+        "q": "ARE CHILDREN ALLOWED AT THE CEREMONY?",
+        "a": "Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor."
+      },
+      {
+        "q": "CAN I TAKE PHOTOS DURING THE CEREMONY?",
+        "a": "Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor."
+      },
+      {
+        "q": "WILL THERE BE PARKING AVAILABLE?",
+        "a": "Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor."
+      }
+    ]
+  }
+}

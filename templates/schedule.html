@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Schedule — {{BROWSER_TITLE}}</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="page">
+  <nav class="nav nav--page">
+    <a class="nav__monogram" href="index.html">{{MONOGRAM}}</a>
+    <div class="nav__links">
+      <a href="index.html">HOME</a>
+      <a class="is-current" href="schedule.html">SCHEDULE</a>
+      <a href="travel.html">TRAVEL</a>
+      <a href="registry.html">REGISTRY</a>
+      <a href="faq.html">FAQ</a>
+      <a class="nav__rsvp" href="{{RSVP_URL}}">RSVP</a>
+    </div>
+  </nav>
+
+  <main class="page__main">
+    <div class="page-title">
+      <div class="eyebrow">{{SCHEDULE_EYEBROW}}</div>
+      <h1>{{SCHEDULE_TITLE}}</h1>
+    </div>
+{{SCHEDULE_PHOTO_BAND}}
+{{SCHEDULE_DAYS}}
+  </main>
+
+  <footer class="site-footer">{{FOOTER}}</footer>
+</div>
+
+</body>
+</html>

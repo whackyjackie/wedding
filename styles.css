@@ -89,8 +89,9 @@ a { color: inherit; }
 .nav--page .nav__links a { color: var(--ink-65); }
 .nav--page .nav__links a.is-current {
   color: var(--ink);
-  border-bottom: 1px solid var(--ink);
-  padding-bottom: 3px;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 6px;
 }
 .nav--page .nav__rsvp {
   color: var(--ink);
@@ -103,8 +104,9 @@ a { color: inherit; }
 .nav--hero .nav__links a { color: var(--paper); opacity: 0.92; }
 .nav--hero .nav__links a.is-current {
   opacity: 1;
-  border-bottom: 1px solid var(--paper);
-  padding-bottom: 3px;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 6px;
 }
 .nav--hero .nav__rsvp {
   opacity: 1;
@@ -178,7 +180,8 @@ a { color: inherit; }
   line-height: 1.2;
   letter-spacing: 0.22em;
   white-space: nowrap;
-  text-shadow: 0 2px 36px rgba(5, 25, 35, 0.28);
+  /* tight + wide shadow pair keeps the line legible over haze and snow */
+  text-shadow: 0 1px 3px rgba(5, 25, 35, 0.38), 0 2px 36px rgba(5, 25, 35, 0.45);
 }
 
 /* ============================================================
@@ -469,21 +472,11 @@ a { color: inherit; }
    ============================================================ */
 
 .faq {
-  flex: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
-  padding: 100px 60px 110px;
-}
-
-.faq .eyebrow { margin-bottom: 14px; }
-
-.faq h1 {
-  margin: 0 0 56px;
-  font-weight: 300;
-  font-size: 30px;
-  letter-spacing: 0.24em;
+  padding: 0 60px 110px;
 }
 
 .faq__list {
@@ -553,13 +546,17 @@ a { color: inherit; }
   .stay__photo { height: 300px; }
 
   .event-pair { grid-template-columns: 1fr; }
-  .event-pair .event { padding: 30px 0; }
+  /* keep the day's outer rhythm identical to single-event days:
+     spacing lives only around the divider between the two events */
+  .event-pair .event { padding: 30px 0 0; }
   .event-pair .event:first-child {
+    padding: 0 0 30px;
     border-right: 0;
     border-bottom: 1px solid var(--hair);
   }
 
   .page-title { padding: 72px 32px 56px; }
+  .faq { padding: 0 32px 80px; }
 }
 
 @media (max-width: 560px) {
@@ -568,5 +565,5 @@ a { color: inherit; }
     letter-spacing: 0.16em;
   }
   .page-title h1,
-  .faq h1 { font-size: 24px; }
+  .registry h1 { font-size: 24px; }
 }

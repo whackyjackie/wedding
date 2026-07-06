@@ -12,7 +12,6 @@
   "schedule": {
     "eyebrow": "THE WEEKEND",
     "title": "SCHEDULE OF EVENTS",
-    "photo": "images/island-band.jpg",
     "photoAlt": "The San Juan Islands from the ferry",
     "days": [
       {
@@ -81,7 +80,7 @@
     ],
     "stayTitle": "WHERE TO STAY",
     "stayIntro": "Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor incididunt.",
-    "stayPhoto": "images/water.jpg",
+    "stayPhoto": "images/DSCF3279.jpg",
     "stayPhotoAlt": "Open water off San Juan Island",
     "stays": [
       {

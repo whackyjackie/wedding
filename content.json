@@ -7,8 +7,7 @@
     "heroAlt": "Ferry to San Juan Island",
     "rsvpUrl": "#",
     "footer": "JACKIE & MEREDITH — JULY 31, 2027 — SALTWATER FARM, SAN JUAN ISLAND",
-    "signoff": "We can't wait to see you in the islands.",
-    "botanical": ""
+    "signoff": "We can't wait to see you in the islands."
   },
   "schedule": {
     "eyebrow": "THE WEEKEND",
@@ -60,56 +59,48 @@
   "travel": {
     "eyebrow": "GETTING HERE",
     "title": "TRAVEL & STAY",
+    "intro": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua ut enim ad minim.",
+    "photo": "images/DSCF3275.jpg",
+    "photoAlt": "The San Juan Islands",
     "modes": [
       {
         "label": "BY FERRY",
         "route": "ANACORTES → FRIDAY HARBOR",
-        "body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor incididunt.",
-        "url": ""
+        "body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor incididunt."
       },
       {
         "label": "BY AIR",
         "route": "SEAPLANE & COMMUTER",
-        "body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor incididunt.",
-        "url": ""
+        "body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor incididunt."
       },
       {
         "label": "ON ISLAND",
         "route": "GETTING AROUND",
-        "body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor incididunt.",
-        "url": ""
+        "body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor incididunt."
       }
     ],
+    "stayTitle": "WHERE TO STAY",
+    "stayIntro": "Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor incididunt.",
     "stayPhoto": "images/water.jpg",
     "stayPhotoAlt": "Open water off San Juan Island",
     "stays": [
       {
         "name": "LOREM IPSUM INN",
-        "desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-        "url": ""
+        "desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
       },
       {
         "name": "DOLOR SIT HOTEL",
-        "desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-        "url": ""
+        "desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
       },
       {
         "name": "AMET COTTAGES",
-        "desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-        "url": ""
+        "desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
       }
-    ],
-    "intro": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua ut enim ad minim.",
-    "photo": "images/island-band.jpg",
-    "photoAlt": "The San Juan Islands",
-    "stayTitle": "WHERE TO STAY",
-    "stayIntro": "Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor incididunt."
+    ]
   },
   "registry": {
     "eyebrow": "OUR REGISTRY",
     "title": "A NOTE ON GIFTS",
-    "photo": "",
-    "photoAlt": "",
     "note": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
     "buttonLabel": "VIEW REGISTRY",
     "registryUrl": "#"
@@ -117,8 +108,6 @@
   "faq": {
     "eyebrow": "GOOD TO KNOW",
     "title": "ADDITIONAL DETAILS",
-    "photo": "",
-    "photoAlt": "",
     "items": [
       {
         "q": "WILL THE CEREMONY BE OUTSIDE?",

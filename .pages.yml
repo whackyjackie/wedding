@@ -20,6 +20,8 @@ content:
           - { name: heroAlt, label: Hero photo description, type: string }
           - { name: rsvpUrl, label: RSVP link (Zola / form URL), type: string }
           - { name: footer, label: Footer line, type: string }
+          - { name: signoff, label: Sign-off line (brown band), type: string }
+          - { name: botanical, label: Botanical illustration (optional), type: image }
 
       - name: schedule
         label: Schedule page
@@ -51,15 +53,20 @@ content:
         fields:
           - { name: eyebrow, label: Small label above title, type: string }
           - { name: title, label: Page title, type: string }
+          - { name: intro, label: Intro paragraph, type: text }
+          - { name: photo, label: Getting-here photo, type: image }
+          - { name: photoAlt, label: Photo description, type: string }
           - name: modes
-            label: Getting-here columns
+            label: Getting-here rows
             type: object
             list: true
             fields:
               - { name: label, label: Small label (BY FERRY), type: string }
               - { name: route, label: Heading, type: string }
               - { name: body, label: Description, type: text }
-          - { name: stayEyebrow, label: Stay section label, type: string }
+              - { name: url, label: Link (optional — adds arrow), type: string }
+          - { name: stayTitle, label: Stay section title, type: string }
+          - { name: stayIntro, label: Stay intro paragraph, type: text }
           - { name: stayPhoto, label: Island photo, type: image }
           - { name: stayPhotoAlt, label: Photo description, type: string }
           - name: stays
@@ -69,6 +76,7 @@ content:
             fields:
               - { name: name, label: Name, type: string }
               - { name: desc, label: Description, type: text }
+              - { name: url, label: Link (optional — adds arrow), type: string }
 
       - name: registry
         label: Registry page

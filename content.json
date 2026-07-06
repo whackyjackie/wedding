@@ -6,13 +6,15 @@
     "heroImage": "images/hero.jpg",
     "heroAlt": "Ferry to San Juan Island",
     "rsvpUrl": "#",
-    "footer": "JACKIE & MEREDITH — JULY 31, 2027 — SALTWATER FARM, SAN JUAN ISLAND"
+    "footer": "JACKIE & MEREDITH — JULY 31, 2027 — SALTWATER FARM, SAN JUAN ISLAND",
+    "signoff": "We can't wait to see you in the islands.",
+    "botanical": ""
   },
   "schedule": {
     "eyebrow": "THE WEEKEND",
     "title": "SCHEDULE OF EVENTS",
-    "photo": "",
-    "photoAlt": "",
+    "photo": "images/island-band.jpg",
+    "photoAlt": "The San Juan Islands from the ferry",
     "days": [
       {
         "label": "FRIDAY — 07 · 30 · 27",
@@ -62,36 +64,46 @@
       {
         "label": "BY FERRY",
         "route": "ANACORTES → FRIDAY HARBOR",
-        "body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor incididunt."
+        "body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor incididunt.",
+        "url": ""
       },
       {
         "label": "BY AIR",
         "route": "SEAPLANE & COMMUTER",
-        "body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor incididunt."
+        "body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor incididunt.",
+        "url": ""
       },
       {
         "label": "ON ISLAND",
         "route": "GETTING AROUND",
-        "body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor incididunt."
+        "body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor incididunt.",
+        "url": ""
       }
     ],
-    "stayEyebrow": "WHERE TO STAY",
-    "stayPhoto": "",
-    "stayPhotoAlt": "The island",
+    "stayPhoto": "images/water.jpg",
+    "stayPhotoAlt": "Open water off San Juan Island",
     "stays": [
       {
         "name": "LOREM IPSUM INN",
-        "desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+        "desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+        "url": ""
       },
       {
         "name": "DOLOR SIT HOTEL",
-        "desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+        "desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+        "url": ""
       },
       {
         "name": "AMET COTTAGES",
-        "desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+        "desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+        "url": ""
       }
-    ]
+    ],
+    "intro": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua ut enim ad minim.",
+    "photo": "images/island-band.jpg",
+    "photoAlt": "The San Juan Islands",
+    "stayTitle": "WHERE TO STAY",
+    "stayIntro": "Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor incididunt."
   },
   "registry": {
     "eyebrow": "OUR REGISTRY",

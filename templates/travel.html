@@ -22,24 +22,30 @@
   </nav>
 
   <main class="page__main">
-    <div class="page-title">
-      <div class="eyebrow">{{TRAVEL_EYEBROW}}</div>
-      <h1>{{TRAVEL_TITLE}}</h1>
-    </div>
-
-    <section class="travel-modes">
+    <section class="split">
+      <div class="split__txt">
+        <div class="eyebrow">{{TRAVEL_EYEBROW}}</div>
+        <h1>{{TRAVEL_TITLE}}</h1>
+        <p class="split__intro">{{TRAVEL_INTRO}}</p>
+        <div class="linklist">
 {{TRAVEL_MODES}}
+        </div>
+      </div>
+{{TRAVEL_PHOTO}}
     </section>
 
-    <section class="stay">
-{{STAY_PHOTO}}
-      <div class="stay__list-wrap">
-        <div class="eyebrow">{{STAY_EYEBROW}}</div>
-        <div class="stay__list">
+    <section class="split split--flip">
+      <div class="split__txt">
+        <h2>{{STAY_TITLE}}</h2>
+        <p class="split__intro">{{STAY_INTRO}}</p>
+        <div class="linklist">
 {{STAY_ITEMS}}
         </div>
       </div>
+{{STAY_PHOTO}}
     </section>
+
+{{COCOA_BAND}}
   </main>
 
   <footer class="site-footer">{{FOOTER}}</footer>

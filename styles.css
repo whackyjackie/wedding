@@ -13,6 +13,26 @@
   font-display: swap;
 }
 
+/* Apfel Grotezk (Collletttivo, OFL) — display face */
+@font-face {
+  font-family: 'Apfel Grotezk';
+  src: url('fonts/Apfel-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Apfel Grotezk';
+  src: url('fonts/Apfel-Mittel.woff2') format('woff2');
+  font-weight: 500;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Apfel Grotezk';
+  src: url('fonts/Apfel-Satt.woff2') format('woff2');
+  font-weight: 700;
+  font-display: swap;
+}
+
 :root {
   --ink: #1B1B1B;
   --paper: #F6F1E3;           /* warm cream ground */
@@ -180,10 +200,12 @@ a { color: inherit; }
 
 .hero__tagline h1 {
   margin: 0;
-  font-weight: 300;
+  font-family: 'Apfel Grotezk', 'Archivo', sans-serif;
+  font-weight: 400;
   /* scales with the photo so the line keeps the same relationship to the
-     islands and boats at every window width (28px at ~1370w reference) */
-  font-size: clamp(17px, 2.05vw, 44px);
+     islands and boats at every window width; sized so the final S clears
+     past the small boat at the sea line */
+  font-size: clamp(18px, 2.3vw, 50px);
   line-height: 1.2;
   letter-spacing: 0.22em;
   white-space: nowrap;

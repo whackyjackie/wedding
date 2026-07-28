@@ -11,14 +11,7 @@
 <div class="page">
   <nav class="nav nav--page">
     <a class="nav__monogram" href="index.html">{{MONOGRAM}}</a>
-    <div class="nav__links">
-      <a href="index.html">HOME</a>
-      <a href="schedule.html">SCHEDULE</a>
-      <a class="is-current" href="travel.html">TRAVEL</a>
-      <a href="registry.html">REGISTRY</a>
-      <a href="faq.html">FAQ</a>
-      <a class="nav__rsvp" href="{{RSVP_URL}}">RSVP</a>
-    </div>
+{{NAV_LINKS}}
   </nav>
 
   <main class="page__main">
@@ -34,16 +27,7 @@
 {{TRAVEL_PHOTO}}
     </section>
 
-    <section class="split split--flip">
-      <div class="split__txt">
-        <h2>{{STAY_TITLE}}</h2>
-        <p class="split__intro">{{STAY_INTRO}}</p>
-        <div class="linklist">
-{{STAY_ITEMS}}
-        </div>
-      </div>
-{{STAY_PHOTO}}
-    </section>
+{{STAY_SECTION}}
 
 {{COCOA_BAND}}
   </main>

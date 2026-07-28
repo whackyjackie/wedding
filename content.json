@@ -53,7 +53,8 @@
           }
         ]
       }
-    ]
+    ],
+    "hidden": false
   },
   "travel": {
     "eyebrow": "GETTING HERE",
@@ -95,14 +96,17 @@
         "name": "AMET COTTAGES",
         "desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
       }
-    ]
+    ],
+    "hidden": false,
+    "stayHidden": false
   },
   "registry": {
     "eyebrow": "OUR REGISTRY",
     "title": "A NOTE ON GIFTS",
     "note": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
     "buttonLabel": "VIEW REGISTRY",
-    "registryUrl": "#"
+    "registryUrl": "#",
+    "hidden": false
   },
   "faq": {
     "eyebrow": "GOOD TO KNOW",
@@ -124,6 +128,7 @@
         "q": "WILL THERE BE PARKING AVAILABLE?",
         "a": "Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor."
       }
-    ]
+    ],
+    "hidden": false
   }
 }

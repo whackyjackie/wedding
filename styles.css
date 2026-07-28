@@ -33,6 +33,14 @@
   font-display: swap;
 }
 
+/* TAY Basal (licensed) — hero display face */
+@font-face {
+  font-family: 'TAY Basal';
+  src: url('fonts/TAYBasal-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-display: swap;
+}
+
 :root {
   --ink: #1B1B1B;
   --paper: #F6F1E3;           /* warm cream ground */
@@ -200,12 +208,12 @@ a { color: inherit; }
 
 .hero__tagline h1 {
   margin: 0;
-  font-family: 'Apfel Grotezk', 'Archivo', sans-serif;
+  font-family: 'TAY Basal', 'Apfel Grotezk', 'Archivo', sans-serif;
   font-weight: 400;
   /* scales with the photo so the line keeps the same relationship to the
      islands and boats at every window width; sized so the final S clears
-     past the small boat at the sea line */
-  font-size: clamp(18px, 2.3vw, 50px);
+     past the small boat at the sea line (TAY runs optically wide) */
+  font-size: clamp(15px, 1.9vw, 42px);
   line-height: 1.2;
   letter-spacing: 0.22em;
   white-space: nowrap;

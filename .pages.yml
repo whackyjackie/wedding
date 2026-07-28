@@ -27,6 +27,7 @@ content:
         label: Schedule page
         type: object
         fields:
+          - { name: hidden, label: Hide this page (WIP), type: boolean }
           - { name: eyebrow, label: Small label above title, type: string }
           - { name: title, label: Page title, type: string }
           - { name: photo, label: Photo under title (optional), type: image }
@@ -51,6 +52,7 @@ content:
         label: Travel page
         type: object
         fields:
+          - { name: hidden, label: Hide this page (WIP), type: boolean }
           - { name: eyebrow, label: Small label above title, type: string }
           - { name: title, label: Page title, type: string }
           - { name: intro, label: Intro paragraph, type: text }
@@ -65,6 +67,7 @@ content:
               - { name: route, label: Heading, type: string }
               - { name: body, label: Description, type: text }
               - { name: url, label: Link (optional — adds arrow), type: string }
+          - { name: stayHidden, label: Hide the where-to-stay section, type: boolean }
           - { name: stayTitle, label: Stay section title, type: string }
           - { name: stayIntro, label: Stay intro paragraph, type: text }
           - { name: stayPhoto, label: Island photo, type: image }
@@ -82,6 +85,7 @@ content:
         label: Registry page
         type: object
         fields:
+          - { name: hidden, label: Hide this page (WIP), type: boolean }
           - { name: eyebrow, label: Small label above title, type: string }
           - { name: title, label: Page title, type: string }
           - { name: photo, label: Photo above title (optional), type: image }
@@ -94,6 +98,7 @@ content:
         label: FAQ page
         type: object
         fields:
+          - { name: hidden, label: Hide this page (WIP), type: boolean }
           - { name: eyebrow, label: Small label above title, type: string }
           - { name: title, label: Page title, type: string }
           - name: items

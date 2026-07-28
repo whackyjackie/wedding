@@ -82,6 +82,42 @@ const stayRows = c.travel.stays
   .map(s => row(s.name, s.desc, s.url))
   .join('\n');
 
+const staySection = c.travel.stayHidden ? '' : `    <section class="split split--flip">
+      <div class="split__txt">
+        <h2>${esc(c.travel.stayTitle)}</h2>
+        <p class="split__intro">${esc(c.travel.stayIntro)}</p>
+        <div class="linklist">
+${stayRows}
+        </div>
+      </div>
+${splitImg(c.travel.stayPhoto, c.travel.stayPhotoAlt)}
+    </section>`;
+
+// ---------- pages + nav (hidden pages drop out of the menu) ----------
+
+const PAGES = [
+  { file: 'index.html', label: 'HOME', hidden: false },
+  { file: 'schedule.html', label: 'SCHEDULE', hidden: !!c.schedule.hidden },
+  { file: 'travel.html', label: 'TRAVEL', hidden: !!c.travel.hidden },
+  { file: 'registry.html', label: 'REGISTRY', hidden: !!c.registry.hidden },
+  { file: 'faq.html', label: 'FAQ', hidden: !!c.faq.hidden },
+];
+
+const navLinksFor = current => {
+  const links = PAGES.filter(p => !p.hidden).map(p => {
+    const cls = p.file === current ? ' class="is-current"' : '';
+    return `      <a${cls} href="${p.file}">${p.label}</a>`;
+  });
+  links.push(`      <a class="nav__rsvp" href="${esc(c.site.rsvpUrl)}">RSVP</a>`);
+  return `    <div class="nav__links">\n${links.join('\n')}\n    </div>`;
+};
+
+const REDIRECT_STUB = `<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta http-equiv="refresh" content="0;url=index.html">
+<title>Redirecting…</title></head>
+<body><a href="index.html">Continue to the site</a></body></html>`;
+
 // ---------- faq ----------
 
 const faqItems = c.faq.items.map(i => `          <div class="faq__item">
@@ -109,10 +145,7 @@ const tokens = {
   TRAVEL_INTRO: esc(c.travel.intro),
   TRAVEL_PHOTO: splitImg(c.travel.photo, c.travel.photoAlt),
   TRAVEL_MODES: modeRows,
-  STAY_TITLE: esc(c.travel.stayTitle),
-  STAY_INTRO: esc(c.travel.stayIntro),
-  STAY_PHOTO: splitImg(c.travel.stayPhoto, c.travel.stayPhotoAlt),
-  STAY_ITEMS: stayRows,
+  STAY_SECTION: staySection,
   REGISTRY_EYEBROW: esc(c.registry.eyebrow),
   REGISTRY_TITLE: esc(c.registry.title),
   REGISTRY_NOTE: esc(c.registry.note),
@@ -131,8 +164,16 @@ fs.rmSync(DIST, { recursive: true, force: true });
 fs.mkdirSync(DIST, { recursive: true });
 
 for (const f of fs.readdirSync(path.join(ROOT, 'templates'))) {
+  const page = PAGES.find(p => p.file === f);
+  if (page && page.hidden) {
+    // WIP page: keep the URL alive but bounce visitors to the home page
+    fs.writeFileSync(path.join(DIST, f), REDIRECT_STUB);
+    console.log(`(hidden) ${f} → redirect stub`);
+    continue;
+  }
   let html = fs.readFileSync(path.join(ROOT, 'templates', f), 'utf8');
   html = html.replace(/\{\{(\w+)\}\}/g, (_, k) => {
+    if (k === 'NAV_LINKS') return navLinksFor(f);
     if (!(k in tokens)) throw new Error(`Unknown token {{${k}}} in ${f}`);
     return tokens[k];
   });

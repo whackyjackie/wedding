@@ -101,7 +101,7 @@
     ]
   },
   "registry": {
-    "hidden": false,
+    "hidden": true,
     "eyebrow": "OUR REGISTRY",
     "title": "A NOTE ON GIFTS",
     "note": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
@@ -109,7 +109,7 @@
     "registryUrl": "#"
   },
   "faq": {
-    "hidden": false,
+    "hidden": true,
     "eyebrow": "GOOD TO KNOW",
     "title": "ADDITIONAL DETAILS",
     "items": [

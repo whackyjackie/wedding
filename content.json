@@ -10,6 +10,7 @@
     "signoff": "We can't wait to see you in the islands."
   },
   "schedule": {
+    "hidden": true,
     "eyebrow": "THE WEEKEND",
     "title": "SCHEDULE OF EVENTS",
     "photoAlt": "The San Juan Islands from the ferry",
@@ -53,10 +54,10 @@
           }
         ]
       }
-    ],
-    "hidden": false
+    ]
   },
   "travel": {
+    "hidden": false,
     "eyebrow": "GETTING HERE",
     "title": "TRAVEL & STAY",
     "intro": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua ut enim ad minim.",
@@ -79,6 +80,7 @@
         "body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor incididunt."
       }
     ],
+    "stayHidden": false,
     "stayTitle": "WHERE TO STAY",
     "stayIntro": "Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor incididunt.",
     "stayPhoto": "images/DSCF3279.jpg",
@@ -96,19 +98,18 @@
         "name": "AMET COTTAGES",
         "desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
       }
-    ],
-    "hidden": false,
-    "stayHidden": false
+    ]
   },
   "registry": {
+    "hidden": false,
     "eyebrow": "OUR REGISTRY",
     "title": "A NOTE ON GIFTS",
     "note": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
     "buttonLabel": "VIEW REGISTRY",
-    "registryUrl": "#",
-    "hidden": false
+    "registryUrl": "#"
   },
   "faq": {
+    "hidden": false,
     "eyebrow": "GOOD TO KNOW",
     "title": "ADDITIONAL DETAILS",
     "items": [
@@ -128,7 +129,6 @@
         "q": "WILL THERE BE PARKING AVAILABLE?",
         "a": "Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor."
       }
-    ],
-    "hidden": false
+    ]
   }
 }

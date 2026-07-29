@@ -2,14 +2,15 @@
   "site": {
     "monogram": "J&M",
     "monogramImage": "images/monogram_1_white.png",
+    "monogramImageDark": "images/monogram_black.png",
     "browserTitle": "Jackie & Meredith — July 31, 2027",
     "tagline": "MEET US IN THE ISLANDS",
     "heroImage": "images/ferry_overlook_1.jpg",
     "heroAlt": "Ferry to San Juan Island",
     "rsvpUrl": "#",
+    "rsvpHidden": false,
     "footer": "JACKIE & MEREDITH — JULY 31, 2027 — SALTWATER FARM, SAN JUAN ISLAND",
-    "signoff": "We can't wait to see you in the islands.",
-    "monogramImageDark": ""
+    "signoff": "We can't wait to see you in the islands."
   },
   "schedule": {
     "hidden": true,

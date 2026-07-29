@@ -162,7 +162,6 @@ a { color: inherit; }
   background: #3C7C9E;
   position: relative;
   height: 100vh;
-  height: 100svh;
   min-height: 640px;
   display: flex;
   flex-direction: column;
@@ -202,7 +201,6 @@ a { color: inherit; }
      the cover-crop geometry of the 2:3 hero at object-position 50% 48%:
      on-screen y of image fraction f = 1.5(f - 0.48)vw + 0.52vh (landscape) */
   padding-bottom: max(24px, calc(52vh - 19.5vw));
-  padding-bottom: max(24px, calc(52svh - 19.5vw));
   text-align: center;
   color: var(--ink);
   pointer-events: none;
@@ -212,7 +210,6 @@ a { color: inherit; }
 @media (max-aspect-ratio: 2/3) {
   .hero__tagline {
     padding-bottom: 39vh;
-    padding-bottom: 39svh;
   }
 }
 

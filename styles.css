@@ -163,7 +163,7 @@ a { color: inherit; }
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: 50% 30%;   /* keeps the boat + horizon framed */
+  object-position: 50% 48%;   /* headland + horizon high, open water below */
 }
 
 /* darkens top (nav legibility) and bottom edge */
@@ -186,13 +186,12 @@ a { color: inherit; }
   flex-direction: column;
   align-items: center;
   justify-content: flex-end;
-  /* Rests the line on the water: text TOP edge meets the sea line (47.8%
-     of the photo), so the tagline anchors at ~49% regardless of window
-     shape. Derived from the cover-crop geometry of the 1536x2304 hero at
-     object-position 50% 30%:
-     on-screen y of image fraction f = 1.5(f - 0.3)vw + 0.3vh  (landscape) */
-  padding-bottom: max(24px, calc(70vh - 30.75vw));
-  padding-bottom: max(24px, calc(70svh - 30.75vw));
+  /* Floats the line low in the open water (centered ~60% down the photo,
+     well below the ~50% horizon — per the approved mockup). Derived from
+     the cover-crop geometry of the 2:3 hero at object-position 50% 48%:
+     on-screen y of image fraction f = 1.5(f - 0.48)vw + 0.52vh (landscape) */
+  padding-bottom: max(24px, calc(52vh - 19.5vw));
+  padding-bottom: max(24px, calc(52svh - 19.5vw));
   text-align: center;
   color: var(--paper);
   pointer-events: none;
@@ -201,8 +200,8 @@ a { color: inherit; }
 /* portrait screens: the full photo height is visible, so anchor directly */
 @media (max-aspect-ratio: 2/3) {
   .hero__tagline {
-    padding-bottom: 49.5vh;
-    padding-bottom: 49.5svh;
+    padding-bottom: 39vh;
+    padding-bottom: 39svh;
   }
 }
 

@@ -23,6 +23,8 @@ content:
           - { name: rsvpUrl, label: RSVP link (Zola / form URL), type: string }
           - { name: rsvpHidden, label: Hide RSVP buttons (nav + brown band), type: boolean }
           - { name: footer, label: Footer line, type: string }
+          - { name: bandHidden, label: Hide the brown band entirely, type: boolean }
+          - { name: botanicalHidden, label: Hide just the botanical illustration, type: boolean }
           - { name: signoff, label: Sign-off line (brown band), type: string }
           - { name: botanical, label: Botanical illustration (optional), type: image }
 

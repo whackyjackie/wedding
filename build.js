@@ -38,7 +38,8 @@ const BOTANICAL_SVG = `      <svg class="cocoa-band__art" viewBox="0 0 90 110" f
       </svg>`;
 
 const cocoaBand = () => {
-  const art = c.site.botanical
+  if (c.site.bandHidden) return '';
+  const art = c.site.botanicalHidden ? '' : c.site.botanical
     ? `      <img class="cocoa-band__art" src="${esc(c.site.botanical)}" alt="">`
     : BOTANICAL_SVG;
   const cta = c.site.rsvpHidden ? '' : `

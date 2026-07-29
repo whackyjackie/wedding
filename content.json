@@ -8,7 +8,9 @@
     "heroImage": "images/ferry_overlook_1.jpg",
     "heroAlt": "Ferry to San Juan Island",
     "rsvpUrl": "#",
-    "rsvpHidden": true
+    "rsvpHidden": true,
+    "bandHidden": false,
+    "botanicalHidden": false
   },
   "schedule": {
     "hidden": true,
@@ -48,7 +50,7 @@
     "eyebrow": "GETTING HERE",
     "title": "TRAVEL",
     "intro": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua ut enim ad minim.",
-    "photo": "images/ferry_1_windoq.png",
+    "photo": "images/ferry_window.jpg",
     "photoAlt": "The San Juan Islands",
     "modes": [
       {

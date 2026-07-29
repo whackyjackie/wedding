@@ -41,11 +41,12 @@ const cocoaBand = () => {
   const art = c.site.botanical
     ? `      <img class="cocoa-band__art" src="${esc(c.site.botanical)}" alt="">`
     : BOTANICAL_SVG;
+  const cta = c.site.rsvpHidden ? '' : `
+      <a class="cocoa-band__cta" href="${esc(c.site.rsvpUrl)}">REPLY NOW</a>
+      <div class="cocoa-band__note">WE LOOK FORWARD TO RECEIVING YOUR RESPONSE</div>`;
   return `    <section class="cocoa-band">
 ${art}
-      <div class="cocoa-band__signoff">${esc(c.site.signoff)}</div>
-      <a class="cocoa-band__cta" href="${esc(c.site.rsvpUrl)}">REPLY NOW</a>
-      <div class="cocoa-band__note">WE LOOK FORWARD TO RECEIVING YOUR RESPONSE</div>
+      <div class="cocoa-band__signoff">${esc(c.site.signoff)}</div>${cta}
     </section>`;
 };
 
@@ -108,7 +109,9 @@ const navLinksFor = current => {
     const cls = p.file === current ? ' class="is-current"' : '';
     return `      <a${cls} href="${p.file}">${p.label}</a>`;
   });
-  links.push(`      <a class="nav__rsvp" href="${esc(c.site.rsvpUrl)}">RSVP</a>`);
+  if (!c.site.rsvpHidden) {
+    links.push(`      <a class="nav__rsvp" href="${esc(c.site.rsvpUrl)}">RSVP</a>`);
+  }
   return `    <div class="nav__links">\n${links.join('\n')}\n    </div>`;
 };
 

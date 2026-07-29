@@ -7,7 +7,8 @@
     "heroAlt": "Ferry to San Juan Island",
     "rsvpUrl": "#",
     "footer": "JACKIE & MEREDITH — JULY 31, 2027 — SALTWATER FARM, SAN JUAN ISLAND",
-    "signoff": "We can't wait to see you in the islands."
+    "signoff": "We can't wait to see you in the islands.",
+    "rsvpHidden": false
   },
   "schedule": {
     "hidden": true,

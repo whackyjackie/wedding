@@ -157,11 +157,19 @@ a { color: inherit; }
    Home — full-screen hero
    ============================================================ */
 
-.hero {
+.home {
   position: relative;
   height: 100vh;
   height: 100svh;
   min-height: 640px;
+  display: flex;
+  flex-direction: column;
+}
+
+.hero {
+  position: relative;
+  flex: 1;
+  min-height: 0;
 }
 
 .hero__photo {
@@ -203,6 +211,14 @@ a { color: inherit; }
   .hero__tagline {
     padding-bottom: 39vh;
     padding-bottom: 39svh;
+  }
+}
+
+/* phones: hero sits below the in-flow nav, so subtract its share */
+@media (max-aspect-ratio: 2/3) and (max-width: 900px) {
+  .hero__tagline {
+    padding-bottom: calc(39vh - 43px);
+    padding-bottom: calc(39svh - 43px);
   }
 }
 
@@ -580,9 +596,9 @@ a { color: inherit; }
     justify-content: center;
     gap: 16px 20px;
   }
-  /* stays overlaid on the photo; the scrim keeps it legible */
+  /* brand bar above the photo on small screens */
   .nav--hero {
-    position: absolute;
+    position: static;
   }
 
   .split,

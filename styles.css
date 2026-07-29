@@ -80,6 +80,7 @@ a { color: inherit; }
   align-items: center;
   justify-content: space-between;
   padding: 28px 48px;
+  font-family: 'TAY Basal', 'Archivo', sans-serif;
 }
 
 /* interior pages: bordered light nav on paper */
@@ -94,7 +95,7 @@ a { color: inherit; }
   left: 0;
   right: 0;
   z-index: 2;
-  color: var(--paper);
+  color: var(--ink);
 }
 
 .nav__monogram {
@@ -102,6 +103,12 @@ a { color: inherit; }
   letter-spacing: 0.32em;
   font-weight: 500;
   text-decoration: none;
+}
+
+.nav__monogram img {
+  display: block;
+  height: 28px;
+  width: auto;
 }
 
 .nav__links {
@@ -132,8 +139,8 @@ a { color: inherit; }
 }
 
 /* hero nav (home) */
-.nav--hero .nav__monogram { color: var(--paper); }
-.nav--hero .nav__links a { color: var(--paper); opacity: 0.92; }
+.nav--hero .nav__monogram { color: var(--ink); }
+.nav--hero .nav__links a { color: var(--ink); opacity: 0.92; }
 .nav--hero .nav__links a.is-current {
   opacity: 1;
   text-decoration: underline;
@@ -142,7 +149,7 @@ a { color: inherit; }
 }
 .nav--hero .nav__rsvp {
   opacity: 1;
-  border: 1px solid var(--paper);
+  border: 1px solid var(--ink);
   padding: 10px 22px;
 }
 
@@ -170,13 +177,7 @@ a { color: inherit; }
 .hero__scrim {
   position: absolute;
   inset: 0;
-  background: linear-gradient(
-    180deg,
-    rgba(10, 30, 40, 0.32) 0%,
-    rgba(10, 30, 40, 0.10) 34%,
-    rgba(10, 30, 40, 0.00) 52%,
-    rgba(10, 30, 40, 0.38) 100%
-  );
+  background: none;
 }
 
 .hero__tagline {
@@ -193,7 +194,7 @@ a { color: inherit; }
   padding-bottom: max(24px, calc(52vh - 19.5vw));
   padding-bottom: max(24px, calc(52svh - 19.5vw));
   text-align: center;
-  color: var(--paper);
+  color: var(--ink);
   pointer-events: none;
 }
 
@@ -209,15 +210,12 @@ a { color: inherit; }
   margin: 0;
   font-family: 'TAY Basal', 'Apfel Grotezk', 'Archivo', sans-serif;
   font-weight: 400;
-  /* scales with the photo so the line keeps the same relationship to the
-     islands and boats at every window width; sized so the final S clears
-     past the small boat at the sea line (TAY runs optically wide) */
+  /* scales with the photo so the line keeps the same relationship to
+     the water at every window width (TAY runs optically wide) */
   font-size: clamp(15px, 1.9vw, 42px);
   line-height: 1.2;
   letter-spacing: 0.22em;
   white-space: nowrap;
-  /* tight + wide shadow pair keeps the line legible over haze and snow */
-  text-shadow: 0 1px 3px rgba(5, 25, 35, 0.38), 0 2px 36px rgba(5, 25, 35, 0.45);
 }
 
 /* ============================================================

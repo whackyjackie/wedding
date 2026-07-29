@@ -127,9 +127,14 @@ const faqItems = c.faq.items.map(i => `          <div class="faq__item">
 
 // ---------- token map ----------
 
+// uploaded monogram image wins over the text monogram
+const monogram = c.site.monogramImage
+  ? `<img src="${esc(c.site.monogramImage)}" alt="${esc(c.site.monogram)}">`
+  : esc(c.site.monogram);
+
 const tokens = {
   BROWSER_TITLE: esc(c.site.browserTitle),
-  MONOGRAM: esc(c.site.monogram),
+  MONOGRAM: monogram,
   RSVP_URL: esc(c.site.rsvpUrl),
   FOOTER: esc(c.site.footer),
   HERO_IMAGE: esc(c.site.heroImage),

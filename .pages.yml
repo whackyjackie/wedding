@@ -13,7 +13,8 @@ content:
         label: Site basics
         type: object
         fields:
-          - { name: monogram, label: Monogram (top-left), type: string }
+          - { name: monogram, label: Monogram text (top-left), type: string }
+          - { name: monogramImage, label: Monogram image (optional — replaces text), type: image }
           - { name: browserTitle, label: Browser tab title, type: string }
           - { name: tagline, label: Home tagline, type: string }
           - { name: heroImage, label: Home hero photo, type: image }

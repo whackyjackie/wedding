@@ -8,7 +8,7 @@
     "heroImage": "images/ferry_overlook_1.jpg",
     "heroAlt": "Ferry to San Juan Island",
     "rsvpUrl": "#",
-    "rsvpHidden": false
+    "rsvpHidden": true
   },
   "schedule": {
     "hidden": true,

@@ -48,7 +48,7 @@
   "travel": {
     "hidden": false,
     "eyebrow": "GETTING HERE",
-    "title": "TRAVEL & STAY",
+    "title": "TRAVEL",
     "intro": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua ut enim ad minim.",
     "photo": "images/ferry_1_windoq.png",
     "photoAlt": "The San Juan Islands",
@@ -56,7 +56,7 @@
       {
         "label": "BY FERRY",
         "route": "ANACORTES → FRIDAY HARBOR",
-        "body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor incididunt."
+        "body": "We highly recommend taking the ferry (and it's fun!). "
       },
       {
         "label": "BY AIR",

@@ -10,7 +10,7 @@
   src: url('fonts/Archivo-var.woff2') format('woff2');
   font-weight: 100 900;
   font-stretch: 62.5% 125%;
-  font-display: swap;
+  font-display: block;
 }
 
 /* Apfel Grotezk (Collletttivo, OFL) — display face */
@@ -18,19 +18,19 @@
   font-family: 'Apfel Grotezk';
   src: url('fonts/Apfel-Regular.woff2') format('woff2');
   font-weight: 400;
-  font-display: swap;
+  font-display: block;
 }
 @font-face {
   font-family: 'Apfel Grotezk';
   src: url('fonts/Apfel-Mittel.woff2') format('woff2');
   font-weight: 500;
-  font-display: swap;
+  font-display: block;
 }
 @font-face {
   font-family: 'Apfel Grotezk';
   src: url('fonts/Apfel-Satt.woff2') format('woff2');
   font-weight: 700;
-  font-display: swap;
+  font-display: block;
 }
 
 /* TAY Basal (licensed) — hero display face */
@@ -38,7 +38,7 @@
   font-family: 'TAY Basal';
   src: url('fonts/TAYBasal-Regular.woff2') format('woff2');
   font-weight: 400;
-  font-display: swap;
+  font-display: block;
 }
 
 :root {

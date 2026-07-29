@@ -214,13 +214,6 @@ a { color: inherit; }
   }
 }
 
-/* phones: hero sits below the in-flow nav, so subtract its share */
-@media (max-aspect-ratio: 2/3) and (max-width: 900px) {
-  .hero__tagline {
-    padding-bottom: calc(39vh - 43px);
-    padding-bottom: calc(39svh - 43px);
-  }
-}
 
 .hero__tagline h1 {
   margin: 0;
@@ -596,9 +589,13 @@ a { color: inherit; }
     justify-content: center;
     gap: 16px 20px;
   }
-  /* brand bar above the photo on small screens */
+  /* nav floats over the full-bleed photo on phones too */
   .nav--hero {
-    position: static;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 2;
   }
 
   .split,

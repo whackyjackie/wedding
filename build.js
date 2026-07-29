@@ -177,6 +177,14 @@ const tokens = {
 fs.rmSync(DIST, { recursive: true, force: true });
 fs.mkdirSync(DIST, { recursive: true });
 
+// content-hashed asset URLs so browsers never serve a stale stylesheet/font
+const crypto = require('crypto');
+const hashOf = p => crypto.createHash('md5')
+  .update(fs.readFileSync(path.join(ROOT, p))).digest('hex').slice(0, 10);
+const CSS_V = hashOf('styles.css');
+const FONTS = ['fonts/TAYBasal-Regular.woff2', 'fonts/Archivo-var.woff2'];
+const FONT_V = Object.fromEntries(FONTS.map(f => [f, hashOf(f)]));
+
 for (const f of fs.readdirSync(path.join(ROOT, 'templates'))) {
   const page = PAGES.find(p => p.file === f);
   if (page && page.hidden) {
@@ -192,6 +200,10 @@ for (const f of fs.readdirSync(path.join(ROOT, 'templates'))) {
     return tokens[k];
   });
   html = html.replace(/\n{3,}/g, '\n\n');
+  html = html.replace('href="styles.css"', `href="styles.css?v=${CSS_V}"`);
+  for (const font of FONTS) {
+    html = html.replace(`href="${font}"`, `href="${font}?v=${FONT_V[font]}"`);
+  }
   fs.writeFileSync(path.join(DIST, f), html);
 }
 

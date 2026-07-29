@@ -130,14 +130,20 @@ const faqItems = c.faq.items.map(i => `          <div class="faq__item">
 
 // ---------- token map ----------
 
-// uploaded monogram image wins over the text monogram
-const monogram = c.site.monogramImage
-  ? `<img src="${esc(c.site.monogramImage)}" alt="${esc(c.site.monogram)}">`
+// uploaded monogram images win over the text monogram.
+// Home (bright photo) gets the light version; interior pages (cream)
+// get the dark version — never each other's.
+const monogramImg = src => `<img src="${esc(src)}" alt="${esc(c.site.monogram)}">`;
+const monogramHero = c.site.monogramImage ? monogramImg(c.site.monogramImage)
+  : c.site.monogramImageDark ? monogramImg(c.site.monogramImageDark)
+  : esc(c.site.monogram);
+const monogramPage = c.site.monogramImageDark ? monogramImg(c.site.monogramImageDark)
   : esc(c.site.monogram);
 
 const tokens = {
   BROWSER_TITLE: esc(c.site.browserTitle),
-  MONOGRAM: monogram,
+  MONOGRAM: monogramPage,
+  MONOGRAM_HERO: monogramHero,
   RSVP_URL: esc(c.site.rsvpUrl),
   FOOTER: esc(c.site.footer),
   HERO_IMAGE: esc(c.site.heroImage),

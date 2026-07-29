@@ -14,7 +14,8 @@ content:
         type: object
         fields:
           - { name: monogram, label: Monogram text (top-left), type: string }
-          - { name: monogramImage, label: Monogram image (optional — replaces text), type: image }
+          - { name: monogramImage, label: "Monogram image — Home page (light/white)", type: image }
+          - { name: monogramImageDark, label: "Monogram image — other pages (dark/black)", type: image }
           - { name: browserTitle, label: Browser tab title, type: string }
           - { name: tagline, label: Home tagline, type: string }
           - { name: heroImage, label: Home hero photo, type: image }

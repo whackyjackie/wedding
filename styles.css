@@ -158,6 +158,8 @@ a { color: inherit; }
    ============================================================ */
 
 .home {
+  /* behind iOS browser chrome, blend with the photo's sky */
+  background: #3C7C9E;
   position: relative;
   height: 100vh;
   height: 100svh;

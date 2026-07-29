@@ -22,10 +22,7 @@
         "label": "FRIDAY — 07 · 30 · 27",
         "events": [
           {
-            "name": "WELCOME DRINKS",
-            "line1": "BEGINNING AT 5:00 PM",
-            "line2": "THE BAR + LOUNGE",
-            "attire": "COCKTAIL ATTIRE"
+            "name": "WELCOME DINNER"
           }
         ]
       },
@@ -33,28 +30,17 @@
         "label": "SATURDAY — 07 · 31 · 27",
         "events": [
           {
-            "name": "THE CEREMONY",
-            "line1": "BEGINNING AT 3:00 PM",
-            "line2": "AT THE OCEAN DECK",
-            "attire": "FORMAL ATTIRE"
+            "name": "THE CEREMONY"
           },
           {
-            "name": "THE CELEBRATION",
-            "line1": "COCKTAIL HOUR AT 4:00 PM",
-            "line2": "AT THE LODGE",
-            "attire": "AFTER PARTY LATER"
+            "name": "THE CELEBRATION"
           }
         ]
       },
       {
         "label": "SUNDAY — 08 · 01 · 27",
         "events": [
-          {
-            "name": "FAREWELL BRUNCH",
-            "line1": "PLEASE JOIN US AT 10:00 AM",
-            "line2": "THE DINING ROOM",
-            "attire": "CASUAL ATTIRE"
-          }
+          {}
         ]
       }
     ]
@@ -90,12 +76,13 @@
     "stayPhotoAlt": "Open water off San Juan Island",
     "stays": [
       {
-        "name": "LOREM IPSUM INN",
+        "name": "FRIDAY HARBOR INN",
         "desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
       },
       {
-        "name": "DOLOR SIT HOTEL",
-        "desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+        "name": "ISLAND INN",
+        "desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+        "url": "https://123west.com"
       },
       {
         "name": "AMET COTTAGES",

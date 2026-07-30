@@ -440,7 +440,19 @@ a { color: inherit; }
   font-weight: 500;
 }
 
-.linklist__arrow { flex: none; }
+.linklist__arrow {
+  flex: none;
+  transition: transform 0.22s ease;
+}
+
+a.linklist__row:hover .linklist__arrow {
+  transform: translate(3px, -3px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .linklist__arrow { transition: none; }
+  a.linklist__row:hover .linklist__arrow { transform: none; }
+}
 
 .linklist__sub {
   font-size: 12.5px;

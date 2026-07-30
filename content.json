@@ -71,23 +71,23 @@
     ],
     "stayHidden": false,
     "stayTitle": "WHERE TO STAY",
-    "stayIntro": "Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor incididunt.",
+    "stayIntro": "We will provide transportation from the below locations, so it's highly recommended you stay at one of the following:",
     "stayPhoto": "images/DSCF3275.jpg",
     "stayPhotoAlt": "Open water off San Juan Island",
     "stays": [
       {
         "name": "FRIDAY HARBOR INN",
-        "desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+        "desc": "If you're feeling fancy! This is the nicest of the three, right in town and great views of the harbor.",
         "url": "https://www.fridayharborhouse.com/accommodations.php"
       },
       {
         "name": "ISLAND INN",
-        "desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+        "desc": "Modern and low-key, with more of an apartment vibe vs. hotel.",
         "url": "https://123west.com"
       },
       {
         "name": "EARTHBOX INN",
-        "desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+        "desc": "Casual and a little retro, with an indoor pool and spa!",
         "url": "https://www.earthboxinn.com"
       }
     ]

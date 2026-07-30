@@ -54,6 +54,11 @@
     "photoAlt": "The San Juan Islands",
     "modes": [
       {
+        "label": "GETTING THERE",
+        "route": "WASHINGTON",
+        "body": "Most guests will fly into Seattle-Tacoma (SEA), then rent a car, carpool, or take a shuttle north to the ferry terminal in Anacortes. Paine Field (PAE) and Bellingham (BLI) are closer, but tend to have fewer flights—worth checking if they work for you!"
+      },
+      {
         "label": "BY FERRY",
         "route": "ANACORTES → FRIDAY HARBOR",
         "body": "We highly recommend taking the ferry (and it's fun!). "
@@ -67,11 +72,6 @@
         "label": "ON ISLAND",
         "route": "GETTING AROUND",
         "body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor incididunt."
-      },
-      {
-        "label": "Overview",
-        "route": "Getting there",
-        "body": "Most guests will fly into Seattle-Tacoma (SEA), then rent a car, carpool, or take a shuttle north to the ferry terminal in Anacortes. Paine Field (PAE) and Bellingham (BLI) are closer, but tend to have fewer flights—worth checking if they work for you!"
       }
     ],
     "stayHidden": false,

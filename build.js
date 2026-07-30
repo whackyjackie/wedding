@@ -185,6 +185,9 @@ const hashOf = p => crypto.createHash('md5')
 const CSS_V = hashOf('styles.css');
 const FONTS = ['fonts/TAYBasal-Regular.woff2', 'fonts/Archivo-var.woff2'];
 const FONT_V = Object.fromEntries(FONTS.map(f => [f, hashOf(f)]));
+const HASHED_ASSETS = ['images/favicon.png', 'images/apple-touch-icon.png', 'images/og.jpg']
+  .filter(p => fs.existsSync(path.join(ROOT, p)));
+const ASSET_V = Object.fromEntries(HASHED_ASSETS.map(p => [p, hashOf(p)]));
 
 for (const f of fs.readdirSync(path.join(ROOT, 'templates'))) {
   const page = PAGES.find(p => p.file === f);
@@ -204,6 +207,9 @@ for (const f of fs.readdirSync(path.join(ROOT, 'templates'))) {
   html = html.replace('href="styles.css"', `href="styles.css?v=${CSS_V}"`);
   for (const font of FONTS) {
     html = html.replace(`href="${font}"`, `href="${font}?v=${FONT_V[font]}"`);
+  }
+  for (const a of HASHED_ASSETS) {
+    html = html.split(`"${a}"`).join(`"${a}?v=${ASSET_V[a]}"`);
   }
   fs.writeFileSync(path.join(DIST, f), html);
 }

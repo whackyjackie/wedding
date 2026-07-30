@@ -429,9 +429,9 @@ a { color: inherit; }
 
 .linklist__main {
   display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-  gap: 18px;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 10px;
 }
 
 .linklist__label {
@@ -440,7 +440,7 @@ a { color: inherit; }
   font-weight: 500;
 }
 
-.linklist__arrow { font-size: 14px; }
+.linklist__arrow { flex: none; }
 
 .linklist__sub {
   font-size: 12.5px;

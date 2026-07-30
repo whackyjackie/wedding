@@ -19,8 +19,9 @@ const splitImg = (src, alt) => src
   : '';
 
 // bold arrowed row; arrow + link only when a url is set
+const ARROW_SVG = `<svg class="linklist__arrow" viewBox="0 0 12 12" width="10" height="10" aria-hidden="true"><path d="M2.5 9.5 L9.5 2.5 M4 2.5 H9.5 V8" fill="none" stroke="currentColor" stroke-width="1.4"/></svg>`;
 const row = (label, sub, url) => {
-  const arrow = url ? `<span class="linklist__arrow">→</span>` : '';
+  const arrow = url ? ARROW_SVG : '';
   const main = `<div class="linklist__main"><span class="linklist__label">${esc(label)}</span>${arrow}</div>`;
   const subLine = sub ? `\n            <div class="linklist__sub">${esc(sub)}</div>` : '';
   return url

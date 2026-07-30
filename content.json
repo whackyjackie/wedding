@@ -9,7 +9,7 @@
     "heroAlt": "Ferry to San Juan Island",
     "rsvpUrl": "#",
     "rsvpHidden": true,
-    "bandHidden": false,
+    "bandHidden": true,
     "botanicalHidden": false
   },
   "schedule": {

@@ -72,12 +72,13 @@
     "stayHidden": false,
     "stayTitle": "WHERE TO STAY",
     "stayIntro": "Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor incididunt.",
-    "stayPhoto": "images/friday_harbor.jpg",
+    "stayPhoto": "images/DSCF3275.jpg",
     "stayPhotoAlt": "Open water off San Juan Island",
     "stays": [
       {
         "name": "FRIDAY HARBOR INN",
-        "desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+        "desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+        "url": "https://www.fridayharborhouse.com/accommodations.php"
       },
       {
         "name": "ISLAND INN",

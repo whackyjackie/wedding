@@ -49,7 +49,7 @@
     "hidden": false,
     "eyebrow": "GETTING HERE",
     "title": "TRAVEL",
-    "intro": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua ut enim ad minim.",
+    "intro": "San Juan Island is - well yes, you guessed it - an island! That means it's surrounded by water, so you will either arrive by boat or plane, unless you are an excellent swimmer. ",
     "photo": "images/ferry_window.jpg",
     "photoAlt": "The San Juan Islands",
     "modes": [
@@ -67,6 +67,11 @@
         "label": "ON ISLAND",
         "route": "GETTING AROUND",
         "body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor incididunt."
+      },
+      {
+        "label": "Overview",
+        "route": "Getting there",
+        "body": "Most guests will fly into Seattle-Tacoma (SEA), then rent a car, carpool, or take a shuttle north to the ferry terminal in Anacortes. Paine Field (PAE) and Bellingham (BLI) are closer, but tend to have fewer flights—worth checking if they work for you!"
       }
     ],
     "stayHidden": false,

@@ -61,17 +61,19 @@
       {
         "label": "BY FERRY",
         "route": "ANACORTES → FRIDAY HARBOR",
-        "body": "We highly recommend taking the ferry (and it's fun!). "
+        "body": "We highly recommend taking the ferry (and it's fun!). You can bring your car or park in Anacortes and walk on. If you’re bringing a car, reserve a spot both ways; walk-ons don’t need one.",
+        "url": "https://wsdot.wa.gov/travel/washington-state-ferries"
       },
       {
         "label": "BY AIR",
         "route": "SEAPLANE & COMMUTER",
-        "body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor incididunt."
+        "body": "Skip the drive and ferry with a flight from Seattle directly into Friday Harbor. Faster, more expensive and objectively very cool",
+        "url": "https://kenmoreair.com/friday-harbor/"
       },
       {
         "label": "ON ISLAND",
         "route": "GETTING AROUND",
-        "body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor incididunt."
+        "body": "Friday Harbor is very walkable, and we’ll provide transportation to and from the welcome dinner on Friday and wedding on Saturday. If you want to explore beyond town, bring a car."
       }
     ],
     "stayHidden": false,

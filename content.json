@@ -13,7 +13,7 @@
     "botanicalHidden": false
   },
   "schedule": {
-    "hidden": true,
+    "hidden": false,
     "eyebrow": "THE WEEKEND",
     "title": "SCHEDULE OF EVENTS",
     "photoAlt": "The San Juan Islands from the ferry",
@@ -22,7 +22,10 @@
         "label": "FRIDAY — 07 · 30 · 27",
         "events": [
           {
-            "name": "WELCOME DINNER"
+            "name": "WELCOME DINNER",
+            "line1": "Join us for a welcome dinner on Friday. ",
+            "line2": "Saltwater Farm",
+            "attire": "Western Elegance"
           }
         ]
       },
@@ -30,10 +33,8 @@
         "label": "SATURDAY — 07 · 31 · 27",
         "events": [
           {
-            "name": "THE CEREMONY"
-          },
-          {
-            "name": "THE CELEBRATION"
+            "name": "THE WEDDING",
+            "line2": "Saltwater Farm"
           }
         ]
       },

@@ -106,8 +106,18 @@ const PAGES = [
   { file: 'faq.html', label: 'FAQ', hidden: !!c.faq.hidden },
 ];
 
+const DEFAULT_ORDER = ['schedule', 'travel', 'registry', 'faq'];
+const KEY_TO_FILE = { schedule: 'schedule.html', travel: 'travel.html', registry: 'registry.html', faq: 'faq.html' };
+const orderedKeys = [];
+for (const o of (c.site.navOrder || [])) {
+  const k = o && o.page;
+  if (KEY_TO_FILE[k] && !orderedKeys.includes(k)) orderedKeys.push(k);
+}
+for (const k of DEFAULT_ORDER) if (!orderedKeys.includes(k)) orderedKeys.push(k);
+const NAV_PAGES = [PAGES[0], ...orderedKeys.map(k => PAGES.find(p => p.file === KEY_TO_FILE[k]))];
+
 const navLinksFor = current => {
-  const links = PAGES.filter(p => !p.hidden).map(p => {
+  const links = NAV_PAGES.filter(p => !p.hidden).map(p => {
     const cls = p.file === current ? ' class="is-current"' : '';
     return `      <a${cls} href="${p.file}">${p.label}</a>`;
   });

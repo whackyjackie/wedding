@@ -10,7 +10,21 @@
     "rsvpUrl": "#",
     "rsvpHidden": true,
     "bandHidden": true,
-    "botanicalHidden": false
+    "botanicalHidden": false,
+    "navOrder": [
+      {
+        "page": "travel"
+      },
+      {
+        "page": "schedule"
+      },
+      {
+        "page": "registry"
+      },
+      {
+        "page": "faq"
+      }
+    ]
   },
   "schedule": {
     "hidden": false,

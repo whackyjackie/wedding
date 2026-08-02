@@ -73,8 +73,8 @@
         "body": "Most guests will fly into Seattle-Tacoma (SEA), then rent a car, carpool, or take a shuttle north to the ferry terminal in Anacortes. Paine Field (PAE) and Bellingham (BLI) are closer, but tend to have fewer flights—worth checking if they work for you!"
       },
       {
-        "label": "BY FERRY",
-        "route": "ANACORTES → FRIDAY HARBOR",
+        "label": "ANACORTES → FRIDAY HARBOR",
+        "route": "BY FERRY",
         "body": "We highly recommend taking the ferry (and it's fun!). You can bring your car or park in Anacortes and walk on. If you’re bringing a car, reserve a spot both ways; walk-ons don’t need one.",
         "url": "https://wsdot.wa.gov/travel/washington-state-ferries"
       },

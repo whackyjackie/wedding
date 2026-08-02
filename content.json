@@ -79,8 +79,8 @@
         "url": "https://wsdot.wa.gov/travel/washington-state-ferries"
       },
       {
-        "label": "BY AIR",
-        "route": "SEAPLANE & COMMUTER",
+        "label": "SEATTLE → FRIDAY HARBOR",
+        "route": "SEAPLANE",
         "body": "Skip the drive and ferry with a flight from Seattle directly into Friday Harbor. Faster, more expensive and objectively very cool",
         "url": "https://kenmoreair.com/friday-harbor/"
       },

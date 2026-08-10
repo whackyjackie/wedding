@@ -33,25 +33,16 @@
     "photoAlt": "Friday Harbor, San Juan Island",
     "days": [
       {
-        "date": "JUL 30",
-        "dow": "FRIDAY",
         "events": [
           {
-            "name": "WELCOME DINNER",
-            "venue": "Saltwater Farm",
-            "detail": "Western Elegance",
-            "note": "Join us for a welcome dinner on Friday."
+            "name": "WELCOME EVENT"
           }
         ]
       },
       {
-        "date": "JUL 31",
-        "dow": "SATURDAY",
         "events": [
           {
-            "name": "THE WEDDING",
-            "venue": "Saltwater Farm",
-            "detail": "Timing to follow"
+            "name": "THE WEDDING"
           }
         ]
       }

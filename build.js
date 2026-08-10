@@ -199,7 +199,9 @@ const crypto = require('crypto');
 const hashOf = p => crypto.createHash('md5')
   .update(fs.readFileSync(path.join(ROOT, p))).digest('hex').slice(0, 10);
 const CSS_V = hashOf('styles.css');
-const FONTS = ['fonts/TAYBasal-Regular.woff2', 'fonts/Archivo-var.woff2'];
+// font preload hrefs stay unhashed so they match the URLs inside styles.css —
+// a ?v= query on the preload alone would make the browser download fonts twice
+const FONTS = [];
 const FONT_V = Object.fromEntries(FONTS.map(f => [f, hashOf(f)]));
 const HASHED_ASSETS = ['images/favicon.png', 'images/apple-touch-icon.png', 'images/og.jpg']
   .filter(p => fs.existsSync(path.join(ROOT, p)));

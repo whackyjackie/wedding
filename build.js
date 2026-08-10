@@ -191,8 +191,6 @@ const tokens = {
   RSVP_ENTRY_WEDDING: JSON.stringify(c.rsvp.entryWedding || ''),
   RSVP_ENTRY_WELCOME: JSON.stringify(c.rsvp.entryWelcome || ''),
   RSVP_ENTRY_DIETARY: JSON.stringify(c.rsvp.entryDietary || ''),
-  RSVP_ENTRY_SONG: JSON.stringify(c.rsvp.entrySong || ''),
-  RSVP_ENTRY_NOTE: JSON.stringify(c.rsvp.entryNote || ''),
   TRAVEL_EYEBROW: esc(c.travel.eyebrow),
   TRAVEL_TITLE: esc(c.travel.title),
   TRAVEL_INTRO: esc(c.travel.intro),

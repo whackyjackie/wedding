@@ -60,16 +60,6 @@
               <input id="rf-dietary" name="dietary" type="text" placeholder="Allergies, vegetarian, gluten-free…">
             </div>
 
-            <div class="rsvpF__field">
-              <label for="rf-song">A SONG THAT GETS YOU DANCING <span class="rsvpF__optional">— OPTIONAL</span></label>
-              <input id="rf-song" name="song" type="text">
-            </div>
-
-            <div class="rsvpF__field">
-              <label for="rf-note">A NOTE FOR US <span class="rsvpF__optional">— OPTIONAL</span></label>
-              <textarea id="rf-note" name="note" rows="3"></textarea>
-            </div>
-
             <!-- honeypot: humans never see or fill this -->
             <div class="rsvpF__hp" aria-hidden="true">
               <label for="rf-website">WEBSITE</label>
@@ -104,9 +94,7 @@
       name: {{RSVP_ENTRY_NAME}},
       wedding: {{RSVP_ENTRY_WEDDING}},
       welcome: {{RSVP_ENTRY_WELCOME}},
-      dietary: {{RSVP_ENTRY_DIETARY}},
-      song: {{RSVP_ENTRY_SONG}},
-      note: {{RSVP_ENTRY_NOTE}}
+      dietary: {{RSVP_ENTRY_DIETARY}}
     }
   };
 
@@ -135,8 +123,6 @@
     data.append(CONFIG.entries.wedding, wedding.value);
     data.append(CONFIG.entries.welcome, welcome.value);
     data.append(CONFIG.entries.dietary, form.dietary.value.trim());
-    data.append(CONFIG.entries.song, form.song.value.trim());
-    data.append(CONFIG.entries.note, form.note.value.trim());
     fetch(CONFIG.formUrl, { method: 'POST', mode: 'no-cors', body: data })
       .catch(function () {})                      // no-cors is opaque; treat as sent
       .then(done);

@@ -38,7 +38,8 @@
         "events": [
           {
             "name": "WELCOME EVENT",
-            "venue": "Saltwater Farm"
+            "venue": "Saltwater Farm",
+            "detail": "7pm"
           }
         ]
       },
@@ -59,7 +60,6 @@
     "eyebrow": "KINDLY REPLY",
     "title": "RSVP",
     "intro": "We can't wait to celebrate with you on San Juan Island.",
-    "deadline": "",
     "weddingLabel": "THE WEDDING — SATURDAY, JULY 31",
     "acceptLabel": "Joyfully accepts",
     "declineLabel": "Regretfully declines",
@@ -67,14 +67,7 @@
     "welcomeYes": "Count us in",
     "welcomeNo": "Can't make Friday",
     "thanksTitle": "RESPONSE RECEIVED",
-    "thanksNote": "Thank you — we can't wait to see you in the islands.",
-    "formUrl": "",
-    "entryName": "",
-    "entryWedding": "",
-    "entryWelcome": "",
-    "entryDietary": "",
-    "entrySong": "",
-    "entryNote": ""
+    "thanksNote": "Thank you — we can't wait to see you in the islands."
   },
   "travel": {
     "hidden": false,

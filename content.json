@@ -118,7 +118,7 @@
     "registryUrl": "#"
   },
   "faq": {
-    "hidden": true,
+    "hidden": false,
     "eyebrow": "GOOD TO KNOW",
     "title": "ADDITIONAL DETAILS",
     "items": [

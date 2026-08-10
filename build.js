@@ -186,6 +186,9 @@ const tokens = {
   RSVP_THANKS_TITLE: esc(c.rsvp.thanksTitle),
   RSVP_THANKS_NOTE: esc(c.rsvp.thanksNote),
   // JS string literals, not HTML — JSON-encoded so quotes can't break the script
+  RSVP_VIDEO_ID: JSON.stringify(
+    ((c.rsvp.video || '').match(/(?:youtu\.be\/|[?&]v=|\/embed\/|\/shorts\/)([A-Za-z0-9_-]{11})/) || [])[1] || ''
+  ),
   RSVP_FORM_URL: JSON.stringify(c.rsvp.formUrl || ''),
   RSVP_ENTRY_NAME: JSON.stringify(c.rsvp.entryName || ''),
   RSVP_ENTRY_WEDDING: JSON.stringify(c.rsvp.entryWedding || ''),

@@ -79,6 +79,7 @@ content:
           - { name: welcomeNo, label: "Welcome-event \"no\" choice", type: string }
           - { name: thanksTitle, label: Confirmation title, type: string }
           - { name: thanksNote, label: Confirmation note, type: string }
+          - { name: video, label: "YouTube link that plays after replying (empty for none)", type: string }
           - { name: formUrl, label: "Google Form formResponse URL (leave empty until connected)", type: string }
           - { name: entryName, label: "Google Form entry id — name", type: string }
           - { name: entryWedding, label: "Google Form entry id — wedding", type: string }

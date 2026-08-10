@@ -533,6 +533,17 @@ a { color: inherit; }
   color: var(--ink-65);
 }
 
+.rsvpD__video:not(:empty) {
+  margin-top: 36px;
+}
+
+.rsvpD__video iframe {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border: none;
+}
+
 /* ============================================================
    Split sections — image beside copy (the approved pattern)
    ============================================================ */

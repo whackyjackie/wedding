@@ -76,6 +76,7 @@
           <svg viewBox="0 0 34 34" width="20" height="20" aria-hidden="true" style="color: var(--cocoa)"><path fill="currentColor" d="M16.28 4.62L18.92 12.43L26.29 8.79L21.74 15.66L29.16 18.99L20.97 19.88L22.99 27.83L17.25 21.95L12.06 28.52L13.31 20.26L4.94 20.31L12.08 16.15L6.87 9.61L14.6 12.7Z"/></svg>
           <div class="rsvpD__title">{{RSVP_THANKS_TITLE}}</div>
           <p class="rsvpD__note">{{RSVP_THANKS_NOTE}}</p>
+          <div class="rsvpD__video" id="rsvp-video"></div>
         </div>
     </section>
   </main>
@@ -89,6 +90,7 @@
   // configured yet, submissions aren't stored — the page still shows
   // the confirmation so the full flow can be previewed.
   var CONFIG = {
+    videoId: {{RSVP_VIDEO_ID}},
     formUrl: {{RSVP_FORM_URL}},
     entries: {
       name: {{RSVP_ENTRY_NAME}},
@@ -104,6 +106,17 @@
   function done() {
     document.getElementById('rsvpF').hidden = true;
     document.getElementById('rsvp-done').hidden = false;
+    // the video only enters the page now, so it can't play under the form;
+    // inserting during the submit click keeps the autoplay gesture window
+    if (CONFIG.videoId) {
+      var v = document.createElement('iframe');
+      v.src = 'https://www.youtube-nocookie.com/embed/' + CONFIG.videoId +
+              '?autoplay=1&playsinline=1&rel=0';
+      v.allow = 'autoplay; encrypted-media; picture-in-picture';
+      v.allowFullscreen = true;
+      v.title = 'A little something from us';
+      document.getElementById('rsvp-video').appendChild(v);
+    }
   }
 
   form.addEventListener('submit', function (e) {

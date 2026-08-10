@@ -4,7 +4,7 @@
     "monogramImage": "images/monogram-animated.webp",
     "monogramImageDark": "images/monogram-animated.webp",
     "browserTitle": "Jackie & Meredith — July 31, 2027",
-    "tagline": "MEET US ON THE ISLAND",
+    "tagline": "MEET US IN THE ISLANDS",
     "heroImage": "images/ferry_overlook_1.jpg",
     "heroAlt": "Ferry to San Juan Island",
     "rsvpUrl": "#",
@@ -33,7 +33,7 @@
     "photoAlt": "Friday Harbor, San Juan Island",
     "days": [
       {
-        "date": "Jul 30",
+        "date": "July 30",
         "dow": "Friday",
         "events": [
           {
@@ -43,7 +43,7 @@
         ]
       },
       {
-        "date": "Jul 31",
+        "date": "July 31",
         "dow": "Saturday",
         "events": [
           {
@@ -91,7 +91,7 @@
       {
         "label": "SEATTLE → FRIDAY HARBOR",
         "route": "BY SEAPLANE",
-        "body": "Skip the drive and ferry with a flight from Seattle directly into Friday Harbor. Faster, more expensive and objectively very cool",
+        "body": "Skip the drive and ferry with a flight from Seattle directly into Friday Harbor. Faster, more expensive and objectively very cool.",
         "url": "https://kenmoreair.com/friday-harbor/"
       },
       {
@@ -132,13 +132,13 @@
     "registryUrl": "#"
   },
   "faq": {
-    "hidden": true,
+    "hidden": false,
     "eyebrow": "GOOD TO KNOW",
     "title": "ADDITIONAL DETAILS",
     "items": [
       {
         "q": "WILL THE CEREMONY BE OUTSIDE?",
-        "a": "Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor."
+        "a": "Yes. Our ceremony, cocktail hour, and dancing will be outside. We recommend dressing accordingly (i.e., wedge/block heels)."
       },
       {
         "q": "ARE CHILDREN ALLOWED AT THE CEREMONY?",
@@ -150,7 +150,7 @@
       },
       {
         "q": "WILL THERE BE PARKING AVAILABLE?",
-        "a": "Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor."
+        "a": "Yes. We will also be providing transportation to and from downtown Friday Harbor. "
       }
     ]
   }

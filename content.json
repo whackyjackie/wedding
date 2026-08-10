@@ -69,11 +69,7 @@
     "thanksTitle": "RESPONSE RECEIVED",
     "thanksNote": "Thank you — we can't wait to see you in the islands.",
     "video": "https://www.youtube.com/watch?v=J9e7hZ3L0DM",
-    "formUrl": "https://docs.google.com/forms/d/e/1FAIpQLSdUapPLoK1WxS7HqHt0T54D4It189e9DF8Gzzhod9z54BuqrA/formResponse",
-    "entryName": "entry.1445363102",
-    "entryWedding": "entry.2078358953",
-    "entryWelcome": "entry.888218599",
-    "entryDietary": "entry.139757159"
+    "scriptUrl": "https://script.google.com/macros/s/AKfycbwXX7r6KiLZeUC8emWOtvP0R7jlul0vkOo2dQxmzRtoQf-q1mffyuh4SWANT6Bwrfg8/exec"
   },
   "travel": {
     "hidden": false,

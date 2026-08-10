@@ -34,50 +34,55 @@
     </div>
 
     <section class="rsvpWrap">
-        <div class="rsvpF" id="rsvpF">
-          <p class="rsvpF__intro">{{RSVP_INTRO}}</p>
+
+      <!-- step 1: find your invitation -->
+      <div id="rsvp-find">
+        <p class="rsvpF__intro">{{RSVP_INTRO}}</p>
 {{RSVP_DEADLINE}}
-          <form id="rsvp-form" novalidate>
-            <div class="rsvpF__field">
-              <label for="rf-name">NAME(S)</label>
-              <input id="rf-name" name="name" type="text" autocomplete="name" placeholder="Everyone you're replying for" required>
+        <form id="find-form" novalidate>
+          <div class="rsvpF__field">
+            <label for="rf-q">FIND YOUR INVITATION</label>
+            <div class="rsvpFind__row">
+              <input id="rf-q" name="q" type="text" autocomplete="name" placeholder="Your name as it appears on the invite">
+              <button class="rsvpF__submit rsvpFind__go" type="submit">LOOK UP</button>
             </div>
+          </div>
+          <!-- honeypot: humans never see or fill this -->
+          <div class="rsvpF__hp" aria-hidden="true">
+            <label for="rf-website">WEBSITE</label>
+            <input id="rf-website" name="website" type="text" tabindex="-1" autocomplete="off">
+          </div>
+          <div class="rsvpF__err" id="find-msg" role="status" hidden></div>
+        </form>
 
-            <fieldset class="rsvpF__field rsvpF__choices">
-              <legend>{{RSVP_WEDDING_LABEL}}</legend>
-              <label class="rsvpF__choice"><input type="radio" name="wedding" value="{{RSVP_ACCEPT}}" required> <span>{{RSVP_ACCEPT}}</span></label>
-              <label class="rsvpF__choice"><input type="radio" name="wedding" value="{{RSVP_DECLINE}}"> <span>{{RSVP_DECLINE}}</span></label>
-            </fieldset>
-
-            <fieldset class="rsvpF__field rsvpF__choices">
-              <legend>{{RSVP_WELCOME_LABEL}}</legend>
-              <label class="rsvpF__choice"><input type="radio" name="welcome" value="{{RSVP_WELCOME_YES}}" required> <span>{{RSVP_WELCOME_YES}}</span></label>
-              <label class="rsvpF__choice"><input type="radio" name="welcome" value="{{RSVP_WELCOME_NO}}"> <span>{{RSVP_WELCOME_NO}}</span></label>
-            </fieldset>
-
-            <div class="rsvpF__field">
-              <label for="rf-dietary">DIETARY RESTRICTIONS <span class="rsvpF__optional">— OPTIONAL</span></label>
-              <input id="rf-dietary" name="dietary" type="text" placeholder="Allergies, vegetarian, gluten-free…">
-            </div>
-
-            <!-- honeypot: humans never see or fill this -->
-            <div class="rsvpF__hp" aria-hidden="true">
-              <label for="rf-website">WEBSITE</label>
-              <input id="rf-website" name="website" type="text" tabindex="-1" autocomplete="off">
-            </div>
-
-            <div class="rsvpF__err" id="rf-err" role="alert" hidden>PLEASE ADD YOUR NAME AND AN ANSWER FOR BOTH EVENTS</div>
-
-            <button class="rsvpF__submit" type="submit">SEND RESPONSE</button>
-          </form>
+        <div id="party-choices" class="rsvpChoices" hidden>
+          <div class="rsvpChoices__label">WHICH PARTY IS YOURS?</div>
+          <div id="party-choice-list"></div>
         </div>
+      </div>
 
-        <div class="rsvpD" id="rsvp-done" hidden>
-          <svg viewBox="0 0 34 34" width="20" height="20" aria-hidden="true" style="color: var(--cocoa)"><path fill="currentColor" d="M16.28 4.62L18.92 12.43L26.29 8.79L21.74 15.66L29.16 18.99L20.97 19.88L22.99 27.83L17.25 21.95L12.06 28.52L13.31 20.26L4.94 20.31L12.08 16.15L6.87 9.61L14.6 12.7Z"/></svg>
-          <div class="rsvpD__title">{{RSVP_THANKS_TITLE}}</div>
-          <p class="rsvpD__note">{{RSVP_THANKS_NOTE}}</p>
-          <div class="rsvpD__video" id="rsvp-video"></div>
+      <!-- step 2: the party replies -->
+      <div id="rsvp-party" hidden>
+        <div class="rsvpParty__head">
+          <div class="rsvpParty__name" id="party-name"></div>
+          <button class="rsvpParty__again" id="search-again" type="button">NOT YOU? SEARCH AGAIN</button>
         </div>
+        <p class="rsvpParty__updated" id="party-updated" hidden></p>
+        <form id="party-form" novalidate>
+          <div id="member-cards"></div>
+          <div class="rsvpF__err" id="party-msg" role="alert" hidden></div>
+          <button class="rsvpF__submit" type="submit" id="party-send">SEND RESPONSES</button>
+        </form>
+      </div>
+
+      <!-- step 3: received -->
+      <div class="rsvpD" id="rsvp-done" hidden>
+        <svg viewBox="0 0 34 34" width="20" height="20" aria-hidden="true" style="color: var(--cocoa)"><path fill="currentColor" d="M16.28 4.62L18.92 12.43L26.29 8.79L21.74 15.66L29.16 18.99L20.97 19.88L22.99 27.83L17.25 21.95L12.06 28.52L13.31 20.26L4.94 20.31L12.08 16.15L6.87 9.61L14.6 12.7Z"/></svg>
+        <div class="rsvpD__title">{{RSVP_THANKS_TITLE}}</div>
+        <p class="rsvpD__note">{{RSVP_THANKS_NOTE}}</p>
+        <div class="rsvpD__video" id="rsvp-video"></div>
+      </div>
+
     </section>
   </main>
 
@@ -86,28 +91,163 @@
 
 <script>
 (function () {
-  // Submits into a Google Form (invisible to guests). With no form
-  // configured yet, submissions aren't stored — the page still shows
-  // the confirmation so the full flow can be previewed.
   var CONFIG = {
+    scriptUrl: {{RSVP_SCRIPT_URL}},
     videoId: {{RSVP_VIDEO_ID}},
-    formUrl: {{RSVP_FORM_URL}},
-    entries: {
-      name: {{RSVP_ENTRY_NAME}},
-      wedding: {{RSVP_ENTRY_WEDDING}},
-      welcome: {{RSVP_ENTRY_WELCOME}},
-      dietary: {{RSVP_ENTRY_DIETARY}}
+    labels: {
+      accept: {{RSVP_ACCEPT_JS}},
+      decline: {{RSVP_DECLINE_JS}},
+      welcomeYes: {{RSVP_WELCOME_YES_JS}},
+      welcomeNo: {{RSVP_WELCOME_NO_JS}},
+      wedding: {{RSVP_WEDDING_LABEL_JS}},
+      welcome: {{RSVP_WELCOME_LABEL_JS}}
     }
   };
 
-  var form = document.getElementById('rsvp-form');
-  var err = document.getElementById('rf-err');
+  var findView = document.getElementById('rsvp-find');
+  var partyView = document.getElementById('rsvp-party');
+  var findForm = document.getElementById('find-form');
+  var findMsg = document.getElementById('find-msg');
+  var choicesBox = document.getElementById('party-choices');
+  var choiceList = document.getElementById('party-choice-list');
+  var partyForm = document.getElementById('party-form');
+  var partyMsg = document.getElementById('party-msg');
+  var current = null;
+
+  function say(el, text) { el.textContent = text; el.hidden = !text; }
+
+  // ---- step 1: lookup ----
+
+  findForm.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var q = findForm.q.value.trim();
+    if (q.length < 2) { say(findMsg, 'PLEASE TYPE A NAME FROM YOUR INVITATION'); return; }
+    if (findForm.website.value) return;          // honeypot
+    say(findMsg, 'LOOKING UP…');
+    choicesBox.hidden = true;
+    fetch(CONFIG.scriptUrl + '?q=' + encodeURIComponent(q))
+      .then(function (r) { return r.json(); })
+      .then(function (data) {
+        var parties = data.parties || [];
+        if (!parties.length) {
+          say(findMsg, "WE CAN'T FIND THAT NAME — TRY ANOTHER SPELLING, OR TEXT US");
+        } else if (parties.length === 1) {
+          say(findMsg, '');
+          showParty(parties[0]);
+        } else {
+          say(findMsg, '');
+          choiceList.innerHTML = '';
+          parties.forEach(function (p) {
+            var b = document.createElement('button');
+            b.type = 'button';
+            b.className = 'rsvpChoices__btn';
+            b.textContent = p.party + ' — ' + p.members.map(function (m) { return m.name.split(' ')[0]; }).join(', ');
+            b.addEventListener('click', function () { choicesBox.hidden = true; showParty(p); });
+            choiceList.appendChild(b);
+          });
+          choicesBox.hidden = false;
+        }
+      })
+      .catch(function () { say(findMsg, 'SOMETHING WENT WRONG — PLEASE TRY AGAIN'); });
+  });
+
+  // ---- step 2: per-person cards ----
+
+  function radioGroup(member, kind, yes, no, existing) {
+    var name = kind + '::' + member;
+    var checkedYes = existing === yes ? ' checked' : '';
+    var checkedNo = existing === no ? ' checked' : '';
+    return '<fieldset class="rsvpF__choices rsvpCard__group">' +
+      '<legend>' + esc(kind === 'wedding' ? CONFIG.labels.wedding : CONFIG.labels.welcome) + '</legend>' +
+      '<label class="rsvpF__choice"><input type="radio" name="' + esc(name) + '" value="' + esc(yes) + '"' + checkedYes + '> <span>' + esc(yes) + '</span></label>' +
+      '<label class="rsvpF__choice"><input type="radio" name="' + esc(name) + '" value="' + esc(no) + '"' + checkedNo + '> <span>' + esc(no) + '</span></label>' +
+      '</fieldset>';
+  }
+
+  function esc(s) {
+    return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+  }
+
+  function showParty(p) {
+    current = p;
+    document.getElementById('party-name').textContent = p.party;
+    var updatedNote = '';
+    var cards = p.members.map(function (m) {
+      var ex = m.existing || {};
+      if (ex.when && !updatedNote) updatedNote = 'You replied on ' + ex.when + ' — you can update everything below.';
+      return '<div class="rsvpCard">' +
+        '<div class="rsvpCard__name">' + esc(m.name) + '</div>' +
+        radioGroup(m.name, 'wedding', CONFIG.labels.accept, CONFIG.labels.decline, ex.wedding) +
+        radioGroup(m.name, 'welcome', CONFIG.labels.welcomeYes, CONFIG.labels.welcomeNo, ex.welcome) +
+        '<div class="rsvpF__field rsvpCard__diet">' +
+          '<label for="diet::' + esc(m.name) + '">DIETARY RESTRICTIONS <span class="rsvpF__optional">— OPTIONAL</span></label>' +
+          '<input id="diet::' + esc(m.name) + '" type="text" value="' + esc(ex.dietary || '') + '" placeholder="Allergies, vegetarian, gluten-free…">' +
+        '</div>' +
+        '</div>';
+    }).join('');
+    document.getElementById('member-cards').innerHTML = cards;
+    var up = document.getElementById('party-updated');
+    up.textContent = updatedNote;
+    up.hidden = !updatedNote;
+    findView.hidden = true;
+    partyView.hidden = false;
+    say(partyMsg, '');
+    window.scrollTo({ top: 0 });
+  }
+
+  document.getElementById('search-again').addEventListener('click', function () {
+    partyView.hidden = true;
+    findView.hidden = false;
+    findForm.q.value = '';
+    findForm.q.focus();
+  });
+
+  // ---- submit ----
+
+  partyForm.addEventListener('submit', function (e) {
+    e.preventDefault();
+    if (!current) return;
+    var responses = [];
+    for (var i = 0; i < current.members.length; i++) {
+      var m = current.members[i].name;
+      var wedding = partyForm.querySelector('input[name="wedding::' + CSS.escape(m) + '"]:checked');
+      var welcome = partyForm.querySelector('input[name="welcome::' + CSS.escape(m) + '"]:checked');
+      if (!wedding || !welcome) {
+        say(partyMsg, 'PLEASE ANSWER BOTH EVENTS FOR EVERYONE');
+        return;
+      }
+      responses.push({
+        name: m,
+        wedding: wedding.value,
+        welcome: welcome.value,
+        dietary: (document.getElementById('diet::' + m) || { value: '' }).value.trim()
+      });
+    }
+    say(partyMsg, '');
+    var btn = document.getElementById('party-send');
+    btn.disabled = true;
+    btn.textContent = 'SENDING…';
+    fetch(CONFIG.scriptUrl, {
+      method: 'POST',
+      body: JSON.stringify({ party: current.party, responses: responses, hp: findForm.website.value })
+    })
+      .then(function (r) { return r.json(); })
+      .then(function (data) {
+        if (!data.ok) throw new Error(data.error || 'error');
+        done();
+      })
+      .catch(function () {
+        btn.disabled = false;
+        btn.textContent = 'SEND RESPONSES';
+        say(partyMsg, "SOMETHING WENT WRONG — PLEASE TRY AGAIN, OR TEXT US");
+      });
+  });
 
   function done() {
-    document.getElementById('rsvpF').hidden = true;
+    partyView.hidden = true;
     document.getElementById('rsvp-done').hidden = false;
-    // the video only enters the page now, so it can't play under the form;
-    // inserting during the submit click keeps the autoplay gesture window
+    window.scrollTo({ top: 0 });
     if (CONFIG.videoId) {
       var v = document.createElement('iframe');
       v.src = 'https://www.youtube-nocookie.com/embed/' + CONFIG.videoId +
@@ -118,28 +258,6 @@
       document.getElementById('rsvp-video').appendChild(v);
     }
   }
-
-  form.addEventListener('submit', function (e) {
-    e.preventDefault();
-    var name = form.name.value.trim();
-    var wedding = form.querySelector('input[name="wedding"]:checked');
-    var welcome = form.querySelector('input[name="welcome"]:checked');
-    if (!name || !wedding || !welcome) { err.hidden = false; return; }
-    err.hidden = true;
-
-    if (form.website.value) { done(); return; }   // honeypot: pretend success
-
-    if (!CONFIG.formUrl) { done(); return; }      // not connected yet: preview mode
-
-    var data = new FormData();
-    data.append(CONFIG.entries.name, name);
-    data.append(CONFIG.entries.wedding, wedding.value);
-    data.append(CONFIG.entries.welcome, welcome.value);
-    data.append(CONFIG.entries.dietary, form.dietary.value.trim());
-    fetch(CONFIG.formUrl, { method: 'POST', mode: 'no-cors', body: data })
-      .catch(function () {})                      // no-cors is opaque; treat as sent
-      .then(done);
-  });
 })();
 </script>
 

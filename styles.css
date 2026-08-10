@@ -411,8 +411,8 @@ a { color: inherit; }
 
 .rsvpF__field { margin-top: 40px; }
 
-.rsvpF label,
-.rsvpF legend {
+.rsvpWrap label,
+.rsvpWrap legend {
   display: block;
   font-size: 11px;
   letter-spacing: 0.22em;
@@ -425,8 +425,8 @@ a { color: inherit; }
   color: var(--ink-55);
 }
 
-.rsvpF input[type="text"],
-.rsvpF textarea {
+.rsvpWrap input[type="text"],
+.rsvpWrap textarea {
   display: block;
   width: 100%;
   margin-top: 6px;
@@ -442,12 +442,12 @@ a { color: inherit; }
   resize: vertical;
 }
 
-.rsvpF input[type="text"]:focus,
-.rsvpF textarea:focus {
+.rsvpWrap input[type="text"]:focus,
+.rsvpWrap textarea:focus {
   border-bottom-color: var(--cocoa);
 }
 
-.rsvpF ::placeholder { color: var(--ink-55); opacity: 1; }
+.rsvpWrap ::placeholder { color: var(--ink-55); opacity: 1; }
 
 .rsvpF__choices {
   border: none;
@@ -510,6 +510,106 @@ a { color: inherit; }
   border-color: var(--cocoa);
   color: var(--cream-on-cocoa);
 }
+
+/* ---- find-your-invitation row ---- */
+
+.rsvpFind__row {
+  display: flex;
+  gap: 18px;
+  align-items: flex-end;
+}
+
+.rsvpFind__row input { flex: 1; }
+
+.rsvpFind__go {
+  margin-top: 0 !important;
+  flex: none;
+  padding: 14px 26px;
+}
+
+/* multiple matching parties */
+.rsvpChoices { margin-top: 36px; }
+
+.rsvpChoices__label {
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  font-weight: 500;
+}
+
+.rsvpChoices__btn {
+  display: block;
+  width: 100%;
+  margin-top: 14px;
+  background: transparent;
+  border: 1.5px solid var(--ink);
+  padding: 14px 18px;
+  font-family: inherit;
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink);
+  text-align: left;
+  cursor: pointer;
+}
+
+.rsvpChoices__btn:hover {
+  border-color: var(--cocoa);
+  color: var(--cocoa);
+}
+
+/* ---- the party's cards ---- */
+
+.rsvpParty__head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.rsvpParty__name {
+  font-size: 15px;
+  letter-spacing: 0.26em;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.rsvpParty__again {
+  background: none;
+  border: none;
+  padding: 0;
+  font-family: inherit;
+  font-size: 10px;
+  letter-spacing: 0.24em;
+  color: var(--ink-55);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  cursor: pointer;
+  flex: none;
+}
+
+.rsvpParty__updated {
+  margin: 14px 0 0;
+  font-size: 12.5px;
+  line-height: 1.8;
+  font-weight: 300;
+  color: var(--cocoa);
+}
+
+.rsvpCard {
+  border-top: 1.5px solid var(--ink);
+  margin-top: 36px;
+  padding-top: 26px;
+}
+
+.rsvpCard__name {
+  font-size: 13px;
+  letter-spacing: 0.24em;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.rsvpCard .rsvpCard__group { margin-top: 24px; }
+.rsvpCard .rsvpCard__diet { margin-top: 26px; }
 
 /* confirmation state */
 .rsvpD {

@@ -189,11 +189,13 @@ const tokens = {
   RSVP_VIDEO_ID: JSON.stringify(
     ((c.rsvp.video || '').match(/(?:youtu\.be\/|[?&]v=|\/embed\/|\/shorts\/)([A-Za-z0-9_-]{11})/) || [])[1] || ''
   ),
-  RSVP_FORM_URL: JSON.stringify(c.rsvp.formUrl || ''),
-  RSVP_ENTRY_NAME: JSON.stringify(c.rsvp.entryName || ''),
-  RSVP_ENTRY_WEDDING: JSON.stringify(c.rsvp.entryWedding || ''),
-  RSVP_ENTRY_WELCOME: JSON.stringify(c.rsvp.entryWelcome || ''),
-  RSVP_ENTRY_DIETARY: JSON.stringify(c.rsvp.entryDietary || ''),
+  RSVP_SCRIPT_URL: JSON.stringify(c.rsvp.scriptUrl || ''),
+  RSVP_ACCEPT_JS: JSON.stringify(c.rsvp.acceptLabel),
+  RSVP_DECLINE_JS: JSON.stringify(c.rsvp.declineLabel),
+  RSVP_WELCOME_YES_JS: JSON.stringify(c.rsvp.welcomeYes),
+  RSVP_WELCOME_NO_JS: JSON.stringify(c.rsvp.welcomeNo),
+  RSVP_WEDDING_LABEL_JS: JSON.stringify(c.rsvp.weddingLabel),
+  RSVP_WELCOME_LABEL_JS: JSON.stringify(c.rsvp.welcomeLabel),
   TRAVEL_EYEBROW: esc(c.travel.eyebrow),
   TRAVEL_TITLE: esc(c.travel.title),
   TRAVEL_INTRO: esc(c.travel.intro),

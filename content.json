@@ -38,8 +38,7 @@
         "events": [
           {
             "name": "WELCOME EVENT",
-            "venue": "Saltwater Farm",
-            "detail": "Western Elegance"
+            "venue": "Saltwater Farm"
           }
         ]
       },

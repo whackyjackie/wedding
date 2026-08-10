@@ -71,14 +71,21 @@ content:
           - { name: title, label: "Big vertical word (keep it short)", type: string }
           - { name: intro, label: Intro line, type: string }
           - { name: deadline, label: "Reply-by line (e.g. Kindly reply by June 1, 2027) — empty hides it", type: string }
-          - { name: acceptLabel, label: "\"Yes\" choice label", type: string }
-          - { name: declineLabel, label: "\"No\" choice label", type: string }
+          - { name: weddingLabel, label: "Wedding question heading", type: string }
+          - { name: acceptLabel, label: "Wedding \"yes\" choice", type: string }
+          - { name: declineLabel, label: "Wedding \"no\" choice", type: string }
+          - { name: welcomeLabel, label: "Welcome-event question heading", type: string }
+          - { name: welcomeYes, label: "Welcome-event \"yes\" choice", type: string }
+          - { name: welcomeNo, label: "Welcome-event \"no\" choice", type: string }
           - { name: thanksTitle, label: Confirmation title, type: string }
           - { name: thanksNote, label: Confirmation note, type: string }
           - { name: formUrl, label: "Google Form formResponse URL (leave empty until connected)", type: string }
-          - { name: entryName, label: "Google Form entry id — name field", type: string }
-          - { name: entryAttending, label: "Google Form entry id — attending field", type: string }
-          - { name: entryNote, label: "Google Form entry id — note field", type: string }
+          - { name: entryName, label: "Google Form entry id — name", type: string }
+          - { name: entryWedding, label: "Google Form entry id — wedding", type: string }
+          - { name: entryWelcome, label: "Google Form entry id — welcome event", type: string }
+          - { name: entryDietary, label: "Google Form entry id — dietary", type: string }
+          - { name: entrySong, label: "Google Form entry id — song", type: string }
+          - { name: entryNote, label: "Google Form entry id — note", type: string }
 
       - name: travel
         label: Travel page

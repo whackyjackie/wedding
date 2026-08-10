@@ -177,14 +177,21 @@ const tokens = {
   RSVP_DEADLINE: c.rsvp.deadline
     ? `          <div class="rsvpF__deadline">${esc(c.rsvp.deadline)}</div>`
     : '',
+  RSVP_WEDDING_LABEL: esc(c.rsvp.weddingLabel),
   RSVP_ACCEPT: esc(c.rsvp.acceptLabel),
   RSVP_DECLINE: esc(c.rsvp.declineLabel),
+  RSVP_WELCOME_LABEL: esc(c.rsvp.welcomeLabel),
+  RSVP_WELCOME_YES: esc(c.rsvp.welcomeYes),
+  RSVP_WELCOME_NO: esc(c.rsvp.welcomeNo),
   RSVP_THANKS_TITLE: esc(c.rsvp.thanksTitle),
   RSVP_THANKS_NOTE: esc(c.rsvp.thanksNote),
   // JS string literals, not HTML — JSON-encoded so quotes can't break the script
   RSVP_FORM_URL: JSON.stringify(c.rsvp.formUrl || ''),
   RSVP_ENTRY_NAME: JSON.stringify(c.rsvp.entryName || ''),
-  RSVP_ENTRY_ATTENDING: JSON.stringify(c.rsvp.entryAttending || ''),
+  RSVP_ENTRY_WEDDING: JSON.stringify(c.rsvp.entryWedding || ''),
+  RSVP_ENTRY_WELCOME: JSON.stringify(c.rsvp.entryWelcome || ''),
+  RSVP_ENTRY_DIETARY: JSON.stringify(c.rsvp.entryDietary || ''),
+  RSVP_ENTRY_SONG: JSON.stringify(c.rsvp.entrySong || ''),
   RSVP_ENTRY_NOTE: JSON.stringify(c.rsvp.entryNote || ''),
   TRAVEL_EYEBROW: esc(c.travel.eyebrow),
   TRAVEL_TITLE: esc(c.travel.title),

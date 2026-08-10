@@ -47,13 +47,29 @@
             </div>
 
             <fieldset class="rsvpF__field rsvpF__choices">
-              <legend>WILL YOU BE ATTENDING?</legend>
-              <label class="rsvpF__choice"><input type="radio" name="attending" value="{{RSVP_ACCEPT}}" required> <span>{{RSVP_ACCEPT}}</span></label>
-              <label class="rsvpF__choice"><input type="radio" name="attending" value="{{RSVP_DECLINE}}"> <span>{{RSVP_DECLINE}}</span></label>
+              <legend>{{RSVP_WEDDING_LABEL}}</legend>
+              <label class="rsvpF__choice"><input type="radio" name="wedding" value="{{RSVP_ACCEPT}}" required> <span>{{RSVP_ACCEPT}}</span></label>
+              <label class="rsvpF__choice"><input type="radio" name="wedding" value="{{RSVP_DECLINE}}"> <span>{{RSVP_DECLINE}}</span></label>
+            </fieldset>
+
+            <fieldset class="rsvpF__field rsvpF__choices">
+              <legend>{{RSVP_WELCOME_LABEL}}</legend>
+              <label class="rsvpF__choice"><input type="radio" name="welcome" value="{{RSVP_WELCOME_YES}}" required> <span>{{RSVP_WELCOME_YES}}</span></label>
+              <label class="rsvpF__choice"><input type="radio" name="welcome" value="{{RSVP_WELCOME_NO}}"> <span>{{RSVP_WELCOME_NO}}</span></label>
             </fieldset>
 
             <div class="rsvpF__field">
-              <label for="rf-note">DIETARY NOTES OR A MESSAGE <span class="rsvpF__optional">— OPTIONAL</span></label>
+              <label for="rf-dietary">DIETARY RESTRICTIONS <span class="rsvpF__optional">— OPTIONAL</span></label>
+              <input id="rf-dietary" name="dietary" type="text" placeholder="Allergies, vegetarian, gluten-free…">
+            </div>
+
+            <div class="rsvpF__field">
+              <label for="rf-song">A SONG THAT GETS YOU DANCING <span class="rsvpF__optional">— OPTIONAL</span></label>
+              <input id="rf-song" name="song" type="text">
+            </div>
+
+            <div class="rsvpF__field">
+              <label for="rf-note">A NOTE FOR US <span class="rsvpF__optional">— OPTIONAL</span></label>
               <textarea id="rf-note" name="note" rows="3"></textarea>
             </div>
 
@@ -63,7 +79,7 @@
               <input id="rf-website" name="website" type="text" tabindex="-1" autocomplete="off">
             </div>
 
-            <div class="rsvpF__err" id="rf-err" role="alert" hidden>PLEASE ADD YOUR NAME AND AN ANSWER ABOVE</div>
+            <div class="rsvpF__err" id="rf-err" role="alert" hidden>PLEASE ADD YOUR NAME AND AN ANSWER FOR BOTH EVENTS</div>
 
             <button class="rsvpF__submit" type="submit">SEND RESPONSE</button>
           </form>
@@ -115,7 +131,14 @@
   // the confirmation so the full flow can be previewed.
   var CONFIG = {
     formUrl: {{RSVP_FORM_URL}},
-    entries: { name: {{RSVP_ENTRY_NAME}}, attending: {{RSVP_ENTRY_ATTENDING}}, note: {{RSVP_ENTRY_NOTE}} }
+    entries: {
+      name: {{RSVP_ENTRY_NAME}},
+      wedding: {{RSVP_ENTRY_WEDDING}},
+      welcome: {{RSVP_ENTRY_WELCOME}},
+      dietary: {{RSVP_ENTRY_DIETARY}},
+      song: {{RSVP_ENTRY_SONG}},
+      note: {{RSVP_ENTRY_NOTE}}
+    }
   };
 
   var form = document.getElementById('rsvp-form');
@@ -132,8 +155,9 @@
   form.addEventListener('submit', function (e) {
     e.preventDefault();
     var name = form.name.value.trim();
-    var attending = form.querySelector('input[name="attending"]:checked');
-    if (!name || !attending) { err.hidden = false; return; }
+    var wedding = form.querySelector('input[name="wedding"]:checked');
+    var welcome = form.querySelector('input[name="welcome"]:checked');
+    if (!name || !wedding || !welcome) { err.hidden = false; return; }
     err.hidden = true;
 
     if (form.website.value) { done(); return; }   // honeypot: pretend success
@@ -142,7 +166,10 @@
 
     var data = new FormData();
     data.append(CONFIG.entries.name, name);
-    data.append(CONFIG.entries.attending, attending.value);
+    data.append(CONFIG.entries.wedding, wedding.value);
+    data.append(CONFIG.entries.welcome, welcome.value);
+    data.append(CONFIG.entries.dietary, form.dietary.value.trim());
+    data.append(CONFIG.entries.song, form.song.value.trim());
     data.append(CONFIG.entries.note, form.note.value.trim());
     fetch(CONFIG.formUrl, { method: 'POST', mode: 'no-cors', body: data })
       .catch(function () {})                      // no-cors is opaque; treat as sent

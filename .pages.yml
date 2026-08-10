@@ -43,25 +43,25 @@ content:
         type: object
         fields:
           - { name: hidden, label: Hide this page (WIP), type: boolean }
-          - { name: eyebrow, label: Small label above title, type: string }
-          - { name: title, label: Page title, type: string }
-          - { name: photo, label: Photo under title (optional), type: image }
+          - { name: title, label: "Big vertical word down the left (keep it one short word)", type: string }
+          - { name: photo, label: Photo at the top (optional), type: image }
           - { name: photoAlt, label: Photo description, type: string }
           - name: days
             label: Days
             type: object
             list: true
             fields:
-              - { name: label, label: "Day heading (e.g. FRIDAY — 07 · 30 · 27)", type: string }
+              - { name: date, label: "Date (e.g. JUL 30)", type: string }
+              - { name: dow, label: "Day of week (e.g. FRIDAY)", type: string }
               - name: events
                 label: Events (1 or 2 per day)
                 type: object
                 list: true
                 fields:
                   - { name: name, label: Event name, type: string }
-                  - { name: line1, label: Detail line 1 (time), type: string }
-                  - { name: line2, label: Detail line 2 (place), type: string }
-                  - { name: attire, label: Attire line, type: string }
+                  - { name: venue, label: Venue, type: string }
+                  - { name: detail, label: "Second detail (attire, timing…)", type: string }
+                  - { name: note, label: Small note underneath (optional), type: string }
 
       - name: travel
         label: Travel page

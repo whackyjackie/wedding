@@ -25,17 +25,59 @@
   </nav>
 
   <main class="page__main">
-    <div class="page-title">
-      <div class="eyebrow">{{SCHEDULE_EYEBROW}}</div>
-      <h1>{{SCHEDULE_TITLE}}</h1>
-    </div>
-{{SCHEDULE_PHOTO_BAND}}
-{{SCHEDULE_DAYS}}
+    <section class="schD">
+      <div class="schD__rail">
+        <h1 class="schD__word" aria-label="{{SCHEDULE_WORD}}">
+          <svg aria-hidden="true" viewBox="0 0 116 900"><text id="schD-word-text" lengthAdjust="spacing" font-size="150" textLength="900" transform="translate(100 900) rotate(-90)">{{SCHEDULE_WORD}}</text></svg>
+        </h1>
+      </div>
+
+      <div class="schD__body">
+{{SCHEDULE_PHOTO}}
+        <div class="schD-list">
+{{SCHEDULE_ROWS}}
+        </div>
+      </div>
+    </section>
 {{COCOA_BAND}}
   </main>
 
   <footer class="site-footer">{{FOOTER}}</footer>
 </div>
+
+<script>
+(function () {
+  // The vertical word spans the rail height reading bottom-to-top.
+  // Glyphs keep their natural proportions: the font-size is solved from a
+  // measurement so the word fills the height on its own; any remainder is
+  // absorbed as letter-spacing (lengthAdjust="spacing"), never glyph stretch.
+  var rail = document.querySelector('.schD__rail');
+  var svg = document.querySelector('.schD__word svg');
+  var text = document.getElementById('schD-word-text');
+  var CAP = 0.72;                     // approx cap-height / font-size
+
+  function fit() {
+    var w = rail.clientWidth, h = rail.clientHeight;
+    if (!w || !h) return;
+    text.removeAttribute('textLength');
+    text.setAttribute('font-size', 100);
+    var natural = text.getComputedTextLength();
+    if (!natural) return;
+    // fill the height, but never let the caps grow wider than the rail
+    var fs = Math.min(100 * h / natural, w / CAP);
+    svg.setAttribute('viewBox', '0 0 ' + w + ' ' + h);
+    text.setAttribute('font-size', fs);
+    text.setAttribute('textLength', h);
+    // baseline runs up the rail; center the cap band in the rail width
+    var x = Math.min(w, w / 2 + fs * CAP / 2);
+    text.setAttribute('transform', 'translate(' + x + ' ' + h + ') rotate(-90)');
+  }
+
+  fit();
+  addEventListener('resize', fit);
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(fit);
+})();
+</script>
 
 </body>
 </html>

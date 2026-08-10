@@ -28,34 +28,31 @@
   },
   "schedule": {
     "hidden": false,
-    "eyebrow": "THE WEEKEND",
-    "title": "SCHEDULE OF EVENTS",
-    "photoAlt": "The San Juan Islands from the ferry",
+    "title": "SCHEDULE",
+    "photo": "images/friday_harbor.jpg",
+    "photoAlt": "Friday Harbor, San Juan Island",
     "days": [
       {
-        "label": "FRIDAY — 07 · 30 · 27",
+        "date": "JUL 30",
+        "dow": "FRIDAY",
         "events": [
           {
             "name": "WELCOME DINNER",
-            "line1": "Join us for a welcome dinner on Friday. ",
-            "line2": "Saltwater Farm",
-            "attire": "Western Elegance"
+            "venue": "Saltwater Farm",
+            "detail": "Western Elegance",
+            "note": "Join us for a welcome dinner on Friday."
           }
         ]
       },
       {
-        "label": "SATURDAY — 07 · 31 · 27",
+        "date": "JUL 31",
+        "dow": "SATURDAY",
         "events": [
           {
             "name": "THE WEDDING",
-            "line2": "Saltwater Farm"
+            "venue": "Saltwater Farm",
+            "detail": "Timing to follow"
           }
-        ]
-      },
-      {
-        "label": "SUNDAY — 08 · 01 · 27",
-        "events": [
-          {}
         ]
       }
     ]

@@ -274,72 +274,111 @@ a { color: inherit; }
 }
 
 /* ============================================================
-   Schedule
+   Schedule — flyer layout: vertical wordmark rail on the left,
+   photo + ruled day ledger on the right
    ============================================================ */
 
-.schedule-day {
-  max-width: 920px;
+.schD {
+  max-width: 1180px;
   margin: 0 auto;
-  padding: 0 60px 84px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 40px;
+  padding: 72px 56px 96px;
+  display: grid;
+  grid-template-columns: 116px minmax(0, 1fr);
+  column-gap: 56px;
+  align-items: stretch;
 }
 
-.schedule-day--last { padding-bottom: 110px; }
+/* the vertical wordmark; sized to span the rail by the page script */
+.schD__rail {
+  position: relative;
+}
 
-.day-rule {
-  display: flex;
-  justify-content: center;
+.schD__word {
+  margin: 0;
+  position: absolute;
+  inset: 0;
+}
+
+.schD__word svg {
+  position: absolute;
+  inset: 0;
   width: 100%;
+  height: 100%;
+  overflow: visible;
 }
 
-.day-rule span {
-  font-size: 11px;
-  letter-spacing: 0.34em;
+.schD__word text {
+  font-family: 'TAY Basal', 'Archivo', sans-serif;
+  font-weight: 400;
+  fill: var(--cocoa);
+  user-select: none;
+}
+
+.schD__photo {
+  display: block;
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  object-position: 50% 62%;   /* keep the harbor, trim the sky */
+}
+
+.schD-list {
+  margin-top: 8px;
+}
+
+.schD-row {
+  display: grid;
+  grid-template-columns: 128px minmax(0, 1fr);
+  column-gap: 28px;
+  padding: 22px 2px 24px;
+  border-bottom: 1px solid var(--hair);
+}
+
+/* the list ends on its own rule so the page doesn't trail off */
+.schD-row:last-child { border-bottom: 1.5px solid var(--rule); }
+
+.schD-row__date {
+  font-size: 12px;
+  letter-spacing: 0.22em;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.schD-row__day {
+  margin-top: 7px;
+  font-size: 10px;
+  letter-spacing: 0.3em;
+  font-weight: 400;
   color: var(--ink-55);
+  text-transform: uppercase;
 }
 
-.event {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 18px;
-  text-align: center;
+.schD-event + .schD-event { margin-top: 26px; }
+
+.schD-row__name {
+  font-size: 13px;
+  letter-spacing: 0.22em;
+  font-weight: 600;
+  text-transform: uppercase;
 }
 
-.event__name {
-  font-size: 15px;
+.schD-row__meta {
+  margin-top: 8px;
+  font-size: 11px;
   letter-spacing: 0.24em;
+  color: var(--ink-65);
+  text-transform: uppercase;
 }
 
-.event__detail {
-  font-size: 11.5px;
-  letter-spacing: 0.28em;
-  line-height: 2.3;
+.schD-row__meta span { white-space: nowrap; }
+
+.schD-row__note {
+  margin: 10px 0 0;
+  font-size: 12.5px;
+  line-height: 1.9;
   font-weight: 300;
   color: var(--ink-65);
-}
-
-.event__attire {
-  font-size: 10.5px;
-  letter-spacing: 0.3em;
-  color: var(--ink-55);
-}
-
-.event-pair {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  width: 100%;
-}
-
-.event-pair .event {
-  padding: 10px 50px;
-}
-
-.event-pair .event:first-child {
-  border-right: 0;
+  max-width: 52ch;
 }
 
 /* ============================================================
@@ -622,9 +661,16 @@ a.linklist__row:hover .linklist__arrow {
   .split__txt h1,
   .split__txt h2 { font-size: 24px; }
 
-  .event-pair { grid-template-columns: 1fr; gap: 44px; }
-  .event-pair .event { padding: 0; }
-  .event-pair .event:first-child { padding: 0; }
+  .schD {
+    grid-template-columns: 84px minmax(0, 1fr);
+    column-gap: 32px;
+    padding: 48px 24px 72px;
+  }
+  .schD__photo { height: 300px; }
+  .schD-row {
+    grid-template-columns: 96px minmax(0, 1fr);
+    column-gap: 20px;
+  }
 
   .page-title { padding: 72px 32px 56px; }
 
@@ -642,4 +688,18 @@ a.linklist__row:hover .linklist__arrow {
     letter-spacing: 0.16em;
   }
   .page-title h1 { font-size: 24px; }
+
+  .schD {
+    grid-template-columns: 56px minmax(0, 1fr);
+    column-gap: 22px;
+    padding: 40px 20px 64px;
+  }
+  .schD__photo { height: 220px; }
+  .schD-row {
+    grid-template-columns: 1fr;
+    row-gap: 10px;
+    padding: 20px 2px;
+  }
+  .schD-row__date { display: inline; }
+  .schD-row__day { display: inline; margin-left: 10px; }
 }

@@ -54,25 +54,31 @@ ${art}
 
 // ---------- schedule ----------
 
-const eventBlock = e => `      <div class="event">
-        <div class="event__name">${esc(e.name)}</div>
-        <div class="event__detail">${esc(e.line1)}<br>${esc(e.line2)}</div>
-        <div class="event__attire">${esc(e.attire)}</div>
-      </div>`;
+// one event inside a day row: name, venue · detail meta, optional note.
+// the meta separator only appears between parts that exist.
+const schedEvent = e => {
+  const meta = [e.venue, e.detail].filter(Boolean)
+    .map(t => `<span>${esc(t)}</span>`)
+    .join(' <span class="schD-row__meta-sep">·</span> ');
+  return `          <div class="schD-event">
+            <div class="schD-row__name">${esc(e.name)}</div>${meta ? `
+            <div class="schD-row__meta">${meta}</div>` : ''}${e.note ? `
+            <p class="schD-row__note">${esc(e.note)}</p>` : ''}
+          </div>`;
+};
 
-const days = c.schedule.days.map((day, i) => {
-  const last = i === c.schedule.days.length - 1 ? ' schedule-day--last' : '';
-  const events = day.events.length > 1
-    ? `      <div class="event-pair">\n${day.events.map(eventBlock).join('\n')}\n      </div>`
-    : eventBlock(day.events[0]);
-  return `    <section class="schedule-day${last}">
-      <div class="day-rule"><span>${esc(day.label)}</span></div>
-${events}
-    </section>`;
-}).join('\n\n');
+const schedRows = c.schedule.days.map(day => `        <div class="schD-row">
+          <div>
+            <div class="schD-row__date">${esc(day.date)}</div>
+            <div class="schD-row__day">${esc(day.dow)}</div>
+          </div>
+          <div class="schD-events">
+${day.events.map(schedEvent).join('\n')}
+          </div>
+        </div>`).join('\n\n');
 
-const photoBand = (src, alt) => src
-  ? `    <section class="photo-band"><img src="${esc(src)}" alt="${esc(alt)}"></section>`
+const schedPhoto = c.schedule.photo
+  ? `        <img class="schD__photo" src="${esc(c.schedule.photo)}" alt="${esc(c.schedule.photoAlt)}">`
   : '';
 
 // ---------- travel ----------
@@ -162,10 +168,9 @@ const tokens = {
   HERO_ALT: esc(c.site.heroAlt),
   TAGLINE: esc(c.site.tagline),
   COCOA_BAND: cocoaBand(),
-  SCHEDULE_EYEBROW: esc(c.schedule.eyebrow),
-  SCHEDULE_TITLE: esc(c.schedule.title),
-  SCHEDULE_PHOTO_BAND: photoBand(c.schedule.photo, c.schedule.photoAlt),
-  SCHEDULE_DAYS: days,
+  SCHEDULE_WORD: esc(c.schedule.title),
+  SCHEDULE_PHOTO: schedPhoto,
+  SCHEDULE_ROWS: schedRows,
   TRAVEL_EYEBROW: esc(c.travel.eyebrow),
   TRAVEL_TITLE: esc(c.travel.title),
   TRAVEL_INTRO: esc(c.travel.intro),

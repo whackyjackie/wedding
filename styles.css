@@ -382,6 +382,155 @@ a { color: inherit; }
 }
 
 /* ============================================================
+   RSVP — same rail frame as the schedule, form on the right
+   ============================================================ */
+
+.rsvpF { max-width: 560px; }
+
+.rsvpF__eyebrow {
+  font-size: 10.5px;
+  letter-spacing: 0.34em;
+  color: var(--ink-55);
+}
+
+.rsvpF__intro {
+  margin: 18px 0 0;
+  font-size: 13.5px;
+  line-height: 2;
+  font-weight: 300;
+  color: var(--ink-65);
+}
+
+.rsvpF__deadline {
+  margin-top: 10px;
+  font-size: 10.5px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--ink-55);
+}
+
+.rsvpF__field { margin-top: 40px; }
+
+.rsvpF label,
+.rsvpF legend {
+  display: block;
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  font-weight: 500;
+  padding: 0;
+}
+
+.rsvpF__optional {
+  font-weight: 400;
+  color: var(--ink-55);
+}
+
+.rsvpF input[type="text"],
+.rsvpF textarea {
+  display: block;
+  width: 100%;
+  margin-top: 6px;
+  background: transparent;
+  border: none;
+  border-bottom: 1.5px solid var(--ink);
+  border-radius: 0;
+  padding: 10px 2px;
+  font-family: inherit;
+  font-size: 14px;
+  color: var(--ink);
+  outline: none;
+  resize: vertical;
+}
+
+.rsvpF input[type="text"]:focus,
+.rsvpF textarea:focus {
+  border-bottom-color: var(--cocoa);
+}
+
+.rsvpF ::placeholder { color: var(--ink-55); opacity: 1; }
+
+.rsvpF__choices {
+  border: none;
+  margin: 40px 0 0;
+  padding: 0;
+}
+
+.rsvpF__choice {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 16px;
+  cursor: pointer;
+}
+
+.rsvpF__choice input {
+  accent-color: var(--ink);
+  width: 15px;
+  height: 15px;
+  margin: 0;
+}
+
+.rsvpF__choice span {
+  font-size: 12px;
+  letter-spacing: 0.22em;
+  font-weight: 400;
+  text-transform: uppercase;
+}
+
+.rsvpF__hp {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+.rsvpF__err {
+  margin-top: 28px;
+  font-size: 10.5px;
+  letter-spacing: 0.26em;
+  color: var(--cocoa);
+}
+
+.rsvpF__submit {
+  margin-top: 44px;
+  font-family: inherit;
+  font-size: 10.5px;
+  letter-spacing: 0.3em;
+  font-weight: 500;
+  background: var(--ink);
+  color: var(--paper);
+  border: 1.5px solid var(--ink);
+  padding: 16px 44px;
+  cursor: pointer;
+}
+
+.rsvpF__submit:hover {
+  background: var(--cocoa);
+  border-color: var(--cocoa);
+  color: var(--cream-on-cocoa);
+}
+
+/* confirmation state */
+.rsvpD { max-width: 560px; }
+
+.rsvpD__title {
+  margin-top: 22px;
+  font-size: 15px;
+  letter-spacing: 0.26em;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.rsvpD__note {
+  margin: 14px 0 0;
+  font-size: 13.5px;
+  line-height: 2;
+  font-weight: 300;
+  color: var(--ink-65);
+}
+
+/* ============================================================
    Split sections — image beside copy (the approved pattern)
    ============================================================ */
 

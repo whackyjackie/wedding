@@ -63,6 +63,23 @@ content:
                   - { name: detail, label: "Second detail (attire, timing…)", type: string }
                   - { name: note, label: Small note underneath (optional), type: string }
 
+      - name: rsvp
+        label: RSVP page
+        type: object
+        fields:
+          - { name: eyebrow, label: Small label above title, type: string }
+          - { name: title, label: "Big vertical word (keep it short)", type: string }
+          - { name: intro, label: Intro line, type: string }
+          - { name: deadline, label: "Reply-by line (e.g. Kindly reply by June 1, 2027) — empty hides it", type: string }
+          - { name: acceptLabel, label: "\"Yes\" choice label", type: string }
+          - { name: declineLabel, label: "\"No\" choice label", type: string }
+          - { name: thanksTitle, label: Confirmation title, type: string }
+          - { name: thanksNote, label: Confirmation note, type: string }
+          - { name: formUrl, label: "Google Form formResponse URL (leave empty until connected)", type: string }
+          - { name: entryName, label: "Google Form entry id — name field", type: string }
+          - { name: entryAttending, label: "Google Form entry id — attending field", type: string }
+          - { name: entryNote, label: "Google Form entry id — note field", type: string }
+
       - name: travel
         label: Travel page
         type: object

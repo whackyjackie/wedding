@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>RSVP — {{BROWSER_TITLE}}</title>
+<meta name="theme-color" content="#F6F1E3">
+<meta name="description" content="Jackie & Meredith — July 31, 2027 — Saltwater Farm, San Juan Island">
+<meta property="og:title" content="RSVP — Jackie &amp; Meredith">
+<meta property="og:description" content="Meet us in the islands — July 31, 2027, Saltwater Farm, San Juan Island">
+<meta property="og:image" content="images/og.jpg">
+<meta property="og:type" content="website">
+<meta name="robots" content="noindex">
+<link rel="icon" type="image/png" href="images/favicon.png">
+<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+<link rel="preload" href="fonts/TAYBasal-Regular.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/Apfel-Regular.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/Apfel-Mittel.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/Apfel-Satt.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="page">
+  <nav class="nav nav--page">
+    <a class="nav__monogram" href="index.html">{{MONOGRAM}}</a>
+{{NAV_LINKS}}
+  </nav>
+
+  <main class="page__main">
+    <section class="schD">
+      <div class="schD__rail">
+        <h1 class="schD__word" aria-label="{{RSVP_WORD}}">
+          <svg aria-hidden="true" viewBox="0 0 116 700"><text id="schD-word-text" lengthAdjust="spacing" font-size="150" textLength="700" transform="translate(100 700) rotate(-90)">{{RSVP_WORD}}</text></svg>
+        </h1>
+      </div>
+
+      <div class="schD__body">
+        <div class="rsvpF" id="rsvpF">
+          <div class="rsvpF__eyebrow">{{RSVP_EYEBROW}}</div>
+          <p class="rsvpF__intro">{{RSVP_INTRO}}</p>
+{{RSVP_DEADLINE}}
+          <form id="rsvp-form" novalidate>
+            <div class="rsvpF__field">
+              <label for="rf-name">NAME(S)</label>
+              <input id="rf-name" name="name" type="text" autocomplete="name" placeholder="Everyone you're replying for" required>
+            </div>
+
+            <fieldset class="rsvpF__field rsvpF__choices">
+              <legend>WILL YOU BE ATTENDING?</legend>
+              <label class="rsvpF__choice"><input type="radio" name="attending" value="{{RSVP_ACCEPT}}" required> <span>{{RSVP_ACCEPT}}</span></label>
+              <label class="rsvpF__choice"><input type="radio" name="attending" value="{{RSVP_DECLINE}}"> <span>{{RSVP_DECLINE}}</span></label>
+            </fieldset>
+
+            <div class="rsvpF__field">
+              <label for="rf-note">DIETARY NOTES OR A MESSAGE <span class="rsvpF__optional">— OPTIONAL</span></label>
+              <textarea id="rf-note" name="note" rows="3"></textarea>
+            </div>
+
+            <!-- honeypot: humans never see or fill this -->
+            <div class="rsvpF__hp" aria-hidden="true">
+              <label for="rf-website">WEBSITE</label>
+              <input id="rf-website" name="website" type="text" tabindex="-1" autocomplete="off">
+            </div>
+
+            <div class="rsvpF__err" id="rf-err" role="alert" hidden>PLEASE ADD YOUR NAME AND AN ANSWER ABOVE</div>
+
+            <button class="rsvpF__submit" type="submit">SEND RESPONSE</button>
+          </form>
+        </div>
+
+        <div class="rsvpD" id="rsvp-done" hidden>
+          <svg viewBox="0 0 34 34" width="20" height="20" aria-hidden="true" style="color: var(--cocoa)"><path fill="currentColor" d="M16.28 4.62L18.92 12.43L26.29 8.79L21.74 15.66L29.16 18.99L20.97 19.88L22.99 27.83L17.25 21.95L12.06 28.52L13.31 20.26L4.94 20.31L12.08 16.15L6.87 9.61L14.6 12.7Z"/></svg>
+          <div class="rsvpD__title">{{RSVP_THANKS_TITLE}}</div>
+          <p class="rsvpD__note">{{RSVP_THANKS_NOTE}}</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">{{FOOTER}}</footer>
+</div>
+
+<script>
+(function () {
+  // vertical word: same fit approach as the schedule page
+  var rail = document.querySelector('.schD__rail');
+  var svg = document.querySelector('.schD__word svg');
+  var text = document.getElementById('schD-word-text');
+  var CAP = 0.72;
+
+  function fit() {
+    var w = rail.clientWidth, h = rail.clientHeight;
+    if (!w || !h) return;
+    text.removeAttribute('textLength');
+    text.setAttribute('font-size', 100);
+    var natural = text.getComputedTextLength();
+    if (!natural) return;
+    var fs = Math.min(100 * h / natural, w / CAP);
+    svg.setAttribute('viewBox', '0 0 ' + w + ' ' + h);
+    text.setAttribute('font-size', fs);
+    text.setAttribute('textLength', h);
+    var x = Math.min(w, w / 2 + fs * CAP / 2);
+    text.setAttribute('transform', 'translate(' + x + ' ' + h + ') rotate(-90)');
+  }
+
+  fit();
+  addEventListener('resize', fit);
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(fit);
+})();
+
+(function () {
+  // Submits into a Google Form (invisible to guests). With no form
+  // configured yet, submissions aren't stored — the page still shows
+  // the confirmation so the full flow can be previewed.
+  var CONFIG = {
+    formUrl: {{RSVP_FORM_URL}},
+    entries: { name: {{RSVP_ENTRY_NAME}}, attending: {{RSVP_ENTRY_ATTENDING}}, note: {{RSVP_ENTRY_NOTE}} }
+  };
+
+  var form = document.getElementById('rsvp-form');
+  var err = document.getElementById('rf-err');
+
+  function done() {
+    document.getElementById('rsvpF').hidden = true;
+    document.getElementById('rsvp-done').hidden = false;
+    (document.querySelector('.schD__rail') || {}).dataset && requestAnimationFrame(function () {
+      dispatchEvent(new Event('resize'));   // rail refits to the shorter page
+    });
+  }
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var name = form.name.value.trim();
+    var attending = form.querySelector('input[name="attending"]:checked');
+    if (!name || !attending) { err.hidden = false; return; }
+    err.hidden = true;
+
+    if (form.website.value) { done(); return; }   // honeypot: pretend success
+
+    if (!CONFIG.formUrl) { done(); return; }      // not connected yet: preview mode
+
+    var data = new FormData();
+    data.append(CONFIG.entries.name, name);
+    data.append(CONFIG.entries.attending, attending.value);
+    data.append(CONFIG.entries.note, form.note.value.trim());
+    fetch(CONFIG.formUrl, { method: 'POST', mode: 'no-cors', body: data })
+      .catch(function () {})                      // no-cors is opaque; treat as sent
+      .then(done);
+  });
+})();
+</script>
+
+</body>
+</html>

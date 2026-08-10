@@ -55,6 +55,20 @@
       }
     ]
   },
+  "rsvp": {
+    "eyebrow": "KINDLY REPLY",
+    "title": "RSVP",
+    "intro": "We can't wait to celebrate with you on San Juan Island.",
+    "deadline": "",
+    "acceptLabel": "Joyfully accepts",
+    "declineLabel": "Regretfully declines",
+    "thanksTitle": "RESPONSE RECEIVED",
+    "thanksNote": "Thank you — we can't wait to see you in the islands.",
+    "formUrl": "",
+    "entryName": "",
+    "entryAttending": "",
+    "entryNote": ""
+  },
   "travel": {
     "hidden": false,
     "eyebrow": "GETTING HERE",

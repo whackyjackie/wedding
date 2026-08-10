@@ -171,6 +171,21 @@ const tokens = {
   SCHEDULE_WORD: esc(c.schedule.title),
   SCHEDULE_PHOTO: schedPhoto,
   SCHEDULE_ROWS: schedRows,
+  RSVP_WORD: esc(c.rsvp.title),
+  RSVP_EYEBROW: esc(c.rsvp.eyebrow),
+  RSVP_INTRO: esc(c.rsvp.intro),
+  RSVP_DEADLINE: c.rsvp.deadline
+    ? `          <div class="rsvpF__deadline">${esc(c.rsvp.deadline)}</div>`
+    : '',
+  RSVP_ACCEPT: esc(c.rsvp.acceptLabel),
+  RSVP_DECLINE: esc(c.rsvp.declineLabel),
+  RSVP_THANKS_TITLE: esc(c.rsvp.thanksTitle),
+  RSVP_THANKS_NOTE: esc(c.rsvp.thanksNote),
+  // JS string literals, not HTML — JSON-encoded so quotes can't break the script
+  RSVP_FORM_URL: JSON.stringify(c.rsvp.formUrl || ''),
+  RSVP_ENTRY_NAME: JSON.stringify(c.rsvp.entryName || ''),
+  RSVP_ENTRY_ATTENDING: JSON.stringify(c.rsvp.entryAttending || ''),
+  RSVP_ENTRY_NOTE: JSON.stringify(c.rsvp.entryNote || ''),
   TRAVEL_EYEBROW: esc(c.travel.eyebrow),
   TRAVEL_TITLE: esc(c.travel.title),
   TRAVEL_INTRO: esc(c.travel.intro),

@@ -68,7 +68,7 @@ content:
         type: object
         fields:
           - { name: eyebrow, label: Small label above title, type: string }
-          - { name: title, label: "Big vertical word (keep it short)", type: string }
+          - { name: title, label: Page title, type: string }
           - { name: intro, label: Intro line, type: string }
           - { name: deadline, label: "Reply-by line (e.g. Kindly reply by June 1, 2027) — empty hides it", type: string }
           - { name: weddingLabel, label: "Wedding question heading", type: string }

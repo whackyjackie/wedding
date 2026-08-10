@@ -28,16 +28,13 @@
   </nav>
 
   <main class="page__main">
-    <section class="schD">
-      <div class="schD__rail">
-        <h1 class="schD__word" aria-label="{{RSVP_WORD}}">
-          <svg aria-hidden="true" viewBox="0 0 116 700"><text id="schD-word-text" lengthAdjust="spacing" font-size="150" textLength="700" transform="translate(100 700) rotate(-90)">{{RSVP_WORD}}</text></svg>
-        </h1>
-      </div>
+    <div class="page-title">
+      <div class="eyebrow">{{RSVP_EYEBROW}}</div>
+      <h1>{{RSVP_WORD}}</h1>
+    </div>
 
-      <div class="schD__body">
+    <section class="rsvpWrap">
         <div class="rsvpF" id="rsvpF">
-          <div class="rsvpF__eyebrow">{{RSVP_EYEBROW}}</div>
           <p class="rsvpF__intro">{{RSVP_INTRO}}</p>
 {{RSVP_DEADLINE}}
           <form id="rsvp-form" novalidate>
@@ -90,7 +87,6 @@
           <div class="rsvpD__title">{{RSVP_THANKS_TITLE}}</div>
           <p class="rsvpD__note">{{RSVP_THANKS_NOTE}}</p>
         </div>
-      </div>
     </section>
   </main>
 
@@ -98,33 +94,6 @@
 </div>
 
 <script>
-(function () {
-  // vertical word: same fit approach as the schedule page
-  var rail = document.querySelector('.schD__rail');
-  var svg = document.querySelector('.schD__word svg');
-  var text = document.getElementById('schD-word-text');
-  var CAP = 0.72;
-
-  function fit() {
-    var w = rail.clientWidth, h = rail.clientHeight;
-    if (!w || !h) return;
-    text.removeAttribute('textLength');
-    text.setAttribute('font-size', 100);
-    var natural = text.getComputedTextLength();
-    if (!natural) return;
-    var fs = Math.min(100 * h / natural, w / CAP);
-    svg.setAttribute('viewBox', '0 0 ' + w + ' ' + h);
-    text.setAttribute('font-size', fs);
-    text.setAttribute('textLength', h);
-    var x = Math.min(w, w / 2 + fs * CAP / 2);
-    text.setAttribute('transform', 'translate(' + x + ' ' + h + ') rotate(-90)');
-  }
-
-  fit();
-  addEventListener('resize', fit);
-  if (document.fonts && document.fonts.ready) document.fonts.ready.then(fit);
-})();
-
 (function () {
   // Submits into a Google Form (invisible to guests). With no form
   // configured yet, submissions aren't stored — the page still shows
@@ -147,9 +116,6 @@
   function done() {
     document.getElementById('rsvpF').hidden = true;
     document.getElementById('rsvp-done').hidden = false;
-    (document.querySelector('.schD__rail') || {}).dataset && requestAnimationFrame(function () {
-      dispatchEvent(new Event('resize'));   // rail refits to the shorter page
-    });
   }
 
   form.addEventListener('submit', function (e) {

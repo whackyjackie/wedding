@@ -37,14 +37,20 @@
         "dow": "Friday",
         "events": [
           {
-            "name": "WELCOME EVENT"
+            "name": "WELCOME EVENT",
+            "venue": "Saltwater Farm",
+            "detail": "Western Elegance"
           }
         ]
       },
       {
+        "date": "Jul 31",
+        "dow": "Saturday",
         "events": [
           {
-            "name": "THE WEDDING"
+            "name": "THE WEDDING",
+            "venue": "Saltwater Farm",
+            "detail": "Timing to follow"
           }
         ]
       }

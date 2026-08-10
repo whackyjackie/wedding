@@ -4,7 +4,7 @@
     "monogramImage": "images/monogram-animated.webp",
     "monogramImageDark": "images/monogram-animated.webp",
     "browserTitle": "Jackie & Meredith — July 31, 2027",
-    "tagline": "MEET US ON THE ISLAND",
+    "tagline": "MEET US IN THE ISLANDS",
     "heroImage": "images/ferry_overlook_1.jpg",
     "heroAlt": "Ferry to San Juan Island",
     "rsvpUrl": "#",
@@ -136,7 +136,7 @@
       },
       {
         "q": "WILL THERE BE PARKING AVAILABLE?",
-        "a": "Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor."
+        "a": "Yes, there will be limited parking. "
       }
     ]
   }

@@ -618,6 +618,22 @@ a { color: inherit; }
 .rsvpCard .rsvpCard__group { margin-top: 24px; }
 .rsvpCard .rsvpCard__diet { margin-top: 26px; }
 
+/* read-only summary once a party has replied */
+.rsvpSum__row {
+  margin-top: 16px;
+  font-size: 13px;
+  font-weight: 300;
+}
+
+.rsvpSum__row span {
+  display: block;
+  margin-bottom: 4px;
+  font-size: 10px;
+  letter-spacing: 0.24em;
+  font-weight: 500;
+  color: var(--ink-55);
+}
+
 /* confirmation state */
 .rsvpD {
   text-align: center;

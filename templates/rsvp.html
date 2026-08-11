@@ -68,6 +68,7 @@
           <button class="rsvpParty__again" id="search-again" type="button">NOT YOU? SEARCH AGAIN</button>
         </div>
         <p class="rsvpParty__updated" id="party-updated" hidden></p>
+        <div id="party-summary" hidden></div>
         <form id="party-form" novalidate>
           <div id="member-cards"></div>
           <div class="rsvpF__err" id="party-msg" role="alert" hidden></div>
@@ -100,7 +101,8 @@
       welcomeYes: {{RSVP_WELCOME_YES_JS}},
       welcomeNo: {{RSVP_WELCOME_NO_JS}},
       wedding: {{RSVP_WEDDING_LABEL_JS}},
-      welcome: {{RSVP_WELCOME_LABEL_JS}}
+      welcome: {{RSVP_WELCOME_LABEL_JS}},
+      locked: {{RSVP_LOCKED_NOTE_JS}}
     }
   };
 
@@ -172,24 +174,46 @@
   function showParty(p) {
     current = p;
     document.getElementById('party-name').textContent = p.party;
-    var updatedNote = '';
-    var cards = p.members.map(function (m) {
-      var ex = m.existing || {};
-      if (ex.when && !updatedNote) updatedNote = 'You replied on ' + ex.when + ' — you can update everything below.';
-      return '<div class="rsvpCard">' +
-        '<div class="rsvpCard__name">' + esc(m.name) + '</div>' +
-        radioGroup(m.name, 'wedding', CONFIG.labels.accept, CONFIG.labels.decline, ex.wedding) +
-        radioGroup(m.name, 'welcome', CONFIG.labels.welcomeYes, CONFIG.labels.welcomeNo, ex.welcome) +
-        '<div class="rsvpF__field rsvpCard__diet">' +
-          '<label for="diet::' + esc(m.name) + '">DIETARY RESTRICTIONS <span class="rsvpF__optional">— OPTIONAL</span></label>' +
-          '<input id="diet::' + esc(m.name) + '" type="text" value="' + esc(ex.dietary || '') + '" placeholder="Allergies, vegetarian, gluten-free…">' +
-        '</div>' +
-        '</div>';
-    }).join('');
-    document.getElementById('member-cards').innerHTML = cards;
-    var up = document.getElementById('party-updated');
-    up.textContent = updatedNote;
-    up.hidden = !updatedNote;
+    var summary = document.getElementById('party-summary');
+    var replied = p.members.some(function (m) { return m.existing; });
+
+    if (replied) {
+      // one reply per party: show what was sent, no re-submitting
+      var when = '';
+      p.members.forEach(function (m) { if (m.existing && m.existing.when) when = m.existing.when; });
+      var rows = p.members.map(function (m) {
+        var ex = m.existing || {};
+        return '<div class="rsvpCard">' +
+          '<div class="rsvpCard__name">' + esc(m.name) + '</div>' +
+          '<div class="rsvpSum__row"><span>' + esc(CONFIG.labels.wedding) + '</span>' + esc(ex.wedding || '—') + '</div>' +
+          '<div class="rsvpSum__row"><span>' + esc(CONFIG.labels.welcome) + '</span>' + esc(ex.welcome || '—') + '</div>' +
+          (ex.dietary ? '<div class="rsvpSum__row"><span>DIETARY</span>' + esc(ex.dietary) + '</div>' : '') +
+          '</div>';
+      }).join('');
+      summary.innerHTML = rows;
+      summary.hidden = false;
+      partyForm.hidden = true;
+      var up = document.getElementById('party-updated');
+      up.textContent = 'You already replied' + (when ? ' on ' + when : '') + ' — here is what we have. ' + CONFIG.labels.locked;
+      up.hidden = false;
+    } else {
+      var cards = p.members.map(function (m) {
+        return '<div class="rsvpCard">' +
+          '<div class="rsvpCard__name">' + esc(m.name) + '</div>' +
+          radioGroup(m.name, 'wedding', CONFIG.labels.accept, CONFIG.labels.decline, '') +
+          radioGroup(m.name, 'welcome', CONFIG.labels.welcomeYes, CONFIG.labels.welcomeNo, '') +
+          '<div class="rsvpF__field rsvpCard__diet">' +
+            '<label for="diet::' + esc(m.name) + '">DIETARY RESTRICTIONS <span class="rsvpF__optional">— OPTIONAL</span></label>' +
+            '<input id="diet::' + esc(m.name) + '" type="text" placeholder="Allergies, vegetarian, gluten-free…">' +
+          '</div>' +
+          '</div>';
+      }).join('');
+      document.getElementById('member-cards').innerHTML = cards;
+      summary.hidden = true;
+      partyForm.hidden = false;
+      document.getElementById('party-updated').hidden = true;
+    }
+
     findView.hidden = true;
     partyView.hidden = false;
     say(partyMsg, '');
@@ -237,10 +261,14 @@
         if (!data.ok) throw new Error(data.error || 'error');
         done();
       })
-      .catch(function () {
+      .catch(function (err) {
         btn.disabled = false;
         btn.textContent = 'SEND RESPONSES';
-        say(partyMsg, "SOMETHING WENT WRONG — PLEASE TRY AGAIN, OR TEXT US");
+        if (String(err && err.message) === 'already replied') {
+          say(partyMsg, 'LOOKS LIKE YOUR PARTY ALREADY REPLIED — SEARCH YOUR NAME AGAIN TO SEE IT');
+        } else {
+          say(partyMsg, "SOMETHING WENT WRONG — PLEASE TRY AGAIN, OR TEXT US");
+        }
       });
   });
 

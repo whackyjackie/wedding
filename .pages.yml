@@ -79,6 +79,7 @@ content:
           - { name: welcomeNo, label: "Welcome-event \"no\" choice", type: string }
           - { name: thanksTitle, label: Confirmation title, type: string }
           - { name: thanksNote, label: Confirmation note, type: string }
+          - { name: lockedNote, label: "Shown when a party already replied (how to reach you for changes)", type: string }
           - { name: video, label: "YouTube link that plays after replying (empty for none)", type: string }
           - { name: scriptUrl, label: "RSVP backend URL (Apps Script /exec — don't change casually)", type: string }
 

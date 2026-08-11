@@ -988,4 +988,12 @@ a.linklist__row:hover .linklist__arrow {
   }
   .schD-row__date { display: inline; }
   .schD-row__day { display: inline; margin-left: 10px; }
+
+  /* RSVP lookup: stack the field and button on phones */
+  .rsvpFind__row {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 26px;
+  }
+  .rsvpFind__go { width: 100%; padding: 16px 26px; }
 }

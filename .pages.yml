@@ -71,12 +71,12 @@ content:
           - { name: title, label: Page title, type: string }
           - { name: intro, label: Intro line, type: string }
           - { name: deadline, label: "Reply-by line (e.g. Kindly reply by June 1, 2027) — empty hides it", type: string }
-          - { name: weddingLabel, label: "Wedding question heading", type: string }
-          - { name: acceptLabel, label: "Wedding \"yes\" choice", type: string }
-          - { name: declineLabel, label: "Wedding \"no\" choice", type: string }
-          - { name: welcomeLabel, label: "Welcome-event question heading", type: string }
+          - { name: welcomeLabel, label: "Welcome-event question heading (asked first)", type: string }
           - { name: welcomeYes, label: "Welcome-event \"yes\" choice", type: string }
           - { name: welcomeNo, label: "Welcome-event \"no\" choice", type: string }
+          - { name: weddingLabel, label: "Wedding question heading (asked second)", type: string }
+          - { name: acceptLabel, label: "Wedding \"yes\" choice", type: string }
+          - { name: declineLabel, label: "Wedding \"no\" choice", type: string }
           - { name: thanksTitle, label: Confirmation title, type: string }
           - { name: thanksNote, label: Confirmation note, type: string }
           - { name: lockedNote, label: "Shown when a party already replied (how to reach you for changes)", type: string }

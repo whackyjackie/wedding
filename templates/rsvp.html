@@ -13,6 +13,8 @@
 <meta name="robots" content="noindex">
 <link rel="icon" type="image/png" href="images/favicon.png">
 <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+<link rel="preconnect" href="https://script.google.com">
+<link rel="preconnect" href="https://script.googleusercontent.com">
 <link rel="preload" href="fonts/TAYBasal-Regular.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="fonts/Apfel-Regular.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="fonts/Apfel-Mittel.woff2" as="font" type="font/woff2" crossorigin>
@@ -106,6 +108,12 @@
     }
   };
 
+  // warm up the backend while the guest is still typing: this primes
+  // the connection and the script's guest-list cache
+  if (CONFIG.scriptUrl) {
+    fetch(CONFIG.scriptUrl + '?q=zz').catch(function () {});
+  }
+
   var findView = document.getElementById('rsvp-find');
   var partyView = document.getElementById('rsvp-party');
   var findForm = document.getElementById('find-form');
@@ -185,8 +193,8 @@
         var ex = m.existing || {};
         return '<div class="rsvpCard">' +
           '<div class="rsvpCard__name">' + esc(m.name) + '</div>' +
-          '<div class="rsvpSum__row"><span>' + esc(CONFIG.labels.wedding) + '</span>' + esc(ex.wedding || '—') + '</div>' +
           '<div class="rsvpSum__row"><span>' + esc(CONFIG.labels.welcome) + '</span>' + esc(ex.welcome || '—') + '</div>' +
+          '<div class="rsvpSum__row"><span>' + esc(CONFIG.labels.wedding) + '</span>' + esc(ex.wedding || '—') + '</div>' +
           (ex.dietary ? '<div class="rsvpSum__row"><span>DIETARY</span>' + esc(ex.dietary) + '</div>' : '') +
           '</div>';
       }).join('');
@@ -200,8 +208,8 @@
       var cards = p.members.map(function (m) {
         return '<div class="rsvpCard">' +
           '<div class="rsvpCard__name">' + esc(m.name) + '</div>' +
-          radioGroup(m.name, 'wedding', CONFIG.labels.accept, CONFIG.labels.decline, '') +
           radioGroup(m.name, 'welcome', CONFIG.labels.welcomeYes, CONFIG.labels.welcomeNo, '') +
+          radioGroup(m.name, 'wedding', CONFIG.labels.accept, CONFIG.labels.decline, '') +
           '<div class="rsvpF__field rsvpCard__diet">' +
             '<label for="diet::' + esc(m.name) + '">DIETARY RESTRICTIONS <span class="rsvpF__optional">— OPTIONAL</span></label>' +
             '<input id="diet::' + esc(m.name) + '" type="text" placeholder="Allergies, vegetarian, gluten-free…">' +

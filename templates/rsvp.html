@@ -127,38 +127,67 @@
   function say(el, text) { el.textContent = text; el.hidden = !text; }
 
   // ---- step 1: lookup ----
+  // results appear automatically as the guest types (debounced);
+  // Enter / LOOK UP still work as an explicit fast path
 
-  findForm.addEventListener('submit', function (e) {
-    e.preventDefault();
-    var q = findForm.q.value.trim();
-    if (q.length < 2) { say(findMsg, 'PLEASE TYPE A NAME FROM YOUR INVITATION'); return; }
-    if (findForm.website.value) return;          // honeypot
+  var lastReq = 0;
+
+  function renderChoices(parties) {
+    document.querySelector('.rsvpChoices__label').textContent =
+      parties.length === 1 ? 'IS THIS YOU?' : 'WHICH PARTY IS YOURS?';
+    choiceList.innerHTML = '';
+    parties.forEach(function (p) {
+      var b = document.createElement('button');
+      b.type = 'button';
+      b.className = 'rsvpChoices__btn';
+      b.textContent = p.party + ' — ' + p.members.map(function (m) { return m.name.split(' ')[0]; }).join(', ');
+      b.addEventListener('click', function () { choicesBox.hidden = true; showParty(p); });
+      choiceList.appendChild(b);
+    });
+    choicesBox.hidden = false;
+  }
+
+  function lookup(q, auto) {
+    var req = ++lastReq;
     say(findMsg, 'LOOKING UP…');
-    choicesBox.hidden = true;
     fetch(CONFIG.scriptUrl + '?q=' + encodeURIComponent(q))
       .then(function (r) { return r.json(); })
       .then(function (data) {
+        if (req !== lastReq) return;                                    // a newer request superseded this one
+        if (auto && findForm.q.value.trim() !== q) return;              // the guest kept typing
         var parties = data.parties || [];
         if (!parties.length) {
-          say(findMsg, "WE CAN'T FIND THAT NAME — TRY ANOTHER SPELLING, OR TEXT US");
-        } else if (parties.length === 1) {
+          choicesBox.hidden = true;
+          // while typing, silence beats a premature "not found"
+          say(findMsg, auto ? '' : "WE CAN'T FIND THAT NAME — TRY ANOTHER SPELLING, OR TEXT US");
+        } else if (!auto && parties.length === 1) {
           say(findMsg, '');
+          choicesBox.hidden = true;
           showParty(parties[0]);
         } else {
           say(findMsg, '');
-          choiceList.innerHTML = '';
-          parties.forEach(function (p) {
-            var b = document.createElement('button');
-            b.type = 'button';
-            b.className = 'rsvpChoices__btn';
-            b.textContent = p.party + ' — ' + p.members.map(function (m) { return m.name.split(' ')[0]; }).join(', ');
-            b.addEventListener('click', function () { choicesBox.hidden = true; showParty(p); });
-            choiceList.appendChild(b);
-          });
-          choicesBox.hidden = false;
+          renderChoices(parties);
         }
       })
-      .catch(function () { say(findMsg, 'SOMETHING WENT WRONG — PLEASE TRY AGAIN'); });
+      .catch(function () { if (!auto) say(findMsg, 'SOMETHING WENT WRONG — PLEASE TRY AGAIN'); });
+  }
+
+  var debounce;
+  findForm.q.addEventListener('input', function () {
+    clearTimeout(debounce);
+    var q = findForm.q.value.trim();
+    if (q.length < 3) { choicesBox.hidden = true; say(findMsg, ''); return; }
+    debounce = setTimeout(function () { lookup(q, true); }, 450);
+  });
+
+  findForm.addEventListener('submit', function (e) {
+    e.preventDefault();
+    clearTimeout(debounce);
+    var q = findForm.q.value.trim();
+    if (q.length < 2) { say(findMsg, 'PLEASE TYPE A NAME FROM YOUR INVITATION'); return; }
+    if (findForm.website.value) return;          // honeypot
+    choicesBox.hidden = true;
+    lookup(q, false);
   });
 
   // ---- step 2: per-person cards ----

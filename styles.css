@@ -644,7 +644,22 @@ a { color: inherit; }
 /* confirmation state */
 .rsvpD {
   text-align: center;
-  padding: 24px 0 40px;
+  padding: 0 0 40px;
+  margin-top: -48px;   /* pull the star up close under the RSVP title */
+}
+
+/* spur-rowel spin on reveal: fast flick, friction decay, comes to rest */
+@keyframes spur-spin {
+  from { transform: rotate(0turn); }
+  to   { transform: rotate(3turn); }
+}
+
+.rsvpD__star {
+  animation: spur-spin 3.3s cubic-bezier(.15, .68, .25, 1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .rsvpD__star { animation: none; }
 }
 
 .rsvpD__title {

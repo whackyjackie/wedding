@@ -104,6 +104,10 @@
       welcomeNo: {{RSVP_WELCOME_NO_JS}},
       wedding: {{RSVP_WEDDING_LABEL_JS}},
       welcome: {{RSVP_WELCOME_LABEL_JS}},
+      ftransLabel: {{RSVP_FTRANS_LABEL_JS}},
+      stransLabel: {{RSVP_STRANS_LABEL_JS}},
+      transYes: {{RSVP_TRANS_YES_JS}},
+      transNo: {{RSVP_TRANS_NO_JS}},
       locked: {{RSVP_LOCKED_NOTE_JS}}
     }
   };
@@ -192,16 +196,23 @@
 
   // ---- step 2: per-person cards ----
 
+  var GROUP_LEGENDS = {};   // filled in CONFIG-dependent init below
+
   function radioGroup(member, kind, yes, no, existing) {
     var name = kind + '::' + member;
     var checkedYes = existing === yes ? ' checked' : '';
     var checkedNo = existing === no ? ' checked' : '';
     return '<fieldset class="rsvpF__choices rsvpCard__group">' +
-      '<legend>' + esc(kind === 'wedding' ? CONFIG.labels.wedding : CONFIG.labels.welcome) + '</legend>' +
+      '<legend>' + esc(GROUP_LEGENDS[kind]) + '</legend>' +
       '<label class="rsvpF__choice"><input type="radio" name="' + esc(name) + '" value="' + esc(yes) + '"' + checkedYes + '> <span>' + esc(yes) + '</span></label>' +
       '<label class="rsvpF__choice"><input type="radio" name="' + esc(name) + '" value="' + esc(no) + '"' + checkedNo + '> <span>' + esc(no) + '</span></label>' +
       '</fieldset>';
   }
+
+  GROUP_LEGENDS.wedding = CONFIG.labels.wedding;
+  GROUP_LEGENDS.welcome = CONFIG.labels.welcome;
+  GROUP_LEGENDS.ftrans = CONFIG.labels.ftransLabel;
+  GROUP_LEGENDS.strans = CONFIG.labels.stransLabel;
 
   function esc(s) {
     return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;')
@@ -223,7 +234,9 @@
         return '<div class="rsvpCard">' +
           '<div class="rsvpCard__name">' + esc(m.name) + '</div>' +
           '<div class="rsvpSum__row"><span>' + esc(CONFIG.labels.welcome) + '</span>' + esc(ex.welcome || '—') + '</div>' +
+          (ex.ftrans ? '<div class="rsvpSum__row"><span>' + esc(CONFIG.labels.ftransLabel) + '</span>' + esc(ex.ftrans) + '</div>' : '') +
           '<div class="rsvpSum__row"><span>' + esc(CONFIG.labels.wedding) + '</span>' + esc(ex.wedding || '—') + '</div>' +
+          (ex.strans ? '<div class="rsvpSum__row"><span>' + esc(CONFIG.labels.stransLabel) + '</span>' + esc(ex.strans) + '</div>' : '') +
           (ex.dietary ? '<div class="rsvpSum__row"><span>DIETARY</span>' + esc(ex.dietary) + '</div>' : '') +
           '</div>';
       }).join('');
@@ -238,7 +251,13 @@
         return '<div class="rsvpCard">' +
           '<div class="rsvpCard__name">' + esc(m.name) + '</div>' +
           radioGroup(m.name, 'welcome', CONFIG.labels.welcomeYes, CONFIG.labels.welcomeNo, '') +
+          '<div class="rsvpCond" data-cond="ftrans::' + esc(m.name) + '" hidden>' +
+            radioGroup(m.name, 'ftrans', CONFIG.labels.transYes, CONFIG.labels.transNo, '') +
+          '</div>' +
           radioGroup(m.name, 'wedding', CONFIG.labels.accept, CONFIG.labels.decline, '') +
+          '<div class="rsvpCond" data-cond="strans::' + esc(m.name) + '" hidden>' +
+            radioGroup(m.name, 'strans', CONFIG.labels.transYes, CONFIG.labels.transNo, '') +
+          '</div>' +
           '<div class="rsvpF__field rsvpCard__diet">' +
             '<label for="diet::' + esc(m.name) + '">DIETARY RESTRICTIONS <span class="rsvpF__optional">— OPTIONAL</span></label>' +
             '<input id="diet::' + esc(m.name) + '" type="text" placeholder="Allergies, vegetarian, gluten-free…">' +
@@ -257,6 +276,25 @@
     window.scrollTo({ top: 0 });
   }
 
+  // the transport question for a day appears only after a "yes" to
+  // that day's event; a "no" hides it and clears any answer
+  partyForm.addEventListener('change', function (e) {
+    var t = e.target;
+    if (!t || t.type !== 'radio') return;
+    var parts = t.name.split('::');
+    var kind = parts[0], member = parts.slice(1).join('::');
+    var map = { welcome: { cond: 'ftrans', yes: CONFIG.labels.welcomeYes },
+                wedding: { cond: 'strans', yes: CONFIG.labels.accept } };
+    if (!map[kind]) return;
+    var box = partyForm.querySelector('[data-cond="' + CSS.escape(map[kind].cond + '::' + member) + '"]');
+    if (!box) return;
+    var show = t.value === map[kind].yes;
+    box.hidden = !show;
+    if (!show) {
+      box.querySelectorAll('input[type="radio"]').forEach(function (r) { r.checked = false; });
+    }
+  });
+
   document.getElementById('search-again').addEventListener('click', function () {
     partyView.hidden = true;
     findView.hidden = false;
@@ -272,16 +310,27 @@
     var responses = [];
     for (var i = 0; i < current.members.length; i++) {
       var m = current.members[i].name;
-      var wedding = partyForm.querySelector('input[name="wedding::' + CSS.escape(m) + '"]:checked');
-      var welcome = partyForm.querySelector('input[name="welcome::' + CSS.escape(m) + '"]:checked');
-      if (!wedding || !welcome) {
+      var picked = function (kind) {
+        var el = partyForm.querySelector('input[name="' + CSS.escape(kind + '::' + m) + '"]:checked');
+        return el ? el.value : '';
+      };
+      var welcome = picked('welcome'), wedding = picked('wedding');
+      var ftrans = picked('ftrans'), strans = picked('strans');
+      if (!welcome || !wedding) {
         say(partyMsg, 'PLEASE ANSWER BOTH EVENTS FOR EVERYONE');
+        return;
+      }
+      if ((welcome === CONFIG.labels.welcomeYes && !ftrans) ||
+          (wedding === CONFIG.labels.accept && !strans)) {
+        say(partyMsg, 'PLEASE ANSWER THE TRANSPORTATION QUESTIONS TOO');
         return;
       }
       responses.push({
         name: m,
-        wedding: wedding.value,
-        welcome: welcome.value,
+        welcome: welcome,
+        ftrans: ftrans,
+        wedding: wedding,
+        strans: strans,
         dietary: (document.getElementById('diet::' + m) || { value: '' }).value.trim()
       });
     }

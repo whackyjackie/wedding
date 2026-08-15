@@ -77,6 +77,10 @@ content:
           - { name: weddingLabel, label: "Wedding question heading (asked second)", type: string }
           - { name: acceptLabel, label: "Wedding \"yes\" choice", type: string }
           - { name: declineLabel, label: "Wedding \"no\" choice", type: string }
+          - { name: ftransLabel, label: "Friday transportation question (shown after a Friday yes)", type: string }
+          - { name: stransLabel, label: "Saturday transportation question (shown after a wedding yes)", type: string }
+          - { name: transYes, label: "Transportation \"yes\" choice", type: string }
+          - { name: transNo, label: "Transportation \"no\" choice", type: string }
           - { name: thanksTitle, label: Confirmation title, type: string }
           - { name: thanksNote, label: Confirmation note, type: string }
           - { name: lockedNote, label: "Shown when a party already replied (how to reach you for changes)", type: string }

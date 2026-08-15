@@ -618,6 +618,13 @@ a { color: inherit; }
 .rsvpCard .rsvpCard__group { margin-top: 24px; }
 .rsvpCard .rsvpCard__diet { margin-top: 26px; }
 
+/* follow-up question, indented under its parent answer */
+.rsvpCond {
+  margin-left: 27px;
+  padding-left: 20px;
+  border-left: 1px solid var(--hair);
+}
+
 /* read-only summary once a party has replied */
 .rsvpSum__row {
   margin-top: 16px;

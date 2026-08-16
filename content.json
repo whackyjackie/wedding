@@ -158,6 +158,10 @@
       {
         "q": "HOW DO I GET TO THE ISLAND?",
         "a": "<p>Check out our <a href=\"&lt;p&gt;https://www.jackieandmeredith.com/travel.html)&lt;/p&gt;\">travel page</a> for more info.</p>"
+      },
+      {
+        "q": "CAN I WALK FROM THE FERRY TERMINAL TO MY HOTEL?",
+        "a": "<p>Yep, if you're staying at one of our <a href=\"https://www.jackieandmeredith.com/travel.html\">recommended hotels</a>. </p>"
       }
     ]
   }

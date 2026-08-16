@@ -160,7 +160,7 @@
           },
           {
             "name": "SALTY FOX",
-            "desc": "Coffee, bakeries, and ice cream, all within a few blocks of the ferry landing.",
+            "desc": "Our go-to coffee spot with breakfast snacks.",
             "url": "https://www.saltyfoxcoffee.com",
             "fav": true
           }
@@ -168,7 +168,7 @@
       },
       {
         "title": "ACTIVITIES",
-        "intro": "The classics — all easy to do from town.",
+        "intro": "If you're feeling adventurous.",
         "photo": "images/water.jpg",
         "photoAlt": "A boat crossing the water off San Juan Island",
         "items": [

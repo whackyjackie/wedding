@@ -161,7 +161,11 @@
       },
       {
         "q": "CAN I WALK FROM THE FERRY TERMINAL TO MY HOTEL?",
-        "a": "<p>Yep, if you're staying at one of our <a href=\"https://www.jackieandmeredith.com/travel.html\">recommended hotels</a>. All three are under a 0.5 mile walk and relatively flat. </p>"
+        "a": "<p>Yep, if you're staying at one of our <a href=\"https://www.jackieandmeredith.com/travel.html\">recommended hotels</a>. All three are under a 0.5 mile walk and relatively flat.</p>"
+      },
+      {
+        "q": "WHAT'S THE DRESS CODE?",
+        "a": "<p>For our Friday welcome event, we're shooting for 'Western Elegance,' bolo ties &amp; cowboy boots encouraged. <br>For our Saturday wedding, we're doing Black Tie Optional. Inspo here. </p>"
       }
     ]
   }

@@ -145,19 +145,19 @@
     "items": [
       {
         "q": "WILL THE CEREMONY BE OUTSIDE?",
-        "a": "Yes. Our ceremony, cocktail hour, and dancing will be outside. We recommend dressing accordingly (i.e., wedge/block heels)."
+        "a": "<p>Yes. Our ceremony, cocktail hour, and dancing will be outside. We recommend dressing accordingly (i.e., wedge/block heels).</p>"
       },
       {
         "q": "ARE CHILDREN ALLOWED AT THE CEREMONY?",
-        "a": "We kindly ask that our wedding remain adults-only. Thank you for understanding, and we hope you’re able to enjoy the weekend with us!"
+        "a": "<p>We kindly ask that our wedding remain adults-only. Thank you for understanding, and we hope you’re able to enjoy the weekend with us!</p>"
       },
       {
         "q": "WILL THERE BE PARKING AVAILABLE?",
-        "a": "Yes. We will also be providing transportation to and from downtown Friday Harbor. "
+        "a": "<p>Yes. We will also be providing transportation to and from downtown Friday Harbor.</p>"
       },
       {
         "q": "How do I get to the island?",
-        "a": "Check out our [travel page] (https://www.jackieandmeredith.com/travel.html). "
+        "a": "<p>Check out our <a href=\"&lt;p&gt;https://www.jackieandmeredith.com/travel.html)&lt;/p&gt;\">travel page</a> for more info.</p>"
       }
     ]
   }

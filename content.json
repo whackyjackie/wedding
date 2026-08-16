@@ -137,13 +137,13 @@
     "hidden": false,
     "eyebrow": "WHILE YOU'RE HERE",
     "title": "THINGS TO DO",
-    "intro": "The wedding will keep you busy for two days — but if you're making a long weekend of it, the island has plenty to fill the extra time. A few ideas, tested and approved by us.",
+    "intro": "The island has plenty to fill the extra time. ",
     "favKey": "OUR FAV",
     "sections": [
       {
         "title": "FOOD & DRINK",
-        "intro": "A few places we always take visitors.",
-        "photo": "images/friday_harbor.jpg",
+        "intro": "A few places we like to go.",
+        "photo": "images/salty_fox.jpg",
         "photoAlt": "The Friday Harbor waterfront",
         "items": [
           {
@@ -159,9 +159,8 @@
             "fav": false
           },
           {
-            "name": "DOWNTOWN FRIDAY HARBOR",
+            "name": "SALTY FOX",
             "desc": "Coffee, bakeries, and ice cream, all within a few blocks of the ferry landing.",
-            "url": "",
             "fav": false
           }
         ]

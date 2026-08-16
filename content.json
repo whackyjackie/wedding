@@ -174,20 +174,13 @@
         "items": [
           {
             "name": "WHALE WATCHING",
-            "desc": "Orcas, humpbacks, and minke whales all cruise these waters. Boats leave right from Friday Harbor — book ahead in summer.",
+            "desc": "Sounds whale-y fun! Lots of different types of whales hang out near the island, Orcas, humpbacks, etc. ",
             "url": "https://sanjuansafaris.com",
-            "fav": true
-          },
-          {
-            "name": "SEA KAYAKING",
-            "desc": "Guided paddles along the island's shoreline, from a few hours to a full day.",
-            "url": "https://www.discoveryseakayak.com",
             "fav": false
           },
           {
-            "name": "RENT A MOPED",
-            "desc": "The island's signature way to get around — grab one in town and make the loop.",
-            "url": "https://susiesmopeds.com",
+            "name": "SEA KAYAKING",
+            "url": "https://www.discoveryseakayak.com",
             "fav": false
           }
         ]

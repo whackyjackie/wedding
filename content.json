@@ -202,13 +202,13 @@
             "name": "LIME KILN POINT STATE PARK",
             "desc": "A lighthouse on the west-side rocks and your best shot at spotting orcas from shore.",
             "url": "https://parks.wa.gov/find-parks/state-parks/lime-kiln-point-state-park",
-            "fav": true
+            "fav": false
           },
           {
             "name": "ROCHE HARBOR",
             "desc": "A historic resort village on the north end of the island. East-coast vibes.",
             "url": "https://www.rocheharbor.com",
-            "fav": false
+            "fav": true
           },
           {
             "name": "PELINDABA LAVENDER FARM",

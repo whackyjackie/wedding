@@ -920,6 +920,7 @@ a.linklist__row:hover .linklist__arrow {
   line-height: 1.9;
   font-weight: 300;
   color: var(--ink-65);
+  text-align: left;  /* questions stay centered; answers read as paragraphs */
 }
 
 /* rich-text answers arrive as paragraphs/lists — keep them airy but tight */

@@ -165,7 +165,15 @@
       },
       {
         "q": "WHAT'S THE DRESS CODE?",
-        "a": "<p>For our Friday welcome event, we're shooting for 'Western Elegance,' bolo ties &amp; cowboy boots encouraged. <br>For our Saturday wedding, we're doing Black Tie Optional. Inspo here. </p>"
+        "a": "<p>For our Friday welcome event, we're shooting for 'Western Elegance,' bolo ties &amp; cowboy boots encouraged. <br>For our Saturday wedding, we're doing Black Tie Optional. Inspo here.</p>"
+      },
+      {
+        "q": "HOW DO I GET TO THE VENUE?",
+        "a": "<p>We will be providing transportation from downtown Friday Harbor for both Friday and Saturday. Otherwise, you will need to drive and park the venue. </p>"
+      },
+      {
+        "q": "IF I DRIVE, CAN I LEAVE MY CAR AT THE VENUE OVERNIGHT?",
+        "a": "<p>this is a good question, i do not know</p>"
       }
     ]
   }

@@ -142,13 +142,13 @@
     "sections": [
       {
         "title": "FOOD & DRINK",
-        "intro": "A few places we like to go.",
+        "intro": "A few places we frequent.",
         "photo": "images/salty_fox.jpg",
         "photoAlt": "The Friday Harbor waterfront",
         "items": [
           {
             "name": "WESTCOTT BAY SHELLFISH CO.",
-            "desc": "Oysters pulled straight from the bay and shucked at picnic tables overlooking the water. Worth the drive to the north end.",
+            "desc": "The best oysters. Pulled straight from the bay and shucked at picnic tables overlooking the water. ",
             "url": "https://westcottbayshellfish.com",
             "fav": true
           },

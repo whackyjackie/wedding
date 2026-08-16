@@ -163,6 +163,12 @@
             "desc": "Our go-to coffee spot with breakfast snacks.",
             "url": "https://www.saltyfoxcoffee.com",
             "fav": true
+          },
+          {
+            "name": "DOWNRIGGERS",
+            "desc": "Boozy brunch with views. ",
+            "url": "https://www.downriggerssanjuan.com",
+            "fav": false
           }
         ]
       },

@@ -11,6 +11,19 @@ const esc = s => String(s ?? '')
   .replace(/&/g, '&amp;').replace(/</g, '&lt;')
   .replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 
+// prose fields may contain [link text](https://url); everything else is escaped.
+// External links open in a new tab; relative links (travel.html, #top) stay put.
+const LINK_RE = /\[([^\]]+)\]\(([^)\s]+)\)/g;
+const rich = s => esc(s).replace(LINK_RE, (match, text, url) => {
+  const external = /^(https?:|mailto:)/i.test(url);
+  const hasScheme = /^[a-z][a-z0-9+.-]*:/i.test(url);
+  if (!external && hasScheme) return match; // javascript: etc. stays literal
+  const tgt = external ? ' target="_blank" rel="noopener"' : '';
+  return `<a class="txt-link" href="${url}"${tgt}>${text}</a>`;
+});
+// for text that already sits inside a link — keep the words, drop the url
+const stripLinks = s => String(s ?? '').replace(LINK_RE, '$1');
+
 // ---------- shared pieces ----------
 
 // image inside a split; empty src → omitted (section becomes centered column)
@@ -23,7 +36,9 @@ const ARROW_SVG = `<svg class="linklist__arrow" viewBox="0 0 12 12" width="10" h
 const row = (label, sub, url) => {
   const arrow = url ? ARROW_SVG : '';
   const main = `<div class="linklist__main"><span class="linklist__label">${esc(label)}</span>${arrow}</div>`;
-  const subLine = sub ? `\n            <div class="linklist__sub">${esc(sub)}</div>` : '';
+  // a linked row can't nest another link inside it — keep just the words there
+  const subHtml = url ? esc(stripLinks(sub)) : rich(sub);
+  const subLine = sub ? `\n            <div class="linklist__sub">${subHtml}</div>` : '';
   return url
     ? `          <a class="linklist__row" href="${esc(url)}">${main}${subLine}\n          </a>`
     : `          <div class="linklist__row">${main}${subLine}\n          </div>`;
@@ -63,7 +78,7 @@ const schedEvent = e => {
   return `          <div class="schD-event">
             <div class="schD-row__name">${esc(e.name)}</div>${meta ? `
             <div class="schD-row__meta">${meta}</div>` : ''}${e.note ? `
-            <p class="schD-row__note">${esc(e.note)}</p>` : ''}
+            <p class="schD-row__note">${rich(e.note)}</p>` : ''}
           </div>`;
 };
 
@@ -94,7 +109,7 @@ const stayRows = c.travel.stays
 const staySection = c.travel.stayHidden ? '' : `    <section class="split split--flip">
       <div class="split__txt">
         <h2>${esc(c.travel.stayTitle)}</h2>
-        <p class="split__intro">${esc(c.travel.stayIntro)}</p>
+        <p class="split__intro">${rich(c.travel.stayIntro)}</p>
         <div class="linklist">
 ${stayRows}
         </div>
@@ -143,7 +158,7 @@ const REDIRECT_STUB = `<!DOCTYPE html>
 
 const faqItems = c.faq.items.map(i => `          <div class="faq__item">
             <div class="faq__q">${esc(i.q)}</div>
-            <div class="faq__a">${esc(i.a)}</div>
+            <div class="faq__a">${rich(i.a)}</div>
           </div>`).join('\n');
 
 // ---------- token map ----------
@@ -173,7 +188,7 @@ const tokens = {
   SCHEDULE_ROWS: schedRows,
   RSVP_WORD: esc(c.rsvp.title),
   RSVP_EYEBROW: esc(c.rsvp.eyebrow),
-  RSVP_INTRO: esc(c.rsvp.intro),
+  RSVP_INTRO: rich(c.rsvp.intro),
   RSVP_DEADLINE: c.rsvp.deadline
     ? `          <div class="rsvpF__deadline">${esc(c.rsvp.deadline)}</div>`
     : '',
@@ -203,13 +218,13 @@ const tokens = {
   RSVP_LOCKED_NOTE_JS: JSON.stringify(c.rsvp.lockedNote || ''),
   TRAVEL_EYEBROW: esc(c.travel.eyebrow),
   TRAVEL_TITLE: esc(c.travel.title),
-  TRAVEL_INTRO: esc(c.travel.intro),
+  TRAVEL_INTRO: rich(c.travel.intro),
   TRAVEL_PHOTO: splitImg(c.travel.photo, c.travel.photoAlt),
   TRAVEL_MODES: modeRows,
   STAY_SECTION: staySection,
   REGISTRY_EYEBROW: esc(c.registry.eyebrow),
   REGISTRY_TITLE: esc(c.registry.title),
-  REGISTRY_NOTE: esc(c.registry.note),
+  REGISTRY_NOTE: rich(c.registry.note),
   REGISTRY_BUTTON: esc(c.registry.buttonLabel),
   REGISTRY_URL: esc(c.registry.registryUrl),
   REGISTRY_PHOTO: splitImg(c.registry.photo, c.registry.photoAlt),

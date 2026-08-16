@@ -186,7 +186,8 @@
           },
           {
             "name": "VISIT ALPACAS",
-            "desc": "https://www.krystalacres.com",
+            "desc": "Go hang out with some alpacas. ",
+            "url": "https://www.krystalacres.com",
             "fav": false
           }
         ]

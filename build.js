@@ -66,9 +66,12 @@ const splitImg = (src, alt) => src
 
 // bold arrowed row; arrow + link only when a url is set
 const ARROW_SVG = `<svg class="linklist__arrow" viewBox="0 0 12 12" width="10" height="10" aria-hidden="true"><path d="M2.5 9.5 L9.5 2.5 M4 2.5 H9.5 V8" fill="none" stroke="currentColor" stroke-width="1.4"/></svg>`;
-const row = (label, sub, url) => {
+// the spur star — same mark as the save-the-dates; spins once, rowel-style
+const FAV_STAR = `<svg class="fav-star" viewBox="0 0 34 34" role="img" aria-label="one of our favorites"><path d="M16.28 4.62L18.92 12.43L26.29 8.79L21.74 15.66L29.16 18.99L20.97 19.88L22.99 27.83L17.25 21.95L12.06 28.52L13.31 20.26L4.94 20.31L12.08 16.15L6.87 9.61L14.6 12.7Z" fill="currentColor"/></svg>`;
+const row = (label, sub, url, fav) => {
   const arrow = url ? ARROW_SVG : '';
-  const main = `<div class="linklist__main"><span class="linklist__label">${esc(label)}</span>${arrow}</div>`;
+  const star = fav ? FAV_STAR : '';
+  const main = `<div class="linklist__main"><span class="linklist__label">${esc(label)}</span>${star}${arrow}</div>`;
   // a linked row can't nest another link inside it — keep just the words there
   const subHtml = url ? esc(stripLinks(sub)) : rich(sub);
   const subLine = sub ? `\n            <div class="linklist__sub">${subHtml}</div>` : '';
@@ -150,18 +153,43 @@ ${stayRows}
 ${splitImg(c.travel.stayPhoto, c.travel.stayPhotoAlt)}
     </section>`;
 
+// ---------- things to do ----------
+
+// alternating split sections; each row can carry the fav star
+const thingsSections = (c.things.sections || []).map((s, i) => {
+  const rows = (s.items || []).map(it => row(it.name, it.desc, it.url, it.fav)).join('\n');
+  const intro = s.intro ? `
+        <p class="split__intro">${prose(s.intro)}</p>` : '';
+  const flip = i % 2 ? ' split--flip' : '';
+  return `    <section class="split split--compact${flip}">
+      <div class="split__txt">
+        <h2>${esc(s.title)}</h2>${intro}
+        <div class="linklist">
+${rows}
+        </div>
+      </div>
+${splitImg(s.photo, s.photoAlt)}
+    </section>`;
+}).join('\n\n');
+
+// the key only appears once something is actually starred
+const thingsKey = (c.things.sections || []).some(s => (s.items || []).some(it => it.fav))
+  ? `        <div class="fav-key">${FAV_STAR}<span>= ${esc(c.things.favKey || 'OUR FAV')}</span></div>`
+  : '';
+
 // ---------- pages + nav (hidden pages drop out of the menu) ----------
 
 const PAGES = [
   { file: 'index.html', label: 'HOME', hidden: false },
   { file: 'schedule.html', label: 'SCHEDULE', hidden: !!c.schedule.hidden },
   { file: 'travel.html', label: 'TRAVEL', hidden: !!c.travel.hidden },
+  { file: 'things.html', label: 'THINGS TO DO', hidden: !!c.things.hidden },
   { file: 'registry.html', label: 'REGISTRY', hidden: !!c.registry.hidden },
   { file: 'faq.html', label: 'FAQ', hidden: !!c.faq.hidden },
 ];
 
-const DEFAULT_ORDER = ['schedule', 'travel', 'registry', 'faq'];
-const KEY_TO_FILE = { schedule: 'schedule.html', travel: 'travel.html', registry: 'registry.html', faq: 'faq.html' };
+const DEFAULT_ORDER = ['schedule', 'travel', 'things', 'registry', 'faq'];
+const KEY_TO_FILE = { schedule: 'schedule.html', travel: 'travel.html', things: 'things.html', registry: 'registry.html', faq: 'faq.html' };
 const orderedKeys = [];
 for (const o of (c.site.navOrder || [])) {
   const k = o && o.page;
@@ -255,6 +283,11 @@ const tokens = {
   TRAVEL_PHOTO: splitImg(c.travel.photo, c.travel.photoAlt),
   TRAVEL_MODES: modeRows,
   STAY_SECTION: staySection,
+  THINGS_EYEBROW: esc(c.things.eyebrow),
+  THINGS_TITLE: esc(c.things.title),
+  THINGS_INTRO: prose(c.things.intro),
+  THINGS_KEY: thingsKey,
+  THINGS_SECTIONS: thingsSections,
   REGISTRY_EYEBROW: esc(c.registry.eyebrow),
   REGISTRY_TITLE: esc(c.registry.title),
   REGISTRY_NOTE: prose(c.registry.note),

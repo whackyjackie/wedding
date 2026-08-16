@@ -14,6 +14,9 @@
         "page": "travel"
       },
       {
+        "page": "things"
+      },
+      {
         "page": "schedule"
       },
       {
@@ -127,6 +130,99 @@
         "name": "EARTHBOX INN",
         "desc": "Casual and a little retro, with an indoor pool and spa!",
         "url": "https://www.earthboxinn.com"
+      }
+    ]
+  },
+  "things": {
+    "hidden": false,
+    "eyebrow": "WHILE YOU'RE HERE",
+    "title": "THINGS TO DO",
+    "intro": "The wedding will keep you busy for two days — but if you're making a long weekend of it, the island has plenty to fill the extra time. A few ideas, tested and approved by us.",
+    "favKey": "OUR FAV",
+    "sections": [
+      {
+        "title": "FOOD & DRINK",
+        "intro": "A few places we always take visitors.",
+        "photo": "images/friday_harbor.jpg",
+        "photoAlt": "The Friday Harbor waterfront",
+        "items": [
+          {
+            "name": "WESTCOTT BAY SHELLFISH CO.",
+            "desc": "Oysters pulled straight from the bay and shucked at picnic tables overlooking the water. Worth the drive to the north end.",
+            "url": "https://westcottbayshellfish.com",
+            "fav": true
+          },
+          {
+            "name": "SAN JUAN ISLAND BREWING CO.",
+            "desc": "A big, friendly taproom in the middle of town — the right move after the ferry.",
+            "url": "https://sanjuanbrewing.com",
+            "fav": false
+          },
+          {
+            "name": "DOWNTOWN FRIDAY HARBOR",
+            "desc": "Coffee, bakeries, and ice cream, all within a few blocks of the ferry landing.",
+            "url": "",
+            "fav": false
+          }
+        ]
+      },
+      {
+        "title": "ACTIVITIES",
+        "intro": "The classics — all easy to do from town.",
+        "photo": "images/water.jpg",
+        "photoAlt": "A boat crossing the water off San Juan Island",
+        "items": [
+          {
+            "name": "WHALE WATCHING",
+            "desc": "Orcas, humpbacks, and minke whales all cruise these waters. Boats leave right from Friday Harbor — book ahead in summer.",
+            "url": "https://sanjuansafaris.com",
+            "fav": true
+          },
+          {
+            "name": "SEA KAYAKING",
+            "desc": "Guided paddles along the island's shoreline, from a few hours to a full day.",
+            "url": "https://www.discoveryseakayak.com",
+            "fav": false
+          },
+          {
+            "name": "RENT A MOPED",
+            "desc": "The island's signature way to get around — grab one in town and make the loop.",
+            "url": "https://susiesmopeds.com",
+            "fav": false
+          }
+        ]
+      },
+      {
+        "title": "SIGHTS",
+        "intro": "Worth a drive around the island (or a moped).",
+        "photo": "images/DSCF3275.jpg",
+        "photoAlt": "A marina in the San Juan Islands",
+        "items": [
+          {
+            "name": "LIME KILN POINT STATE PARK",
+            "desc": "A lighthouse on the west-side rocks and your best shot at spotting orcas from shore.",
+            "url": "https://parks.wa.gov/find-parks/state-parks/lime-kiln-point-state-park",
+            "fav": true
+          },
+          {
+            "name": "ROCHE HARBOR",
+            "desc": "A historic resort village on the north end — wander the marina, the gardens, and the sculpture park next door.",
+            "url": "https://www.rocheharbor.com",
+            "fav": false
+          },
+          {
+            "name": "PELINDABA LAVENDER FARM",
+            "desc": "Fields of lavender in bloom in July, plus a farm stand of everything-lavender.",
+            "url": "https://www.pelindabalavender.com",
+            "fav": false
+          },
+          {
+            "name": "NATIONAL HISTORICAL PARK",
+            "desc": "American Camp and English Camp — beach walks, prairie trails, and big views at both ends of the island.",
+            "url": "https://www.nps.gov/sajh/index.htm",
+            "fav": false
+          }
+        ]
       }
     ]
   },

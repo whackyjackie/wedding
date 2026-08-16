@@ -822,6 +822,58 @@ a.linklist__row:hover .linklist__arrow {
   color: var(--ink-65);
 }
 
+/* ============================================================
+   Things To Do — travel's split pattern, photos a size down
+   ============================================================ */
+
+.split--head { padding-bottom: 8px; }
+
+.split--compact {
+  max-width: 1140px;
+  padding-top: 52px;
+  padding-bottom: 52px;
+}
+.split--compact .split__img { height: 400px; }
+
+/* the spur star as an asterisk — spins once like a rowel, again on hover */
+.fav-star {
+  flex: none;
+  width: 13px;
+  height: 13px;
+  margin-top: -7px; /* raised, asterisk-style */
+  color: var(--ink);
+}
+
+@keyframes spur-spin { to { transform: rotate(3turn); } }
+@keyframes spur-respin { to { transform: rotate(2turn); } }
+
+.fav-star path {
+  transform-box: view-box;
+  transform-origin: 50% 50%;
+  animation: spur-spin 3.3s cubic-bezier(0.15, 0.68, 0.25, 1);
+}
+.linklist__row:hover .fav-star path {
+  animation: spur-respin 1.6s cubic-bezier(0.15, 0.68, 0.25, 1);
+}
+
+/* key under the intro: star = OUR FAV */
+.fav-key {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  font-size: 10.5px;
+  letter-spacing: 0.26em;
+  font-weight: 500;
+  color: var(--ink-65);
+  margin-top: -14px; /* tucks up under the intro's bottom margin */
+}
+.fav-key .fav-star { margin-top: 0; }
+
+@media (prefers-reduced-motion: reduce) {
+  .fav-star path,
+  .linklist__row:hover .fav-star path { animation: none; }
+}
+
 /* legacy photo placeholder box */
 .photo-slot {
   display: flex;
@@ -987,6 +1039,7 @@ a.linklist__row:hover .linklist__arrow {
   .split--flip .split__img { order: 2; }
   .split__img,
   .split--flip .split__img { height: 340px; }
+  .split--compact .split__img { height: 300px; }
   .split__txt h1,
   .split__txt h2 { font-size: 24px; }
 

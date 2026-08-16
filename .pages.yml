@@ -32,7 +32,7 @@ content:
                 label: Page
                 type: select
                 options:
-                  values: [travel, schedule, registry, faq]
+                  values: [travel, things, schedule, registry, faq]
           - { name: bandHidden, label: Hide the brown band entirely, type: boolean }
           - { name: botanicalHidden, label: Hide just the botanical illustration, type: boolean }
           - { name: signoff, label: Sign-off line (brown band), type: string }
@@ -119,6 +119,34 @@ content:
               - { name: name, label: Name, type: string }
               - { name: desc, label: Description, type: text }
               - { name: url, label: Link (optional — adds arrow), type: string }
+
+      - name: things
+        label: Things To Do page
+        type: object
+        fields:
+          - { name: hidden, label: Hide this page (WIP), type: boolean }
+          - { name: eyebrow, label: Small label above title, type: string }
+          - { name: title, label: Page title, type: string }
+          - { name: intro, label: Intro paragraph, type: text }
+          - { name: favKey, label: "Star key text (shows when something is starred)", type: string }
+          - name: sections
+            label: Sections (Food & Drink, Activities, Sights…)
+            type: object
+            list: true
+            fields:
+              - { name: title, label: Section title, type: string }
+              - { name: intro, label: Short intro line (optional), type: text }
+              - { name: photo, label: Section photo (optional), type: image }
+              - { name: photoAlt, label: Photo description, type: string }
+              - name: items
+                label: Rows
+                type: object
+                list: true
+                fields:
+                  - { name: name, label: Name, type: string }
+                  - { name: desc, label: Description, type: text }
+                  - { name: url, label: Link (optional — adds arrow), type: string }
+                  - { name: fav, label: "Our fav (adds the spinning star)", type: boolean }
 
       - name: registry
         label: Registry page

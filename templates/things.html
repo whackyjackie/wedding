@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Things To Do — {{BROWSER_TITLE}}</title>
+<meta name="theme-color" content="#F6F1E3">
+<meta name="description" content="Jackie & Meredith — July 31, 2027 — Saltwater Farm, San Juan Island">
+<meta property="og:title" content="Things To Do — Jackie &amp; Meredith">
+<meta property="og:description" content="Meet us in the islands — July 31, 2027, Saltwater Farm, San Juan Island">
+<meta property="og:image" content="images/og.jpg">
+<meta property="og:type" content="website">
+<link rel="icon" type="image/png" href="images/favicon.png">
+<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+<link rel="preload" href="fonts/TAYBasal-Regular.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/Apfel-Regular.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/Apfel-Mittel.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/Apfel-Satt.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="page">
+  <nav class="nav nav--page">
+    <a class="nav__monogram" href="index.html">{{MONOGRAM}}</a>
+{{NAV_LINKS}}
+  </nav>
+
+  <main class="page__main">
+    <section class="split split--head">
+      <div class="split__txt">
+        <div class="eyebrow">{{THINGS_EYEBROW}}</div>
+        <h1>{{THINGS_TITLE}}</h1>
+        <p class="split__intro">{{THINGS_INTRO}}</p>
+{{THINGS_KEY}}
+      </div>
+    </section>
+
+{{THINGS_SECTIONS}}
+
+{{COCOA_BAND}}
+  </main>
+
+  <footer class="site-footer">{{FOOTER}}</footer>
+</div>
+
+</body>
+</html>

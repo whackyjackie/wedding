@@ -60,12 +60,12 @@
     "eyebrow": "KINDLY REPLY",
     "title": "RSVP",
     "intro": "We can't wait to celebrate with you on San Juan Island.",
-    "weddingLabel": "THE WEDDING — SATURDAY, JULY 31",
-    "acceptLabel": "Joyfully accepts",
-    "declineLabel": "Regretfully declines",
     "welcomeLabel": "WELCOME EVENT — FRIDAY, JULY 30",
     "welcomeYes": "Count us in",
     "welcomeNo": "Can't make Friday",
+    "weddingLabel": "THE WEDDING — SATURDAY, JULY 31",
+    "acceptLabel": "Joyfully accepts",
+    "declineLabel": "Regretfully declines",
     "ftransLabel": "OUR TRANSPORTATION ON FRIDAY?",
     "stransLabel": "OUR TRANSPORTATION ON SATURDAY?",
     "transYes": "Yes — I'll ride with you",
@@ -154,6 +154,10 @@
       {
         "q": "WILL THERE BE PARKING AVAILABLE?",
         "a": "Yes. We will also be providing transportation to and from downtown Friday Harbor. "
+      },
+      {
+        "q": "How do I get to the island?",
+        "a": "Check out our [travel page] (https://www.jackieandmeredith.com/travel.html). "
       }
     ]
   }

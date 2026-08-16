@@ -922,6 +922,11 @@ a.linklist__row:hover .linklist__arrow {
   color: var(--ink-65);
 }
 
+/* rich-text answers arrive as paragraphs/lists — keep them airy but tight */
+.faq__a p { margin: 0; }
+.faq__a p + p { margin-top: 0.7em; }
+.faq__a ul, .faq__a ol { margin: 0.4em 0 0; padding-left: 1.2em; }
+
 /* ============================================================
    Photo bands (optional editorial images between sections)
    ============================================================ */

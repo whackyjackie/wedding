@@ -26,6 +26,37 @@ const rich = s => esc(s).replace(LINK_RE, (match, text, url) => {
 // for text that already sits inside a link — keep the words, drop the url
 const stripLinks = s => String(s ?? '').replace(LINK_RE, '$1');
 
+// rich-text CMS fields save HTML. Keep only simple formatting tags, drop every
+// attribute, and rebuild links with the same rules as rich(). Headings become
+// bold paragraphs so an accidental "Heading 1" can't shout across the page.
+const TAGS_OK = new Set(['p', 'br', 'strong', 'b', 'em', 'i', 'u', 's', 'ul', 'ol', 'li', 'blockquote']);
+const sanitizeHtml = html => String(html ?? '')
+  .replace(/<(script|style)[^>]*>[\s\S]*?<\/\1>/gi, '')
+  .replace(/<[^>]*>/g, tag => {
+    const m = tag.match(/^<\s*(\/?)\s*([a-zA-Z0-9]+)([\s\S]*?)\/?>$/);
+    if (!m) return '';
+    const close = m[1] === '/';
+    const name = m[2].toLowerCase();
+    if (/^h[1-6]$/.test(name)) return close ? '</strong></p>' : '<p><strong>';
+    if (name === 'a') {
+      if (close) return '</a>';
+      const hm = m[3].match(/href\s*=\s*"([^"]*)"/i) || m[3].match(/href\s*=\s*'([^']*)'/i);
+      const href = hm ? hm[1] : '';
+      const external = /^(https?:|mailto:)/i.test(href);
+      const hasScheme = /^[a-z][a-z0-9+.-]*:/i.test(href);
+      if (!href || (!external && hasScheme)) return '<a>'; // unsafe href dropped
+      const tgt = external && !OWN_SITE.test(href) ? ' target="_blank" rel="noopener"' : '';
+      return `<a class="txt-link" href="${href.replace(/"/g, '&quot;')}"${tgt}>`;
+    }
+    if (!TAGS_OK.has(name)) return '';
+    return close ? `</${name}>` : name === 'br' ? '<br>' : `<${name}>`;
+  });
+
+// prose fields hold either rich-text HTML (new) or plain text with optional
+// [text](url) links (legacy + non-rich fields) — render whichever this is
+const HTMLISH = /<\/?(p|br|strong|b|em|i|u|s|ul|ol|li|blockquote|a|h[1-6])[\s>/]/i;
+const prose = v => HTMLISH.test(String(v ?? '')) ? sanitizeHtml(v) : rich(v);
+
 // ---------- shared pieces ----------
 
 // image inside a split; empty src → omitted (section becomes centered column)
@@ -80,7 +111,7 @@ const schedEvent = e => {
   return `          <div class="schD-event">
             <div class="schD-row__name">${esc(e.name)}</div>${meta ? `
             <div class="schD-row__meta">${meta}</div>` : ''}${e.note ? `
-            <p class="schD-row__note">${rich(e.note)}</p>` : ''}
+            <p class="schD-row__note">${prose(e.note)}</p>` : ''}
           </div>`;
 };
 
@@ -111,7 +142,7 @@ const stayRows = c.travel.stays
 const staySection = c.travel.stayHidden ? '' : `    <section class="split split--flip">
       <div class="split__txt">
         <h2>${esc(c.travel.stayTitle)}</h2>
-        <p class="split__intro">${rich(c.travel.stayIntro)}</p>
+        <p class="split__intro">${prose(c.travel.stayIntro)}</p>
         <div class="linklist">
 ${stayRows}
         </div>
@@ -160,7 +191,7 @@ const REDIRECT_STUB = `<!DOCTYPE html>
 
 const faqItems = c.faq.items.map(i => `          <div class="faq__item">
             <div class="faq__q">${esc(i.q)}</div>
-            <div class="faq__a">${rich(i.a)}</div>
+            <div class="faq__a">${prose(i.a)}</div>
           </div>`).join('\n');
 
 // ---------- token map ----------
@@ -190,7 +221,7 @@ const tokens = {
   SCHEDULE_ROWS: schedRows,
   RSVP_WORD: esc(c.rsvp.title),
   RSVP_EYEBROW: esc(c.rsvp.eyebrow),
-  RSVP_INTRO: rich(c.rsvp.intro),
+  RSVP_INTRO: prose(c.rsvp.intro),
   RSVP_DEADLINE: c.rsvp.deadline
     ? `          <div class="rsvpF__deadline">${esc(c.rsvp.deadline)}</div>`
     : '',
@@ -220,13 +251,13 @@ const tokens = {
   RSVP_LOCKED_NOTE_JS: JSON.stringify(c.rsvp.lockedNote || ''),
   TRAVEL_EYEBROW: esc(c.travel.eyebrow),
   TRAVEL_TITLE: esc(c.travel.title),
-  TRAVEL_INTRO: rich(c.travel.intro),
+  TRAVEL_INTRO: prose(c.travel.intro),
   TRAVEL_PHOTO: splitImg(c.travel.photo, c.travel.photoAlt),
   TRAVEL_MODES: modeRows,
   STAY_SECTION: staySection,
   REGISTRY_EYEBROW: esc(c.registry.eyebrow),
   REGISTRY_TITLE: esc(c.registry.title),
-  REGISTRY_NOTE: rich(c.registry.note),
+  REGISTRY_NOTE: prose(c.registry.note),
   REGISTRY_BUTTON: esc(c.registry.buttonLabel),
   REGISTRY_URL: esc(c.registry.registryUrl),
   REGISTRY_PHOTO: splitImg(c.registry.photo, c.registry.photoAlt),

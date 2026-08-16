@@ -161,7 +161,8 @@
           {
             "name": "SALTY FOX",
             "desc": "Coffee, bakeries, and ice cream, all within a few blocks of the ferry landing.",
-            "fav": false
+            "url": "https://www.saltyfoxcoffee.com",
+            "fav": true
           }
         ]
       },

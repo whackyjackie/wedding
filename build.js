@@ -12,13 +12,15 @@ const esc = s => String(s ?? '')
   .replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 
 // prose fields may contain [link text](https://url); everything else is escaped.
-// External links open in a new tab; relative links (travel.html, #top) stay put.
-const LINK_RE = /\[([^\]]+)\]\(([^)\s]+)\)/g;
+// A stray space before the ( is tolerated. External links open in a new tab;
+// links within the site (relative, or absolute to our own domain) stay put.
+const LINK_RE = /\[([^\]]+)\] ?\(([^)\s]+)\)/g;
+const OWN_SITE = /^https?:\/\/(www\.)?jackieandmeredith\.com(\/|$)/i;
 const rich = s => esc(s).replace(LINK_RE, (match, text, url) => {
   const external = /^(https?:|mailto:)/i.test(url);
   const hasScheme = /^[a-z][a-z0-9+.-]*:/i.test(url);
   if (!external && hasScheme) return match; // javascript: etc. stays literal
-  const tgt = external ? ' target="_blank" rel="noopener"' : '';
+  const tgt = external && !OWN_SITE.test(url) ? ' target="_blank" rel="noopener"' : '';
   return `<a class="txt-link" href="${url}"${tgt}>${text}</a>`;
 });
 // for text that already sits inside a link — keep the words, drop the url

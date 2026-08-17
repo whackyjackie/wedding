@@ -270,6 +270,10 @@
       {
         "q": "IF I DRIVE, CAN I LEAVE MY CAR AT THE VENUE OVERNIGHT?",
         "a": "<p>this is a good question, i do not know 🫪</p>"
+      },
+      {
+        "q": "WHERE DO I RSVP?",
+        "a": "<p>RSVP instructions will be listed on the wedding invite, so keep an eye out for those!</p>"
       }
     ]
   }

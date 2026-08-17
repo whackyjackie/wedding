@@ -186,7 +186,7 @@
           },
           {
             "name": "VISIT ALPACAS",
-            "desc": "Go hang out with some alpacas. ",
+            "desc": "Go hang out with some alpacas. Pet them?",
             "url": "https://www.krystalacres.com",
             "fav": false
           }
@@ -194,7 +194,7 @@
       },
       {
         "title": "SIGHTS",
-        "intro": "Worth a drive around the island (or a moped).",
+        "intro": "Sights to see.",
         "photo": "images/LimeKilnLighthouse_KarenSInclair.jpg",
         "photoAlt": "A marina in the San Juan Islands",
         "items": [

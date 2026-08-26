@@ -22,7 +22,7 @@ const rich = s => emphasize(esc(s).replace(LINK_RE, (match, text, url) => {
   if (!external && hasScheme) return match; // javascript: etc. stays literal
   const tgt = external && !OWN_SITE.test(url) ? ' target="_blank" rel="noopener"' : '';
   return `<a class="txt-link" href="${url}"${tgt}>${text}</a>`;
-}));
+})).replace(/\n/g, '<br>');
 // for text that already sits inside a link — keep the words, drop the url
 const stripLinks = s => String(s ?? '').replace(LINK_RE, '$1');
 
@@ -61,7 +61,7 @@ const sanitizeHtml = html => String(html ?? '')
 // prose fields hold either rich-text HTML (new) or plain text with optional
 // [text](url) links (legacy + non-rich fields) — render whichever this is
 const HTMLISH = /<\/?(p|br|strong|b|em|i|u|s|ul|ol|li|blockquote|a|h[1-6])[\s>/]/i;
-const prose = v => HTMLISH.test(String(v ?? '')) ? sanitizeHtml(v) : rich(v);
+const prose = v => HTMLISH.test(String(v ?? '')) ? emphasize(sanitizeHtml(v)) : rich(v);
 
 // ---------- shared pieces ----------
 

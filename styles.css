@@ -392,7 +392,7 @@ strong, b { font-weight: 500; color: var(--ink); }
 
 .schD-row__note {
   margin: 10px 0 0;
-  font-size: 12.5px;
+  font-size: 13.5px;
   line-height: 1.9;
   font-weight: 300;
   color: var(--ink-65);
@@ -411,7 +411,7 @@ strong, b { font-weight: 500; color: var(--ink); }
 
 .rsvpF__intro {
   margin: 0;
-  font-size: 13.5px;
+  font-size: 14.5px;
   line-height: 2;
   font-weight: 300;
   color: var(--ink-65);
@@ -747,7 +747,7 @@ strong, b { font-weight: 500; color: var(--ink); }
 
 .split__intro {
   margin: 0 0 40px;
-  font-size: 13.5px;
+  font-size: 14.5px;
   line-height: 2;
   font-weight: 300;
   color: var(--ink-65);
@@ -820,7 +820,7 @@ a.linklist__row:hover .linklist__arrow {
 }
 
 .linklist__sub {
-  font-size: 12.5px;
+  font-size: 13.5px;
   line-height: 1.8;
   font-weight: 300;
   color: var(--ink-65);
@@ -1006,7 +1006,7 @@ details.linklist__row--fold[open]::details-content {
 
 .registry__note {
   margin: 0 0 40px;
-  font-size: 13.5px;
+  font-size: 14.5px;
   line-height: 2;
   font-weight: 300;
   color: var(--ink-65);
@@ -1046,7 +1046,7 @@ details.linklist__row--fold[open]::details-content {
 .faq__item { text-align: left; }
 
 .faq__a {
-  font-size: 13px;
+  font-size: 14px;
   line-height: 1.9;
   font-weight: 300;
   color: var(--ink-65);

@@ -822,6 +822,78 @@ a.linklist__row:hover .linklist__arrow {
   color: var(--ink-65);
 }
 
+.linklist__sub p + p { margin-top: 0.6em; }
+
+/* click-to-expand rows — closed by default, the words only on request */
+details.linklist__row--fold { display: block; }
+
+.linklist__row--fold summary {
+  cursor: pointer;
+  list-style: none;
+  -webkit-tap-highlight-color: transparent;
+}
+.linklist__row--fold summary::-webkit-details-marker { display: none; }
+
+.linklist__plus {
+  flex: none;
+  margin-left: auto;
+  transition: transform 0.28s ease;
+}
+.linklist__row--fold[open] .linklist__plus { transform: rotate(45deg); }
+
+.linklist__fold {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 14px 0 6px;
+}
+
+.linklist__step {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.linklist__stephead {
+  font-size: 10px;
+  letter-spacing: 0.24em;
+  font-weight: 500;
+}
+
+/* small arrowed link under a step's text */
+.linklist__go {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  align-self: flex-start;
+  margin-top: 3px;
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  font-weight: 500;
+  color: var(--ink);
+  text-decoration: none;
+}
+.linklist__go:hover .linklist__arrow { transform: translate(3px, -3px); }
+
+/* ease the fold open where the browser can animate details */
+details.linklist__row--fold { interpolate-size: allow-keywords; }
+details.linklist__row--fold::details-content {
+  opacity: 0;
+  block-size: 0;
+  overflow-y: clip;
+  transition: content-visibility 0.3s allow-discrete, opacity 0.3s ease, block-size 0.3s ease;
+}
+details.linklist__row--fold[open]::details-content {
+  opacity: 1;
+  block-size: auto;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .linklist__plus { transition: none; }
+  .linklist__go:hover .linklist__arrow { transform: none; }
+  details.linklist__row--fold::details-content { transition: none; }
+}
+
 /* ============================================================
    Things To Do — travel's split pattern, photos a size down
    ============================================================ */

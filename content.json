@@ -88,26 +88,44 @@
     "photoAlt": "The San Juan Islands",
     "modes": [
       {
-        "label": "WASHINGTON → ANACORTES",
-        "route": "BY PLANE",
-        "body": "Most guests will fly into Seattle-Tacoma (SEA), then rent a car, carpool, or take a shuttle north to the ferry terminal in Anacortes. Paine Field (PAE) and Bellingham (BLI) are closer, but tend to have fewer flights—worth checking if they work for you!"
+        "label": "OPTION 1",
+        "route": "FLY + FERRY",
+        "steps": [
+          {
+            "label": "WASHINGTON → ANACORTES",
+            "route": "BY PLANE",
+            "body": "Most guests will fly into Seattle-Tacoma (SEA), then rent a car, carpool, or take a shuttle north to the ferry terminal in Anacortes. Paine Field (PAE) and Bellingham (BLI) are closer, but tend to have fewer flights—worth checking if they work for you!"
+          },
+          {
+            "label": "ANACORTES → FRIDAY HARBOR",
+            "route": "BY FERRY",
+            "body": "We highly recommend taking the ferry (and it's fun!). You can bring your car or park it in Anacortes and walk on - we've done this before and it's very safe.\n\nIf you’re bringing a car, reserve a spot both ways; walk-ons don’t need one.",
+            "url": "https://wsdot.wa.gov/travel/washington-state-ferries",
+            "linkText": "WASHINGTON STATE FERRIES"
+          }
+        ]
       },
       {
-        "label": "ANACORTES → FRIDAY HARBOR",
-        "route": "BY FERRY",
-        "body": "We highly recommend taking the ferry (and it's fun!). You can bring your car or park it in Anacortes and walk on - we've done this before and it's very safe. \n\nIf you’re bringing a car, reserve a spot both ways; walk-ons don’t need one.",
-        "url": "https://wsdot.wa.gov/travel/washington-state-ferries"
-      },
-      {
-        "label": "SEATTLE → FRIDAY HARBOR",
-        "route": "BY SEAPLANE",
-        "body": "Skip the drive and ferry with a flight from Seattle directly into Friday Harbor. Faster, more expensive and objectively very cool.",
-        "url": "https://kenmoreair.com/friday-harbor/"
+        "label": "OPTION 2",
+        "route": "FLY + SEAPLANE",
+        "steps": [
+          {
+            "label": "SEATTLE → FRIDAY HARBOR",
+            "route": "BY SEAPLANE",
+            "body": "Fly into Seattle, then skip the drive and ferry with a seaplane straight into Friday Harbor. Faster, more expensive and objectively very cool.",
+            "url": "https://kenmoreair.com/friday-harbor/",
+            "linkText": "KENMORE AIR"
+          }
+        ]
       },
       {
         "label": "ON ISLAND",
         "route": "GETTING AROUND",
-        "body": "Friday Harbor is very walkable, and we’ll provide transportation to and from the welcome event on Friday and wedding on Saturday. If you want to explore beyond town, bring a car."
+        "steps": [
+          {
+            "body": "Friday Harbor is very walkable, and we’ll provide transportation to and from the welcome event on Friday and wedding on Saturday. If you want to explore beyond town, bring a car."
+          }
+        ]
       }
     ],
     "stayHidden": false,

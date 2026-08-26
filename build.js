@@ -134,9 +134,37 @@ const schedPhoto = c.schedule.photo
 
 // ---------- travel ----------
 
-const modeRows = c.travel.modes
-  .map(m => row(`${m.label} — ${m.route}`, m.body, m.url))
-  .join('\n');
+// getting-here rows fold shut — the words only appear on click. Each option
+// holds one or more steps (fly, then ferry…); a step's url becomes a small
+// arrowed link under its text so the summary stays a pure toggle.
+const PLUS_SVG = `<svg class="linklist__plus" viewBox="0 0 12 12" width="11" height="11" aria-hidden="true"><path d="M6 1.2 V10.8 M1.2 6 H10.8" fill="none" stroke="currentColor" stroke-width="1.4"/></svg>`;
+
+const modeStep = s => {
+  const heading = [s.label, s.route].filter(Boolean).join(' — ');
+  const paras = String(s.body ?? '').split(/\n\s*\n/).filter(p => p.trim())
+    .map(p => `                <p>${rich(p)}</p>`).join('\n');
+  const link = s.url ? `
+              <a class="linklist__go" href="${esc(s.url)}" target="_blank" rel="noopener"><span>${esc(s.linkText || 'MORE INFO')}</span>${ARROW_SVG}</a>` : '';
+  return `            <div class="linklist__step">${heading ? `
+              <div class="linklist__stephead">${esc(heading)}</div>` : ''}
+              <div class="linklist__sub">
+${paras}
+              </div>${link}
+            </div>`;
+};
+
+const modeRows = c.travel.modes.map(m => {
+  const steps = (m.steps || []).map(modeStep).join('\n');
+  return `          <details class="linklist__row linklist__row--fold">
+            <summary class="linklist__main">
+              <span class="linklist__label">${esc([m.label, m.route].filter(Boolean).join(' — '))}</span>
+              ${PLUS_SVG}
+            </summary>
+            <div class="linklist__fold">
+${steps}
+            </div>
+          </details>`;
+}).join('\n');
 
 const stayRows = c.travel.stays
   .map(s => row(s.name, s.desc, s.url))

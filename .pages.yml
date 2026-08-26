@@ -98,14 +98,22 @@ content:
           - { name: photo, label: Getting-here photo, type: image }
           - { name: photoAlt, label: Photo description, type: string }
           - name: modes
-            label: Getting-here rows
+            label: Getting-here options (closed until clicked)
             type: object
             list: true
             fields:
-              - { name: label, label: Small label (BY FERRY), type: string }
-              - { name: route, label: Heading, type: string }
-              - { name: body, label: Description, type: text }
-              - { name: url, label: Link (optional — adds arrow), type: string }
+              - { name: label, label: "Heading (e.g. OPTION 1)", type: string }
+              - { name: route, label: "After the dash (e.g. FLY + FERRY)", type: string }
+              - name: steps
+                label: Steps shown when expanded
+                type: object
+                list: true
+                fields:
+                  - { name: label, label: "Step label (e.g. ANACORTES → FRIDAY HARBOR)", type: string }
+                  - { name: route, label: "After the dash (e.g. BY FERRY)", type: string }
+                  - { name: body, label: Description, type: text }
+                  - { name: url, label: Link (optional — adds arrow), type: string }
+                  - { name: linkText, label: "Link text (e.g. WASHINGTON STATE FERRIES)", type: string }
           - { name: stayHidden, label: Hide the where-to-stay section, type: boolean }
           - { name: stayTitle, label: Stay section title, type: string }
           - { name: stayIntro, label: Stay intro paragraph, type: text }

@@ -16,7 +16,7 @@ const esc = s => String(s ?? '')
 // links within the site (relative, or absolute to our own domain) stay put.
 const LINK_RE = /\[([^\]]+)\] ?\(([^)\s]+)\)/g;
 const OWN_SITE = /^https?:\/\/(www\.)?jackieandmeredith\.com(\/|$)/i;
-const rich = s => emphasize(esc(s).replace(LINK_RE, (match, text, url) => {
+const rich = s => emphasize(esc(educate(s)).replace(LINK_RE, (match, text, url) => {
   const external = /^(https?:|mailto:)/i.test(url);
   const hasScheme = /^[a-z][a-z0-9+.-]*:/i.test(url);
   if (!external && hasScheme) return match; // javascript: etc. stays literal
@@ -25,6 +25,15 @@ const rich = s => emphasize(esc(s).replace(LINK_RE, (match, text, url) => {
 })).replace(/\n/g, '<br>');
 // for text that already sits inside a link — keep the words, drop the url
 const stripLinks = s => String(s ?? '').replace(LINK_RE, '$1');
+
+// Apfel draws the straight " as a closing-quote glyph, so straight quotes
+// read backwards at the start of a phrase. Educate them: opening after a
+// space/bracket/dash or at the start, closing everywhere else.
+const educate = s => s.replace(/"/g, (q, i, str) =>
+  i === 0 || /[\s([{—–-]/.test(str[i - 1]) ? '“' : '”');
+// same, for sanitized HTML — only text between tags, never attributes
+const educateHtml = html => html.split(/(<[^>]*>)/)
+  .map(part => part.startsWith('<') ? part : educate(part)).join('');
 
 // **bold** and *italic* — same mini-markdown family as [text](url).
 // Runs after esc(), so the markers must pair on one line to count.
@@ -61,7 +70,7 @@ const sanitizeHtml = html => String(html ?? '')
 // prose fields hold either rich-text HTML (new) or plain text with optional
 // [text](url) links (legacy + non-rich fields) — render whichever this is
 const HTMLISH = /<\/?(p|br|strong|b|em|i|u|s|ul|ol|li|blockquote|a|h[1-6])[\s>/]/i;
-const prose = v => HTMLISH.test(String(v ?? '')) ? emphasize(sanitizeHtml(v)) : rich(v);
+const prose = v => HTMLISH.test(String(v ?? '')) ? emphasize(educateHtml(sanitizeHtml(v))) : rich(v);
 
 // ---------- shared pieces ----------
 

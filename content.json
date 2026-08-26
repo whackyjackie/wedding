@@ -204,6 +204,12 @@
             "desc": "Go hang out with some alpacas. Pet them?",
             "url": "https://www.krystalacres.com",
             "fav": false
+          },
+          {
+            "name": "KAYAKING",
+            "desc": "Kayak!",
+            "url": "https://www.visitsanjuans.com/world-class-kayaking-in-the-san-juans",
+            "fav": false
           }
         ]
       },
@@ -240,6 +246,7 @@
           {
             "name": "Jackson Beach",
             "desc": "Beach!",
+            "url": "https://www.visitsanjuans.com/account/jackson-beach",
             "fav": false
           }
         ]

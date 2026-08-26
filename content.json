@@ -250,9 +250,14 @@
             "fav": false
           },
           {
-            "name": "Jackson Beach",
+            "name": "JACKSON BEACH",
             "desc": "Beach!",
             "url": "https://www.visitsanjuans.com/account/jackson-beach",
+            "fav": false
+          },
+          {
+            "name": "HIKING",
+            "desc": "Mere's [recommended hike](https://www.alltrails.com/trail/us/washington/mount-finlayson-trail). ",
             "fav": false
           }
         ]

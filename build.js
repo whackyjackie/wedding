@@ -381,5 +381,7 @@ for (const dir of ['images', 'fonts']) {
   fs.cpSync(path.join(ROOT, dir), path.join(DIST, dir), { recursive: true });
 }
 fs.copyFileSync(path.join(ROOT, 'styles.css'), path.join(DIST, 'styles.css'));
+// the "set a calendar reminder" link on the travel page
+fs.copyFileSync(path.join(ROOT, 'ferry-reminder.ics'), path.join(DIST, 'ferry-reminder.ics'));
 
 console.log('Built', fs.readdirSync(DIST).join(', '));

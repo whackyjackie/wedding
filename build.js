@@ -16,15 +16,21 @@ const esc = s => String(s ?? '')
 // links within the site (relative, or absolute to our own domain) stay put.
 const LINK_RE = /\[([^\]]+)\] ?\(([^)\s]+)\)/g;
 const OWN_SITE = /^https?:\/\/(www\.)?jackieandmeredith\.com(\/|$)/i;
-const rich = s => esc(s).replace(LINK_RE, (match, text, url) => {
+const rich = s => emphasize(esc(s).replace(LINK_RE, (match, text, url) => {
   const external = /^(https?:|mailto:)/i.test(url);
   const hasScheme = /^[a-z][a-z0-9+.-]*:/i.test(url);
   if (!external && hasScheme) return match; // javascript: etc. stays literal
   const tgt = external && !OWN_SITE.test(url) ? ' target="_blank" rel="noopener"' : '';
   return `<a class="txt-link" href="${url}"${tgt}>${text}</a>`;
-});
+}));
 // for text that already sits inside a link — keep the words, drop the url
 const stripLinks = s => String(s ?? '').replace(LINK_RE, '$1');
+
+// **bold** and *italic* — same mini-markdown family as [text](url).
+// Runs after esc(), so the markers must pair on one line to count.
+const emphasize = s => s
+  .replace(/\*\*([^*\n]+)\*\*/g, '<strong>$1</strong>')
+  .replace(/(^|[^*])\*([^*\s][^*\n]*?)\*(?!\*)/g, '$1<em>$2</em>');
 
 // rich-text CMS fields save HTML. Keep only simple formatting tags, drop every
 // attribute, and rebuild links with the same rules as rich(). Headings become
@@ -73,7 +79,7 @@ const row = (label, sub, url, fav) => {
   const star = fav ? FAV_STAR : '';
   const main = `<div class="linklist__main"><span class="linklist__label">${esc(label)}</span>${star}${arrow}</div>`;
   // a linked row can't nest another link inside it — keep just the words there
-  const subHtml = url ? esc(stripLinks(sub)) : rich(sub);
+  const subHtml = url ? emphasize(esc(stripLinks(sub))) : rich(sub);
   const subLine = sub ? `\n            <div class="linklist__sub">${subHtml}</div>` : '';
   return url
     ? `          <a class="linklist__row" href="${esc(url)}">${main}${subLine}\n          </a>`

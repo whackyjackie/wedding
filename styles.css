@@ -71,6 +71,10 @@ body {
 
 a { color: inherit; }
 
+/* bold written as **text** in the CMS — light prose needs a real step up,
+   and `bolder` from 300 only reaches 400. 500 is the Mittel face. */
+strong, b { font-weight: 500; color: var(--ink); }
+
 /* inline links written as [text](url) in the CMS */
 .txt-link {
   color: inherit;

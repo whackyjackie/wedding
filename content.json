@@ -236,6 +236,11 @@
             "desc": "American Camp and English Camp. Beach walks, prairie trails, and big views at both ends of the island.",
             "url": "https://www.nps.gov/sajh/index.htm",
             "fav": false
+          },
+          {
+            "name": "Jackson Beach",
+            "desc": "Beach!",
+            "fav": false
           }
         ]
       }

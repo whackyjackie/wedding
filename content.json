@@ -180,9 +180,15 @@
             "fav": false
           },
           {
-            "name": "San Juan vineyard  ",
-            "desc": "Self-explanatory. ",
+            "name": "SAN JUAN VINEYARD",
+            "desc": "Self-explanatory. Wine! Views!",
             "url": "https://www.sanjuanvineyard.com",
+            "fav": false
+          },
+          {
+            "name": "FRIDAYS CRAB HOUSE",
+            "desc": "Food and views. ",
+            "url": "https://www.fridayscrabhouse.com",
             "fav": false
           }
         ]

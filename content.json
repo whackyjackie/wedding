@@ -94,7 +94,7 @@
           {
             "label": "TO ANACORTES",
             "route": "DRIVE + FERRY",
-            "body": "First, get to the Anacortes ferry terminal. It's roughly 2 hours north of Seattle-Tacoma airport (SEA) and 1 hour 15 mins from Paine Field airport (PAE). You can rent a car or take an airport shuttle to get there from either airport.  "
+            "body": "First, get to the Anacortes ferry terminal. It's roughly 2 hours north of Seattle-Tacoma airport (SEA) and 1 hour 15 mins from Paine Field airport (PAE). You can rent a car or take an airport shuttle to get there from either airport.  \n\nThen, take the ferry from Anacortes to Friday Harbor. \n(Anacortes → Friday Harbor, ~1 hr -\n\n it’s the local’s way, it’s scenic, and it’s fun!"
           },
           {
             "label": "ANACORTES → FRIDAY HARBOR",
@@ -107,12 +107,12 @@
       },
       {
         "label": "OPTION 2",
-        "route": "FLY + SEAPLANE",
+        "route": "FLY DIRECTLY TO FRIDAY HARBOR",
         "steps": [
           {
             "label": "SEATTLE → FRIDAY HARBOR",
-            "route": "BY SEAPLANE",
-            "body": "If you'd like, skip the drive and ferry with a flight from Seattle directly into Friday Harbor. Faster, more expensive, and objectively very cool.",
+            "route": "FLY + SEAPLANE",
+            "body": "If you'd like, skip the drive and ferry with a flight directly into Friday Harbor. Faster, more expensive, and objectively very cool. Some options:\n\nSeaplane — Kenmore Air floatplanes leave from Lake Union and land in Friday Harbor's marina, a few blocks from downtown (~45 min flight time).  SeaTac to Lake Union is roughly a ~20 min drive. \n\nWheeled plane — Kenmore Air Express flies from Boeing Field (~35 min; they run a shuttle from SeaTac) or from Paine Field (~25 min) into Friday Harbor Airport, less than a mile from town. If you're connecting through Paine Field, you can book the whole thing as one ticket through Alaska Airlines.\n",
             "url": "https://kenmoreair.com/friday-harbor/",
             "linkText": "KENMORE AIR"
           }

@@ -101,7 +101,6 @@
         "route": "FLY DIRECTLY TO FRIDAY HARBOR",
         "steps": [
           {
-            "route": "FLY + SEAPLANE",
             "body": "If you'd like, skip the drive and ferry with a flight directly into Friday Harbor. Faster, more expensive, and objectively very cool. Some options:\n\n**Seaplane** — Kenmore Air floatplanes leave from Lake Union and land in Friday Harbor's marina, a few blocks from downtown (~45 min flight time).  SeaTac to Lake Union is roughly a ~20 min drive. \n\n**Wheeled plane** — Kenmore Air Express flies from Boeing Field (~35 min; they run a shuttle from SeaTac) or from Paine Field (~25 min) into Friday Harbor Airport, less than a mile from town. If you're connecting through Paine Field, you can book the whole thing as one ticket through [Alaska Airlines] (https://alaskaair.com).\n",
             "url": "https://kenmoreair.com/friday-harbor/",
             "linkText": "KENMORE AIR"

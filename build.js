@@ -376,6 +376,8 @@ for (const f of fs.readdirSync(path.join(ROOT, 'templates'))) {
     return tokens[k];
   });
   html = html.replace(/\n{3,}/g, '\n\n');
+  // Vercel Web Analytics — the /_vercel/insights/ route only exists on the deployed site
+  html = html.replace('</head>', '  <script defer src="/_vercel/insights/script.js"></script>\n</head>');
   html = html.replace('href="styles.css"', `href="styles.css?v=${CSS_V}"`);
   for (const font of FONTS) {
     html = html.replace(`href="${font}"`, `href="${font}?v=${FONT_V[font]}"`);

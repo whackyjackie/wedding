@@ -70,7 +70,6 @@
           <button class="rsvpParty__again" id="search-again" type="button">NOT YOU? SEARCH AGAIN</button>
         </div>
         <p class="rsvpParty__updated" id="party-updated" hidden></p>
-        <div id="party-summary" hidden></div>
         <form id="party-form" novalidate>
           <div id="member-cards"></div>
           <div class="rsvpF__err" id="party-msg" role="alert" hidden></div>
@@ -115,7 +114,7 @@
   // warm up the backend while the guest is still typing: this primes
   // the connection and the script's guest-list cache
   if (CONFIG.scriptUrl) {
-    fetch(CONFIG.scriptUrl + '?q=zz').catch(function () {});
+    fetch(CONFIG.scriptUrl + '?q=zzz').catch(function () {});
   }
 
   var findView = document.getElementById('rsvp-find');
@@ -188,7 +187,7 @@
     e.preventDefault();
     clearTimeout(debounce);
     var q = findForm.q.value.trim();
-    if (q.length < 2) { say(findMsg, 'PLEASE TYPE A NAME FROM YOUR INVITATION'); return; }
+    if (q.length < 3) { say(findMsg, 'PLEASE TYPE A NAME FROM YOUR INVITATION'); return; }
     if (findForm.website.value) return;          // honeypot
     choicesBox.hidden = true;
     lookup(q, false);
@@ -222,29 +221,16 @@
   function showParty(p) {
     current = p;
     document.getElementById('party-name').textContent = p.party;
-    var summary = document.getElementById('party-summary');
     var replied = p.members.some(function (m) { return m.existing; });
 
     if (replied) {
-      // one reply per party: show what was sent, no re-submitting
+      // one reply per party: confirm it arrived, no re-submitting — and
+      // no echoing the answers back, since anyone can type a guest's name
       var when = '';
       p.members.forEach(function (m) { if (m.existing && m.existing.when) when = m.existing.when; });
-      var rows = p.members.map(function (m) {
-        var ex = m.existing || {};
-        return '<div class="rsvpCard">' +
-          '<div class="rsvpCard__name">' + esc(m.name) + '</div>' +
-          '<div class="rsvpSum__row"><span>' + esc(CONFIG.labels.welcome) + '</span>' + esc(ex.welcome || '—') + '</div>' +
-          (ex.ftrans ? '<div class="rsvpSum__row"><span>' + esc(CONFIG.labels.ftransLabel) + '</span>' + esc(ex.ftrans) + '</div>' : '') +
-          '<div class="rsvpSum__row"><span>' + esc(CONFIG.labels.wedding) + '</span>' + esc(ex.wedding || '—') + '</div>' +
-          (ex.strans ? '<div class="rsvpSum__row"><span>' + esc(CONFIG.labels.stransLabel) + '</span>' + esc(ex.strans) + '</div>' : '') +
-          (ex.dietary ? '<div class="rsvpSum__row"><span>DIETARY</span>' + esc(ex.dietary) + '</div>' : '') +
-          '</div>';
-      }).join('');
-      summary.innerHTML = rows;
-      summary.hidden = false;
       partyForm.hidden = true;
       var up = document.getElementById('party-updated');
-      up.textContent = 'You already replied' + (when ? ' on ' + when : '') + ' — here is what we have. ' + CONFIG.labels.locked;
+      up.textContent = 'You already replied' + (when ? ' on ' + when : '') + ' — your responses are safely in. ' + CONFIG.labels.locked;
       up.hidden = false;
     } else {
       var cards = p.members.map(function (m) {
@@ -265,7 +251,6 @@
           '</div>';
       }).join('');
       document.getElementById('member-cards').innerHTML = cards;
-      summary.hidden = true;
       partyForm.hidden = false;
       document.getElementById('party-updated').hidden = true;
     }

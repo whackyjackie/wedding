@@ -325,6 +325,7 @@ const tokens = {
   TRAVEL_INTRO: prose(c.travel.intro),
   TRAVEL_PHOTO: splitImg(c.travel.photo, c.travel.photoAlt),
   TRAVEL_MODES: modeRows,
+  MAP_TITLE: esc(c.travel.mapTitle || 'GETTING HERE'),
   // map star pop-ups, editable in the CMS; travel-map.js reads this blob
   MAP_TIPS: '<script type="application/json" id="map-tips">' +
     JSON.stringify(Object.fromEntries((c.travel.mapTips || []).map(t =>

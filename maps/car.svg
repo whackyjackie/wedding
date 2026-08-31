@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" width="240" height="240">
+  <!-- Car in the save-the-date linocut style: ink + cream, top-down,
+       hand-cut wobble. Heading baked at -32deg like the ferry. -->
+  <g transform="rotate(-32 120 120)" stroke-linejoin="round" stroke-linecap="round">
+
+    <!-- wheels as fender bumps -->
+    <path d="M94 84 C85 84 82 89 82 97 L82 108 C82 116 86 120 94 120 Z" fill="#141F17"/>
+    <path d="M148 83 C157 83 160 88 160 96 L160 107 C160 115 156 119 148 119 Z" fill="#141F17"/>
+    <path d="M94 142 C85 142 82 147 82 155 L82 166 C82 174 86 178 94 178 Z" fill="#141F17"/>
+    <path d="M148 141 C157 141 160 146 160 154 L160 165 C160 173 156 177 148 177 Z" fill="#141F17"/>
+
+    <!-- body -->
+    <path d="M121 60 C138 61 148 67 149 79 L151 110 L150 152 L149 170
+             C148 182 137 188 121 188 C104 188 94 182 93 170 L91 151 L92 109
+             L94 78 C95 66 105 60 121 60 Z"
+          fill="#141F17"/>
+
+    <!-- cream top: hood, roof, trunk in one big panel -->
+    <path d="M120 69 C132 69 140 73 141 81 L142 109 L141 149 L140 165
+             C139 174 131 178 120 178 C109 178 102 174 101 166 L100 148 L101 108
+             L102 80 C103 73 110 69 120 69 Z" fill="#FAEEDC"/>
+
+    <!-- windshield band -->
+    <path d="M103 96 C114 92 129 92 139 95 L140 112 C128 108 113 108 102 111 Z"
+          fill="#141F17"/>
+    <!-- rear window band -->
+    <path d="M101 146 C113 142 129 142 140 145 L140 156 C128 152 112 152 101 156 Z"
+          fill="#141F17"/>
+  </g>
+</svg>

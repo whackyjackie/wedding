@@ -138,6 +138,18 @@
         "desc": "Casual and a little retro, with an indoor pool and spa!",
         "url": "https://www.earthboxinn.com"
       }
+    ],
+    "mapTips": [
+      {
+        "star": "anacortes",
+        "title": "ANACORTES FERRY TERMINAL",
+        "body": "Sail to Friday Harbor in about 1–2 hours — some sailings pause at Lopez, Shaw, or Orcas on the way.\n\n**Walking on?** No reservation needed.\n**Bringing a car?** [Reserve on WSDOT](https://secureapps.wsdot.wa.gov/ferries/reservations/vehicle/SailingSchedule.aspx?cookieCheck=true) — spots open mid-April 2027 ([calendar reminder](ferry-reminder.ics))."
+      },
+      {
+        "star": "friday-harbor",
+        "title": "FRIDAY HARBOR",
+        "body": "You made it! The ferry lands right downtown — everything is a short walk from the dock."
+      }
     ]
   },
   "things": {

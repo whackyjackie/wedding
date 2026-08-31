@@ -17,6 +17,7 @@
 <link rel="preload" href="fonts/Apfel-Mittel.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="fonts/Apfel-Satt.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="maps/travel-map.css">
 </head>
 <body>
 
@@ -42,10 +43,20 @@
 {{STAY_SECTION}}
 
 {{COCOA_BAND}}
+
+    <section class="mapstory">
+      <h2 class="mapstory__title">THE JOURNEY</h2>
+      <div class="mapstory__duo">
+        <figure class="mapstory__map mapstory__map--region" data-map="region" data-src="maps/san-juan-region-web.svg"></figure>
+        <figure class="mapstory__map mapstory__map--islands" data-map="islands" data-src="maps/san-juan-map-web.svg"></figure>
+      </div>
+    </section>
   </main>
 
   <footer class="site-footer">{{FOOTER}}</footer>
 </div>
 
+{{MAP_TIPS}}
+<script src="maps/travel-map.js" defer></script>
 </body>
 </html>

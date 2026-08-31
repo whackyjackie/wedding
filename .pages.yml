@@ -114,6 +114,14 @@ content:
                   - { name: body, label: Description, type: text }
                   - { name: url, label: Link (optional — adds arrow), type: string }
                   - { name: linkText, label: "Link text (e.g. WASHINGTON STATE FERRIES)", type: string }
+          - name: mapTips
+            label: "Map pop-ups (the star markers on the journey maps)"
+            type: object
+            list: true
+            fields:
+              - { name: star, label: "Which star (anacortes or friday-harbor)", type: string }
+              - { name: title, label: Pop-up heading, type: string }
+              - { name: body, label: "Pop-up text (links like [text](url) work)", type: text }
           - { name: stayHidden, label: Hide the where-to-stay section, type: boolean }
           - { name: stayTitle, label: Stay section title, type: string }
           - { name: stayIntro, label: Stay intro paragraph, type: text }

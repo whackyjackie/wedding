@@ -325,6 +325,11 @@ const tokens = {
   TRAVEL_INTRO: prose(c.travel.intro),
   TRAVEL_PHOTO: splitImg(c.travel.photo, c.travel.photoAlt),
   TRAVEL_MODES: modeRows,
+  // map star pop-ups, editable in the CMS; travel-map.js reads this blob
+  MAP_TIPS: '<script type="application/json" id="map-tips">' +
+    JSON.stringify(Object.fromEntries((c.travel.mapTips || []).map(t =>
+      ['star-' + t.star, { title: esc(t.title), html: '<p>' + rich(t.body).replace(/<br><br>/g, '</p><p>') + '</p>' }]
+    ))) + '</scr' + 'ipt>',
   STAY_SECTION: staySection,
   THINGS_EYEBROW: esc(c.things.eyebrow),
   THINGS_TITLE: esc(c.things.title),
@@ -388,7 +393,7 @@ for (const f of fs.readdirSync(path.join(ROOT, 'templates'))) {
   fs.writeFileSync(path.join(DIST, f), html);
 }
 
-for (const dir of ['images', 'fonts']) {
+for (const dir of ['images', 'fonts', 'maps']) {
   fs.cpSync(path.join(ROOT, dir), path.join(DIST, dir), { recursive: true });
 }
 fs.copyFileSync(path.join(ROOT, 'styles.css'), path.join(DIST, 'styles.css'));

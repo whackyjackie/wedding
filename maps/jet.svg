@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" width="240" height="240">
+  <!-- Jet airliner in the save-the-date linocut style: ink + cream,
+       top-down, hand-cut wobble. Heading baked at -32deg like the ferry. -->
+  <g transform="rotate(-32 120 120)" stroke-linejoin="round" stroke-linecap="round">
+
+    <!-- tailplane, swept -->
+    <path d="M87 174 C82 171 82 166 88 165 L116 160 L148 164 C154 166 154 171 149 173
+             L143 184 L119 187 L94 184 Z"
+          fill="#FAEEDC" stroke="#141F17" stroke-width="6.5"/>
+
+    <!-- wings, swept back -->
+    <path d="M38 142 C31 146 32 153 39 153 L74 150 L118 136 L165 149 L201 152
+             C208 152 209 145 203 141 L166 118 L121 96 L75 119 Z"
+          fill="#FAEEDC" stroke="#141F17" stroke-width="8"/>
+    <!-- engines on the wings -->
+    <path d="M77 116 C72 112 72 106 77 105 C83 104 86 108 86 114 L87 138 C87 143 84 146 81 145
+             C77 144 75 141 76 136 Z" fill="#141F17"/>
+    <path d="M161 114 C158 108 160 103 165 104 C170 104 173 109 172 115 L170 137
+             C169 142 167 145 163 144 C160 143 158 139 159 134 Z" fill="#141F17"/>
+
+    <!-- fuselage -->
+    <path d="M121 26 C130 27 136 36 137 50 L139 92 L138 132 L135 166
+             C134 180 130 189 124 190 C117 191 112 182 111 168 L108 133 L107 93
+             L110 49 C111 35 114 26 121 26 Z"
+          fill="#141F17"/>
+    <!-- cabin spine, cream -->
+    <path d="M120 44 C125 44 128 48 129 55 L131 96 L130 134 L128 158
+             C127 164 124 167 121 167 C118 167 116 163 116 157 L114 133 L114 95
+             L116 54 C116 48 117 44 120 44 Z" fill="#FAEEDC"/>
+    <!-- cockpit windshield notch -->
+    <path d="M113 60 L131 58 L130 70 L114 71 Z" fill="#141F17"/>
+    <!-- wing-root band over the fuselage -->
+    <path d="M105 112 L138 110 L139 140 L106 142 Z" fill="#141F17"/>
+
+    <!-- fin -->
+    <path d="M120 148 C125 147 128 151 128 158 L127 182 C126 188 123 191 120 190
+             C116 189 114 184 115 178 L116 155 C116 151 117 149 120 148 Z"
+          fill="#141F17"/>
+  </g>
+</svg>

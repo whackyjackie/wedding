@@ -1,0 +1,92 @@
+/* "The Journey" interactive maps on the travel page. */
+.mapstory { margin: 84px auto 0; max-width: none; padding: 0 10px; text-align: center; }
+/* same voice as the site's section headings (WHERE TO STAY) */
+.mapstory__title {
+  margin: 0;
+  font-weight: 300;
+  font-size: 32px;
+  letter-spacing: 0.22em;
+}
+@media (max-width: 800px) {
+  .mapstory__title { font-size: 24px; }
+}
+.mapstory__map { position: relative; cursor: zoom-in; }
+.mapstory__map svg { width: 100%; height: auto; display: block; }
+
+/* click-to-expand lightbox */
+.mapstory__fs {
+  position: fixed; inset: 0; z-index: 60;
+  background: rgba(38, 36, 31, 0.6);
+  display: flex; align-items: center; justify-content: center;
+  padding: 20px; cursor: zoom-out;
+}
+.mapstory__fs .mapstory__map { cursor: zoom-out; margin: 0; }
+.mapstory__fs .mapstory__map svg {
+  box-shadow: 0 18px 60px rgba(20, 31, 23, 0.5);
+  border-radius: 4px;
+}
+.mapstory__fs-close {
+  position: fixed; top: 16px; right: 20px; z-index: 61;
+  width: 44px; height: 44px; border-radius: 50%;
+  border: 2.5px solid #141F17; background: #FAEEDC; color: #141F17;
+  font-size: 26px; line-height: 1; cursor: pointer;
+}
+.mapstory__fs-close:hover { background: #141F17; color: #FAEEDC; }
+
+/* the journey map left, the islands close-up right, matched heights;
+   stacked on phones */
+.mapstory__duo {
+  display: grid;
+  grid-template-columns: 1.18fr 1.78fr;
+  gap: 18px;
+  align-items: center;
+  margin-top: 34px;
+}
+@media (max-width: 800px) {
+  .mapstory__duo { grid-template-columns: 1fr; gap: 36px; }
+}
+
+.mapstory__tip {
+  position: absolute;
+  z-index: 3;
+  max-width: 250px;
+  text-align: left;
+  background: #FAEEDC;
+  border: 2.5px solid #141F17;
+  border-radius: 10px;
+  padding: 12px 14px;
+  font-family: 'Apfel Grotezk', 'Archivo', sans-serif;
+  font-size: 0.85rem;
+  line-height: 1.45;
+  color: #26241F;
+  box-shadow: 0 6px 22px rgba(20, 31, 23, 0.25);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.18s ease;
+}
+.mapstory__tip.is-open { opacity: 1; pointer-events: auto; }
+.mapstory__tip h4 {
+  margin: 0 0 6px;
+  font-family: 'TAY Basal', 'Archivo', sans-serif;
+  font-size: 0.8rem;
+  letter-spacing: 0.16em;
+}
+.mapstory__tip p { margin: 0 0 6px; }
+.mapstory__tip p:last-child { margin-bottom: 0; }
+.mapstory__tip a { color: #C97F59; }
+
+/* invitation pulse on the tappable stars */
+.mapstory__map .star-hit { cursor: pointer; }
+.mapstory__map .star-pulse {
+  animation: mapstory-pulse 2.6s ease-out infinite;
+}
+@keyframes mapstory-pulse {
+  0%   { r: 18px; opacity: 0.75; }
+  70%  { r: 34px; opacity: 0; }
+  100% { r: 34px; opacity: 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .mapstory__map .star-pulse { animation: none; opacity: 0; }
+}
+
+.mapstory__portal { position: absolute; border-radius: 50%; cursor: zoom-in; }

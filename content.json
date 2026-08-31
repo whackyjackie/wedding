@@ -117,6 +117,18 @@
         ]
       }
     ],
+    "mapTips": [
+      {
+        "star": "anacortes",
+        "title": "ANACORTES FERRY TERMINAL",
+        "body": "Ferry to Friday Harbor in about ~1 hour  — some routes pause at Lopez, Shaw, or Orcas on the way.\n\n**Walking on?** No reservation needed!\n**Bringing a car?** [Reserve on WSDOT](https://secureapps.wsdot.wa.gov/ferries/reservations/vehicle/SailingSchedule.aspx?cookieCheck=true) — spots open mid-April 2027 ([calendar reminder](ferry-reminder.ics))."
+      },
+      {
+        "star": "friday-harbor",
+        "title": "FRIDAY HARBOR",
+        "body": "You made it! The ferry lands right downtown, everything is a short walk from the dock."
+      }
+    ],
     "stayHidden": false,
     "stayTitle": "WHERE TO STAY",
     "stayIntro": "We will provide guests with transportation to and from the below locations, so it's highly recommended you stay at one of the following if you are not driving to the venue (ride-share is super unreliable on the island).",
@@ -137,18 +149,6 @@
         "name": "EARTHBOX INN",
         "desc": "Casual and a little retro, with an indoor pool and spa!",
         "url": "https://www.earthboxinn.com"
-      }
-    ],
-    "mapTips": [
-      {
-        "star": "anacortes",
-        "title": "ANACORTES FERRY TERMINAL",
-        "body": "Sail to Friday Harbor in about 1–2 hours — some sailings pause at Lopez, Shaw, or Orcas on the way.\n\n**Walking on?** No reservation needed.\n**Bringing a car?** [Reserve on WSDOT](https://secureapps.wsdot.wa.gov/ferries/reservations/vehicle/SailingSchedule.aspx?cookieCheck=true) — spots open mid-April 2027 ([calendar reminder](ferry-reminder.ics))."
-      },
-      {
-        "star": "friday-harbor",
-        "title": "FRIDAY HARBOR",
-        "body": "You made it! The ferry lands right downtown — everything is a short walk from the dock."
       }
     ]
   },

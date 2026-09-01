@@ -114,6 +114,7 @@ content:
                   - { name: body, label: Description, type: text }
                   - { name: url, label: Link (optional — adds arrow), type: string }
                   - { name: linkText, label: "Link text (e.g. WASHINGTON STATE FERRIES)", type: string }
+          - { name: mapsHidden, label: Hide the journey maps section (WIP), type: boolean }
           - { name: mapTitle, label: "Maps section heading (e.g. GETTING HERE)", type: string }
           - name: mapTips
             label: "Map pop-ups (the star markers on the journey maps)"

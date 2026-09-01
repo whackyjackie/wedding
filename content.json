@@ -151,7 +151,8 @@
         "url": "https://www.earthboxinn.com"
       }
     ],
-    "mapTitle": "GETTING HERE"
+    "mapTitle": "GETTING HERE",
+    "mapsHidden": true
   },
   "things": {
     "hidden": false,

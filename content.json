@@ -155,7 +155,12 @@
         "desc": "Casual and a little retro, with an indoor pool and spa!",
         "url": "https://www.earthboxinn.com"
       }
-    ]
+    ],
+    "mapsHidden": true,
+    "journeyMap": "images/journey-map.svg",
+    "journeyMapAlt": "Map of the route from Seattle to Friday Harbor",
+    "islandsMap": "images/islands-map.svg",
+    "islandsMapAlt": "Map of the San Juan Islands, Anacortes to Friday Harbor"
   },
   "things": {
     "hidden": false,

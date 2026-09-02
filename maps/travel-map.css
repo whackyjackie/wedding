@@ -57,6 +57,10 @@
   max-width: none;
   max-height: none;
   height: auto;
+  /* own compositing layer — stops WebKit painting stale tiles at the
+     edges while scrolling a large SVG */
+  transform: translateZ(0);
+  will-change: transform;
 }
 
 /* the journey map left, the islands close-up right, matched heights;

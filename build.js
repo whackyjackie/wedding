@@ -329,21 +329,23 @@ const tokens = {
   TRAVEL_INTRO: prose(c.travel.intro),
   TRAVEL_PHOTO: splitImg(c.travel.photo, c.travel.photoAlt),
   TRAVEL_MODES: modeRows,
-  // the journey-maps section, toggleable in the CMS (travel.mapsHidden)
+  // the maps section — static images, fully CMS-managed (toggle, heading,
+  // and both map files via travel.journeyMap / travel.islandsMap)
   MAPS_SECTION: c.travel.mapsHidden ? '' : `
     <section class="mapstory">
       <h2 class="mapstory__title">${esc(c.travel.mapTitle || 'GETTING HERE')}</h2>
       <div class="mapstory__duo">
-        <figure class="mapstory__map mapstory__map--region" data-map="region" data-src="maps/san-juan-region-web.svg"></figure>
-        <figure class="mapstory__map mapstory__map--islands" data-map="islands" data-src="maps/san-juan-map-web.svg"></figure>
+        <figure class="mapstory__map mapstory__map--region">
+          <img class="mapstory__img" src="${c.travel.journeyMap || 'images/journey-map.svg'}" alt="${esc(c.travel.journeyMapAlt || '')}" loading="lazy">
+        </figure>
+        <figure class="mapstory__map mapstory__map--islands">
+          <img class="mapstory__img" src="${c.travel.islandsMap || 'images/islands-map.svg'}" alt="${esc(c.travel.islandsMapAlt || '')}" loading="lazy">
+        </figure>
       </div>
     </section>`,
-  // map star pop-ups, editable in the CMS; travel-map.js reads this blob
-  MAPS_SCRIPTS: c.travel.mapsHidden ? '' :
-    '<script type="application/json" id="map-tips">' +
-    JSON.stringify(Object.fromEntries((c.travel.mapTips || []).map(t =>
-      ['star-' + t.star, { title: esc(t.title), html: '<p>' + rich(t.body).replace(/<br><br>/g, '</p><p>') + '</p>' }]
-    ))) + '</scr' + 'ipt>\n<script src="maps/travel-map.js" defer></scr' + 'ipt>',
+  // static maps need no animation script; the shared lightbox in the
+  // template handles fullscreen (kept as a token in case animation returns)
+  MAPS_SCRIPTS: '',
   STAY_SECTION: staySection,
   THINGS_EYEBROW: esc(c.things.eyebrow),
   THINGS_TITLE: esc(c.things.title),

@@ -12,6 +12,7 @@
 }
 .mapstory__map { position: relative; cursor: zoom-in; }
 .mapstory__map svg { width: 100%; height: auto; display: block; }
+.mapstory__img { width: 100%; height: auto; display: block; cursor: zoom-in; }
 
 /* click-to-expand lightbox */
 .mapstory__fs {

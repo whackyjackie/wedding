@@ -836,6 +836,15 @@ details.linklist__row--fold { display: block; }
   padding: 14px 0 6px;
 }
 
+/* optional route-map visual at the bottom of an expanded option */
+.linklist__visual {
+  display: block;
+  width: 100%;
+  max-width: 430px;
+  height: auto;
+  margin: 10px auto 6px;
+}
+
 .linklist__step {
   display: flex;
   flex-direction: column;

@@ -170,13 +170,17 @@ ${paras}
 
 const modeRows = c.travel.modes.map(m => {
   const steps = (m.steps || []).map(modeStep).join('\n');
+  // optional route-map visual at the bottom of the expanded panel
+  const img = m.image
+    ? `\n              <img class="linklist__visual" src="${m.image}" alt="${esc(m.imageAlt || '')}" loading="lazy">`
+    : '';
   return `          <details class="linklist__row linklist__row--fold">
             <summary class="linklist__main">
               <span class="linklist__label">${esc([m.label, m.route].filter(Boolean).join(' — '))}</span>
               ${PLUS_SVG}
             </summary>
             <div class="linklist__fold">
-${steps}
+${steps}${img}
             </div>
           </details>`;
 }).join('\n');
@@ -394,6 +398,11 @@ for (const f of fs.readdirSync(path.join(ROOT, 'templates'))) {
   // Vercel Web Analytics — the /_vercel/insights/ route only exists on the deployed site
   html = html.replace('</head>', '  <script defer src="/_vercel/insights/script.js"></script>\n</head>');
   html = html.replace('href="styles.css"', `href="styles.css?v=${CSS_V}"`);
+  for (const m of ['maps/travel-map.css', 'maps/travel-map.js']) {
+    if (fs.existsSync(path.join(ROOT, m))) {
+      html = html.split(`"${m}"`).join(`"${m}?v=${hashOf(m)}"`);
+    }
+  }
   for (const font of FONTS) {
     html = html.replace(`href="${font}"`, `href="${font}?v=${FONT_V[font]}"`);
   }

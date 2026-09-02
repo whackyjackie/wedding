@@ -104,6 +104,8 @@ content:
             fields:
               - { name: label, label: "Heading (e.g. OPTION 1)", type: string }
               - { name: route, label: "After the dash (e.g. FLY + FERRY)", type: string }
+              - { name: image, label: "Route map (optional — shows at the bottom, click to enlarge)", type: image }
+              - { name: imageAlt, label: Route map description, type: string }
               - name: steps
                 label: Steps shown when expanded
                 type: object

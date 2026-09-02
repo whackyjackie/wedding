@@ -90,8 +90,6 @@
       {
         "label": "OPTION 1",
         "route": "DRIVE + FERRY",
-        "image": "images/drive-ferry.svg",
-        "imageAlt": "Route map: drive from Seattle to Anacortes, then ferry to Friday Harbor",
         "steps": [
           {
             "body": "First, get to the Anacortes ferry terminal. It's roughly 2 hours north of Seattle-Tacoma airport (SEA) and 1 hour 15 mins from Paine Field airport (PAE). You can rent a car or take an airport shuttle to get there from either airport.  \n\nThen, take the ferry from Anacortes to Friday Harbor (about ~1 hour, scenic, and fun! Drink some beer and play monopoly deal.)\n\n**Walking on?** No reservation needed - just buy a ticket at the terminal. There's long-term parking at the ferry terminal and Friday Harbor is very walkable. \n**Bringing a car?** Reserve a spot both ways on [WSDOT](https://secureapps.wsdot.wa.gov/ferries/reservations/vehicle/SailingSchedule.aspx?cookieCheck=true) and drive your car right on the ferry. \n\nWashington State Ferries releases vehicle reservations in phases, and they tend to fill quickly. The first reservations for our wedding date will become available in mid-April 2027, so be sure to check back or [set a calendar reminder](ferry-reminder.ics). "
@@ -101,8 +99,6 @@
       {
         "label": "OPTION 2",
         "route": "FLY DIRECTLY TO FRIDAY HARBOR",
-        "image": "images/SJI_fly.svg",
-        "imageAlt": "Route map: fly directly to Friday Harbor",
         "steps": [
           {
             "body": "If you'd like, skip the drive and ferry with a flight directly into Friday Harbor. Faster, more expensive, and objectively very cool. Some options:\n\n**Seaplane** — Kenmore Air floatplanes leave from Lake Union and land in Friday Harbor's marina, a few blocks from downtown (~45 min flight time).  SeaTac to Lake Union is roughly a ~20 min drive. \n\n**Wheeled plane** — Kenmore Air Express flies from Boeing Field (~35 min; they run a shuttle from SeaTac) or from Paine Field (~25 min) into Friday Harbor Airport, less than a mile from town. If you're connecting through Paine Field, you can book the whole thing as one ticket through [Alaska Airlines] (https://alaskaair.com).\n",
@@ -116,17 +112,12 @@
         "route": "BOPPING AROUND",
         "steps": [
           {
-            "body": "Friday Harbor is very walkable, and we’ll provide transportation to and from the welcome event on Friday and wedding on Saturday. If you want to explore beyond town, bring a car."
+            "body": "Friday Harbor is very walkable, and we’ll provide transportation to and from the welcome event on Friday and wedding on Saturday. If you want to explore beyond town, bring a car - beep beep."
           }
         ]
       }
     ],
-    "mapsHidden": true,
     "mapTitle": "GETTING HERE",
-    "journeyMap": "images/journey-map.svg",
-    "journeyMapAlt": "Map of the route from Seattle to Friday Harbor",
-    "islandsMap": "images/islands-map.svg",
-    "islandsMapAlt": "Map of the San Juan Islands, Anacortes to Friday Harbor",
     "mapTips": [
       {
         "star": "anacortes",

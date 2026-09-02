@@ -41,6 +41,24 @@
   box-shadow: 0 18px 60px rgba(20, 31, 23, 0.5); border-radius: 4px;
 }
 
+/* enlarged maps open bigger than the screen and scroll to explore —
+   scrolling stays inside the overlay (no page glitch behind it) */
+.mapstory__fs--scroll {
+  display: block;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
+  padding: 26px 0 44px;
+}
+.mapstory__fs--scroll img {
+  display: block;
+  margin: 0 auto;
+  width: min(94vw, 1240px);
+  max-width: none;
+  max-height: none;
+  height: auto;
+}
+
 /* the journey map left, the islands close-up right, matched heights;
    stacked on phones */
 .mapstory__duo {

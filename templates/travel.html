@@ -56,29 +56,22 @@
 (function () {
   function close() {
     var o = document.querySelector('.mapstory__fs--img');
-    if (o) { o.parentNode.removeChild(o); document.body.style.overflow = ''; }
+    if (o) {
+      o.parentNode.removeChild(o);
+      document.body.style.overflow = '';
+      document.documentElement.style.overflow = '';
+    }
   }
   document.addEventListener('click', function (e) {
     if (e.target.closest && e.target.closest('.mapstory__fs--img')) { close(); return; }
     var img = e.target.closest &&
       (e.target.closest('.linklist__visual') || e.target.closest('.mapstory__img'));
     if (!img) return;
-    var isCard = img.classList.contains('linklist__visual');
     var o = document.createElement('div');
-    o.className = 'mapstory__fs mapstory__fs--img';
-    o.style.overflow = 'hidden';
+    // opens larger than the screen; scrolling pans the map naturally
+    o.className = 'mapstory__fs mapstory__fs--img mapstory__fs--scroll';
     var big = document.createElement('img');
     big.src = img.src; big.alt = img.alt;
-    // frame the zoom on the map itself: the card is 1600x2779 with the map
-    // ending just below Seattle (~y2520) — scale so Seattle sits at the
-    // bottom of the screen and the title band falls outside it
-    var CARD_AR = 1600 / 2779, MAP_END = 2520 / 2779;
-    var h = window.innerHeight / MAP_END;
-    if (isCard && h * CARD_AR <= window.innerWidth * 0.96) {
-      big.style.cssText = 'height:' + Math.round(h) + 'px;width:auto;max-width:none;max-height:none;';
-      o.style.alignItems = 'flex-start';
-      o.style.padding = '0';
-    }
     var b = document.createElement('button');
     b.className = 'mapstory__fs-close';
     b.setAttribute('aria-label', 'Close');
@@ -86,6 +79,7 @@
     o.appendChild(big); o.appendChild(b);
     document.body.appendChild(o);
     document.body.style.overflow = 'hidden';
+    document.documentElement.style.overflow = 'hidden';
     b.focus();
   });
   document.addEventListener('keydown', function (e) {

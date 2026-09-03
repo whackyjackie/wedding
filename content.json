@@ -94,9 +94,7 @@
           {
             "body": "First, get to the Anacortes ferry terminal. It's roughly 2 hours north of Seattle-Tacoma airport (SEA) and 1 hour 15 mins from Paine Field airport (PAE). You can rent a car or take an airport shuttle to get there from either airport.  \n\nThen, take the ferry from Anacortes to Friday Harbor (about ~1 hour, scenic, and fun! Drink some beer and play monopoly deal.)\n\n**Walking on?** No reservation needed - just buy a ticket at the terminal. There's long-term parking at the ferry terminal and Friday Harbor is very walkable. \n**Bringing a car?** Reserve a spot both ways on [WSDOT](https://secureapps.wsdot.wa.gov/ferries/reservations/vehicle/SailingSchedule.aspx?cookieCheck=true) and drive your car right on the ferry. \n\nWashington State Ferries releases vehicle reservations in phases, and they tend to fill quickly. The first reservations for our wedding date will become available in mid-April 2027, so be sure to check back or [set a calendar reminder](ferry-reminder.ics). "
           }
-        ],
-        "image": "images/drive-ferry.svg",
-        "imageAlt": "Route map: drive from Seattle to Anacortes, then ferry to Friday Harbor"
+        ]
       },
       {
         "label": "OPTION 2",
@@ -107,9 +105,7 @@
             "url": "https://kenmoreair.com/friday-harbor/",
             "linkText": "KENMORE AIR"
           }
-        ],
-        "image": "images/fly-option.svg",
-        "imageAlt": "Route map: fly from Seattle to Friday Harbor"
+        ]
       },
       {
         "label": "ON ISLAND",
@@ -136,7 +132,7 @@
     ],
     "stayHidden": false,
     "stayTitle": "STAYING HERE",
-    "stayIntro": "We will provide guests with transportation to and from the below locations, so it's highly recommended you stay at one of the following if you are not driving to the venue (ride-share is super unreliable on the island).",
+    "stayIntro": "We will provide guests with transportation to and from the below locations, so it's highly recommended you stay at one of the following - or close-by! -  if you are not driving to the venue (ride-share is super unreliable on the island).",
     "stayPhoto": "images/DSCF3275.jpg",
     "stayPhotoAlt": "Open water off San Juan Island",
     "stays": [
@@ -155,12 +151,7 @@
         "desc": "Casual and a little retro, with an indoor pool and spa!",
         "url": "https://www.earthboxinn.com"
       }
-    ],
-    "mapsHidden": true,
-    "journeyMap": "images/journey-map.svg",
-    "journeyMapAlt": "Map of the route from Seattle to Friday Harbor",
-    "islandsMap": "images/islands-map.svg",
-    "islandsMapAlt": "Map of the San Juan Islands, Anacortes to Friday Harbor"
+    ]
   },
   "things": {
     "hidden": false,
